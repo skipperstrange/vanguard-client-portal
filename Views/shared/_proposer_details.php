@@ -63,7 +63,7 @@
                     </label>
                 </div>
                 <div class="col-lg-3 col-md-4">
-                    <input type="radio" name="motor_policy[cover_type]" id="thirdparty" class="purpose-radio-input excess motor" value="Third Party" checked >
+                    <input type="radio" name="motor_policy[cover_type]" id="thirdFarty" class="purpose-radio-input excess motor" value="Third Party" checked >
                     <label for="thirdParty" class="purpose-radio-label">
                         <span class="label-text">Third Party</span>
                     </label>

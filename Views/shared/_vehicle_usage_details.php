@@ -1,10 +1,10 @@
-<div class="col-lg-12">
-                <div class="row">
-                    <div class="col-lg-12"><label for="purpose">Purpose Of Vehicle </label></div>
+
+                <div class="col-lg-12">
+                    <label for="purpose">Purpose Of Vehicle </label>
                 </div>
-</div>
+                
                 <div class="form-group col-lg-2 col-md-3">
-                    <input type="radio" name="vehicle[purpose]" id="" class="purpose-radio-input usage" value="private" checked>
+                    <input type="radio" name="vehicle[purpose]" id="" class="purpose-radio-input usage" data-target="usage_box" value="private" checked>
                     <label for="private" class="purpose-radio-label">
                         <span class="label-text">Private</span>
                         </label>
@@ -61,7 +61,60 @@
                     </label>
                 </div>
 
-
+                <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12"><label for="others-usage">Have you or any other person who to your knowledge who would operate this vehicle: </label></div>
+                </div>
+                <!-- deffect query -->
+                <div class="col-lg-12">
+                        <label for="driverdefect">Have any physical defect or infirmity </label>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <input type="radio" name="motor_policy[driver_defect]" id="" class="purpose-radio-input driverdeffected" value="yes">
+                        <label for="driverdeffectedyes" class="purpose-radio-label">
+                            <span class="label-text">Yes</span>
+                        </label>
+                        &nbsp;
+                        &nbsp;
+                        <input type="radio" name="motor_policy[driver_defect]" id="" class="purpose-radio-input driverdeffected" value="no" checked>
+                        <label for="driverdeffectedno" class="purpose-radio-label">
+                            <span class="label-text">No</span>
+                        </label>
+                    </div>
+                    <!-- prosectution query -->
+                    <div class="col-lg-12">
+                        <label for="prosecution">Been prosecuted in court </label>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <input type="radio" name="motor_policy[prosecution]" id="" class="purpose-radio-input prosecution" value="yes">
+                        <label for="prosecutionyes" class="purpose-radio-label">
+                            <span class="label-text">Yes</span>
+                        </label>
+                        &nbsp;
+                        &nbsp;
+                        <input type="radio" name="motor_policy[prosecution]" id="" class="purpose-radio-input prosecution" value="no" checked>
+                        <label for="prosecutionno" class="purpose-radio-label">
+                            <span class="label-text">No</span>
+                        </label>
+                    </div>
+                    <!-- motor offence query -->
+                    <div class="col-lg-12">
+                        <label for="motor_offence">Been convicted for a motor offence </label>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <input type="radio" name="motor_policy[motor_offence]" id="" class="purpose-radio-input motor-offence" value="yes">
+                        <label for="motoroffenceyes" class="purpose-radio-label">
+                            <span class="label-text">Yes</span>
+                        </label>
+                        &nbsp;
+                        &nbsp;
+                        <input type="radio" name="motor_policy[motor_offence]" id="" class="purpose-radio-input motor-offence" value="no" checked>
+                        <label for="motoroffenceno" class="purpose-radio-label">
+                            <span class="label-text">No</span>
+                        </label>
+                    </div>
+                    <br>
+                </div>
 <script>
     $('#usage_box').hide();
 </script>

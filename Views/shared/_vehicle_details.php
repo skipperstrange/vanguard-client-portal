@@ -1,3 +1,23 @@
+            <div class="col-lg-12">
+                <label for="altered">Vehicle State </label>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                <div class="form-group col-lg-2 col-md-2">
+                    <input type="radio" name="vehicle[state]" id="" class="purpose-radio-input vehicle-state" value="new" checked>
+                    <label for="noclaimyes" class="purpose-radio-label">
+                        <span class="label-text">New</span>
+                        </label>
+                </div>
+                
+                <div class="col-lg-2 col-md-2">
+                    <input type="radio" name="vehicle[state]" id="" class="purpose-radio-input vehicle-state" value="used" >
+                    <label for="noclaimno" class="purpose-radio-label">
+                        <span class="label-text">Used</span>
+                    </label>
+                </div>
+                </div>
+            </div>            
             
             <div class="col-lg-12">
             <div class="row">

@@ -8,6 +8,7 @@
             "showClear": true,
             "showTodayButton": true,
             "format": "MM/DD/YYYY",
+            "viewMode": 'years',
             });
          }
 
@@ -108,7 +109,9 @@ $(function(){
         var target = $(this).attr('data-target');
         if(option == 'commercial'){
             $('#'+target).show('slow');
-        }else{
+        }
+        
+        if(option == 'private'){
             $('#'+target).hide('slow');
         }
     })

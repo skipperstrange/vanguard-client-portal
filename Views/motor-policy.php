@@ -31,8 +31,8 @@
 
             <!-- SECTION 5 -->
             <h4></h4>
-            <section>
-            
+            <section class="row">
+                <?php include SHARED.'_other_details.php'; ?>
             </section>
              <!-- SECTION 6 -->
             <h4></h4>

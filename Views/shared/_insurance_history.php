@@ -27,4 +27,59 @@
                 </div>
                 </div>
             </div>
+
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12"><label for="others-usage">Has any previous request for insurance by you been: </label></div>
+                </div>
+                <!-- deffect query -->
+                <div class="col-lg-12">
+                        <label for="past_declined">Declined </label>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <input type="radio" name="motor_policy[past_declined]" id="" class="purpose-radio-input past-declined" value="yes">
+                        <label for="pastdeclinedyes" class="purpose-radio-label">
+                            <span class="label-text">Yes</span>
+                        </label>
+                        &nbsp;
+                        &nbsp;
+                        <input type="radio" name="motor_policy[past_declined]" id="" class="purpose-radio-input past-declined" value="no" checked>
+                        <label for="pastdeclinedno" class="purpose-radio-label">
+                            <span class="label-text">No</span>
+                        </label>
+                    </div>
+                    <!-- prosectution query -->
+                    <div class="col-lg-12">
+                        <label for="past_canceled">Canceled </label>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <input type="radio" name="motor_policy[past_canceled]" id="" class="purpose-radio-input past-canceled" value="yes">
+                        <label for="pastcanceledyes" class="purpose-radio-label">
+                            <span class="label-text">Yes</span>
+                        </label>
+                        &nbsp;
+                        &nbsp;
+                        <input type="radio" name="motor_policy[past_canceled]" id="" class="purpose-radio-input past-canceled" value="no" checked>
+                        <label for="pastcanceledno" class="purpose-radio-label">
+                            <span class="label-text">No</span>
+                        </label>
+                    </div>
+                    <!-- motor offence query -->
+                    <div class="col-lg-12">
+                        <label for="special_condition">Had special conditions imposed </label>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6">
+                        <input type="radio" name="motor_policy[special_condition]" id="" class="purpose-radio-input special-condition" value="yes">
+                        <label for="specialconditionyes" class="purpose-radio-label">
+                            <span class="label-text">Yes</span>
+                        </label>
+                        &nbsp;
+                        &nbsp;
+                        <input type="radio" name="motor_policy[special_condition]" id="" class="purpose-radio-input special-condition" value="no" checked>
+                        <label for="specialconditionno" class="purpose-radio-label">
+                            <span class="label-text">No</span>
+                        </label>
+                    </div>
+                    <br>
+                </div>
             
