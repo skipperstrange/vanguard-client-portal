@@ -1,6 +1,9 @@
 
-    <div class="row" id="casualty_<?= $count?>">
-        <div class="col-lg-12"><h5 class="title">Casualty <?= $count ?>:</h5></div>
+    <div class="row casualty" id="casualty_<?= $count?>">
+        <div class="col-lg-12"><h5 class="title">Casualty Details:
+        <div class="float-right"><i class="fa fa-times-circle item-remove" onclick="removeItem('casualty_<?= $count?>', 'casualty')" title="Remove from list"></i></div>
+        </h5>
+        </div>
         <div class="form-group col-lg-6 col-md-12">
             <input type="text" required name="<?= "casualty[$count][name]"?>" class="form-control casualty_name" placeholder="Name *" value="" />
         </div>

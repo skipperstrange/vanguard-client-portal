@@ -1,6 +1,6 @@
 
                     <!-- Intro -->
-                    <div class="col-lg-6 intro">
+                    <div class="col-lg-6 col-md-4 intro">
                         <h1 class="title">
                             Filing for a claim could never be this easier.
                         </h1>
@@ -12,19 +12,22 @@
                     </div>
                     <!--/ End Intro -->
                     <!-- Contact Form-->
-                    <div class="col-lg-6">
-                        <div class="container c-form">
-                            <form method="post" id="claims-form">
-                            <h3 class="title">File for your claim</h3>
-                                    <section>
+                    <div class="col-lg-6 col-md-8">
+                        <div class="container  form-card card shadow">
+                                <br>
+                            <h4 class="title" style="text-align: center;">Select a claim type to file for</h4>
+                            <br>       
+                            <section>
                                     <div class="form-group">
-                                        <input type="text" id="policy_id" required name="policy_id" class="form-control" placeholder="Policy ID * (P-001-1001-2020-000001)" value="" />
+                                    <a id="checkPolicy" class="btn btn-block btn-primary " >
+                                            <i class="fa fa-car"></i> Motor Claims
+                                        </a>
                                     </div>
                                     <div class="form-group">
-                                        <button id="checkPolicy" class="btn btn-block btn-primary " >Search For Policy</button>
+                                        <a id="checkPolicy" href="<?= _link('fire-policy', 'fire-policy') ?>" class="btn btn-block btn-warning" >
+                                            <i class="fa fa-fire"></i> Fire Claims
+                                        </a>
                                     </div>
                                 </section>
-                               
-                            </form>
                         </div>
                     </div>

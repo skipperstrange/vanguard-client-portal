@@ -22,13 +22,14 @@
     <link rel="stylesheet" href="<?= CSS_PATH ?>tabs.css" />
     <link rel="stylesheet" href="<?= CSS_PATH ?>style.css" />
     
-    <script  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="<?= JS_PATH ?>jquery-3.3.1.min.js"></script>
     <script src="<?= JS_PATH ?>axios.min.js"></script>
     <script src="<?= JS_PATH ?>popper.min.js"></script>
     <script src="<?= JS_PATH ?>bootstrap.min.js"></script>
     <script src="<?= JS_PATH ?>jquery.sticky.js"></script>
+    <script src="<?= JS_PATH ?>jquery.validate.min.js"></script>
     <script src="<?= JS_PATH ?>jquery.steps.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" ></script>
+    <script src="<?= JS_PATH ?>moment.min.js" ></script>
     <script src="<?= JS_PATH ?>bootstrap-datetimepicker.min.js"></script>
     
     <title><?= _title() ?></title>

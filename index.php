@@ -7,7 +7,11 @@ if(MODE == 'development'){
 }
 
 $controller = @$_GET['controller'] ? @$_GET['controller']: 'index' ;
-$view = @$_GET['view'] ? @$_GET['view']: 'index' ;
+if(MVC_MODE == 'strict'){
+    $view = @$_GET['view'] ? @$_GET['view']: $controller ;
+}else{
+    $view = $_GET['view'] ? @$_GET['view']: 'index' ;
+}
 
 if(file_exists(CONTROLLERS.$controller.'.php')){
     include_once CONTROLLERS.$controller.'.php';
