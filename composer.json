@@ -1,0 +1,23 @@
+{
+    "require": {
+        "illuminate/database": "~5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Claims\\": "./"
+        },
+        "classmap": ["lib/classes/"],
+        "files": [
+            "lib/config/constants.php",
+            "lib/config/client-info.php",
+            "lib/config/db.php",
+            "lib/config/config.php",
+            "lib/functions/sysfunctions.php",
+            "lib/functions/helperfunctions.php"
+        ]
+    },
+    "require-dev": {
+        "odan/phinx-migrations-generator": "^5.4",
+        "robmorgan/phinx": "^0.12.9"
+    }
+}
