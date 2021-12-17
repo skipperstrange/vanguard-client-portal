@@ -7,7 +7,7 @@ function _title(String $title = ''){
     return APP_NAME.' - '.$title;
 }
 
-function _link(String $action = '', String $view = ''){
+function _link(String $controller = '', String $view = ''){
     $url = '?';
     if (isset($controller) && trim($controller) != ''):
         $url .= 'controller=' . $controller;
@@ -41,4 +41,45 @@ function mapObjectValues($object, $array) {
 
 function encryptValue($input) {
 	return sha1(md5($input));
+}
+
+function json_response($message = null, $code = 200, $headers = [''])
+{
+    // clear the old headers
+    header_remove();
+    // set the actual code
+    http_response_code($code);
+
+    // set the header to make sure cache is forced
+    header("Cache-Control: no-transform,public,max-age=300,s-maxage=900");
+    // treat this as json
+    header('Content-Type: application/json');
+    if(count($headers) > 0):
+        foreach($headers as $header => $value){
+            header("$header: $value");
+        }
+    endif;
+    $status = array(
+        200 => '200 OK',
+        201 => '201 Created',
+        204 => '204 No Content',
+        205 => 'Reset Content',
+        304 => 'Not Modified',
+        400 => '400 Bad Request',
+        401 => '401 Unauthorized',
+        402 => '402 Payment Required',
+        403 => '403 Forbidden',
+        404 => '404 Not Found',
+        405 => '405 Method Not Allowed',
+        408 => '408 Request Timeout',
+        422 => '422 Unprocessable Entity',
+        500 => '500 Internal Server Error'
+        );
+    // ok, validation error, or failure
+    header('Status: '.$status[$code]);
+    // return the encoded json
+    return json_encode(array(
+        'status' => $code , // success or not?
+        'message' => $message
+        ));
 }

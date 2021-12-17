@@ -1,7 +1,4 @@
 
-        <div class="header-content" id="home-section">
-            <div class="container">
-                <div class="row">
                     <!-- Intro -->
                     <div class="col-lg-6 intro">
                         <h1 class="title">
@@ -31,6 +28,3 @@
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>

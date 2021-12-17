@@ -5,8 +5,8 @@ html {
 }
 
 :root {
-    --primary: #13477e;
-    --primary-deep: rgb(23, 30, 67);
+    --primary: #2c70b9;
+    --primary-deep: rgb(24, 49, 175);
     --secondary: #05b4f5;
     --white: rgb(253, 253, 253);
     --background-color: ;
@@ -698,13 +698,13 @@ div .services-card h3.title {
 }
 
 .c-form {
-    background: var(--primary-deep);
+    background: hsla(211, 86%, 23%, 0.9);
     margin-top: 0%;
     margin-bottom: 5%;
     width: 94%;
 }
 
-.C-form .form-control {
+.c-form .form-control {
     border-radius: 0rem;
 }
 
@@ -714,12 +714,17 @@ div .services-card h3.title {
 }
 
 .c-form form .row {
-    margin-bottom: -7%;
+    margin-bottom: 0px;
+}
+
+div.form-group .opt {
+    color: var(--white);
+    display: inline-flex;
 }
 
 .c-form h3 {
-    margin-bottom: 8%;
-    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-top: 7%;
     text-align: center;
     color: var(--white);
 }

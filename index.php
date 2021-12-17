@@ -14,4 +14,5 @@ if(file_exists(CONTROLLERS.$controller.'.php')){
 }else{
 //    die("$controller.php not found. Please make sure controller exists.");
 }
+
 include_once VIEWS.'layouts'.DS.'layout.php';

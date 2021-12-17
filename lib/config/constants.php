@@ -1,4 +1,6 @@
 <?php
+//determines if requests are async or javascript triggered
+define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 
 
 //This is the first config file that runs.
@@ -18,7 +20,6 @@ function is_secure_connection(){
 }
 
 
-define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 define('UP_ONE', '../');
 define('VERSION', '1.0');
 
@@ -48,6 +49,7 @@ define('FILE_UPLOADS_PATH', 'public'.DS.'uploads'.DS);
 //MVC PATHS
 define('CONTROLLERS', 'Controllers' . DS);
 define('VIEWS', 'Views' . DS);
+define('SHARED', VIEWS. 'shared' . DS);
 define('LAYOUTS', VIEWS.DS.'layouts'.DS);
 
 //ResourcesURL
