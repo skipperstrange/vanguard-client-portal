@@ -13,6 +13,7 @@ $(function() {
             }
         });
 
+
         $("#fire-wizard").steps({
             headerTag: "h4",
             bodyTag: "section",
