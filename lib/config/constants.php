@@ -38,7 +38,7 @@ define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS.APP.DS;
 define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
  elseif (is_secure_connection() == 1):
 define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
-define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
+define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS);
 endif;
 
 define('LIB', 'lib' . DS);
