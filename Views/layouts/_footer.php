@@ -1,6 +1,6 @@
 
-    <script src="./wizard.js"></script>
-    <script src="./main.js"></script>
+    <script src="<?= JS_PATH ?>wizard.js"></script>
+    <script src="<?= JS_PATH ?>main.js"></script>
      <script>
          function initDateInputs(){
             $('.date').datetimepicker({
