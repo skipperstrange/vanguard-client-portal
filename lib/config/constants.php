@@ -56,3 +56,5 @@ define('LAYOUTS', VIEWS.DS.'layouts'.DS);
 define('CSS_PATH', WEB_URL . 'public' . DS . 'css' . DS);
 define('JS_PATH', WEB_URL . 'public' . DS . 'js' . DS);
 define('FONT_URL', WEB_URL . 'public' . DS . 'fonts' . DS);
+echo JS_PATH;
+echo CSS_PATH;
