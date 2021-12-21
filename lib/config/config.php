@@ -1,5 +1,5 @@
 <?php
 
 define('APP_NAME', 'Vanguard Claims');
-define('MODE', 'development');
+define('MODE', 'production');
 define('MVC_MODE', 'strict');

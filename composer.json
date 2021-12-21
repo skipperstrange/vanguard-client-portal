@@ -8,10 +8,10 @@
         },
         "classmap": ["lib/classes/"],
         "files": [
+            "lib/config/config.php",
             "lib/config/constants.php",
             "lib/config/client-info.php",
             "lib/config/db.php",
-            "lib/config/config.php",
             "lib/functions/sysfunctions.php",
             "lib/functions/helperfunctions.php"
         ]
