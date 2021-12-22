@@ -32,7 +32,6 @@ if ($_SERVER['SERVER_PORT'] !== 80) {
 	define('PORT', '');
 }
 
-print_r($_SERVER);
 /*
 if (is_secure_connection() == 0):
         define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS.APP.DS;
@@ -44,11 +43,11 @@ if (is_secure_connection() == 0):
 endif;
 */
 if(MODE == 'development'):
-    define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
-    define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
+    define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
+    define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
 else:
-    define('BASE_URL', $_SERVER['HTTP_REFERER'].DS);
-    define('WEB_URL', $_SERVER['HTTP_REFERER'].DS);
+    define('BASE_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
+    define('WEB_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST']);
 endif;
 echo WEB_URL;
 define('LIB', 'lib' . DS);
