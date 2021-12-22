@@ -65,6 +65,6 @@ define('SHARED', VIEWS. 'shared' . DS);
 define('LAYOUTS', VIEWS.DS.'layouts'.DS);
 
 //ResourcesURL
-define('CSS_PATH', WEB_URL . 'public' . DS . 'css' . DS);
-define('JS_PATH', WEB_URL . 'public' . DS . 'js' . DS);
-define('FONT_URL', WEB_URL . 'public' . DS . 'fonts' . DS);
+define('CSS_PATH',  'public' . DS . 'css' . DS);
+define('JS_PATH',  'public' . DS . 'js' . DS);
+define('FONT_URL', 'public' . DS . 'fonts' . DS);
