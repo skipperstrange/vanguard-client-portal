@@ -1,4 +1,3 @@
-<?php echo is_secure_connection() ?>
 <!DOCTYPE html>
 <html>
 <head>

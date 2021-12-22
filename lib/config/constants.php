@@ -6,7 +6,6 @@ define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVE
 //This is the first config file that runs.
 // This function must be availible
 function is_secure_connection(){
-    print_r($_SERVER);
     $secure_connection = 0;    
     if(isset($_SERVER['HTTPS'])){        
         $secure_connection = 1;        
@@ -32,28 +31,23 @@ if ($_SERVER['SERVER_PORT'] !== 80) {
 } else {
 	define('PORT', '');
 }
-
+/*
 if (is_secure_connection() == 0):
-    if(MODE == 'development') :
         define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS.APP.DS;
         define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
-    else:
-        define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS;
-        define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS);
-    endif;
-        
 
  elseif (is_secure_connection() == 1):
-    if(MODE == 'development'):
         define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
-        define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
-    else:
-        define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS);
-        define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS);
-    endif;
-    
+        define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
 endif;
-
+*/
+if(MODE == 'development'):
+    define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
+    define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
+else:
+    define('BASE_URL', $_SERVER['HTTP_REFERER'].DS);
+    define('WEB_URL', $_SERVER['HTTP_REFERER']);
+endif;
 define('LIB', 'lib' . DS);
 define('CONFIG_PATH', LIB.'config'.DS);
 define('PUBLIC_PATH', 'public'.DS);
