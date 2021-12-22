@@ -6,6 +6,7 @@ define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVE
 //This is the first config file that runs.
 // This function must be availible
 function is_secure_connection(){
+    print_r($_SERVER);
     $secure_connection = 0;    
     if(isset($_SERVER['HTTPS'])){        
         $secure_connection = 1;        
