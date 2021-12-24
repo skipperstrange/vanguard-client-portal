@@ -1,40 +1,26 @@
 $(function() {
+    var fireForm = fireForm
     try {
-        var $validator = $("#fire-wizard").validate({
+        fireForm.validate({
+            errorPlacement: function errorPlacement(error, element) { element.before(error); },
             rules: {
                 policy_id: {
-                    required: true
-                },
-                messages: {
-                    policy_id: {
-                        required: "Please enter a policy id to continue"
-                    },
+                    required: "#policy_id"
                 }
             }
         });
 
 
-        $("#fire-wizard").steps({
+        fireForm.steps({
             headerTag: "h4",
             bodyTag: "section",
             transitionEffect: "fade",
             enableAllSteps: true,
             transitionEffectSpeed: 500,
-            onNext: function(tab, navigation, index) {
-                var $valid = $("#fire-wizard").valid();
-                if (!$valid) {
-                    $validator.focusInvalid();
-                    return false;
-                }
-            },
-            'onTabClick': function(tab, navigation, index) {
-                var $valid = $("#fire-wizard").valid();
-                if (!$valid) {
-                    $validator.focusInvalid();
-                    return false;
-                }
-            },
+
             onStepChanging: function(event, currentIndex, newIndex) {
+                fireForm.validate().settings.ignore = ":disabled,:hidden";
+                return fireForm.valid();
 
                 if (newIndex === 1) {
                     $('.steps ul').addClass('step-2');
@@ -90,10 +76,10 @@ $(function() {
     });
     // Custom Button Jquery Steps
     $('.forward').click(function() {
-        $("#fire-wizard").steps('next');
+        fireForm.steps('next');
     })
     $('.backward').click(function() {
-            $("#fire-wizard").steps('previous');
+            fireForm.steps('previous');
         })
         // Checkbox
     $('.checkbox-circle label').click(function() {

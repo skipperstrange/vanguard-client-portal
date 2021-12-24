@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="<?= CSS_PATH ?>normalize.css" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= CSS_PATH ?>bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <!-- Style -->
 
     <!-- Icomoon fonts -->
@@ -19,16 +19,15 @@
     <!-- Material icons -->
     <link rel="stylesheet" href="<?= FONT_URL ?>material-design-iconic-font/css/material-design-iconic-font.css">
     <link rel="stylesheet" href="<?= CSS_PATH ?>bootstrap-datetimepicker.min.css" />
-    <link rel="stylesheet" href="<?= CSS_PATH ?>tabs.css" />
     <link rel="stylesheet" href="<?= CSS_PATH ?>style.css" />
     
-    <script src="<?= JS_PATH ?>jquery-3.3.1.min.js"></script>
-    <script src="<?= JS_PATH ?>axios.min.js"></script>
-    <script src="<?= JS_PATH ?>popper.min.js"></script>
-    <script src="<?= JS_PATH ?>bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="<?= JS_PATH ?>jquery.sticky.js"></script>
-    <script src="<?= JS_PATH ?>jquery.validate.js"></script>
-    <script src="<?= JS_PATH ?>jquery.steps.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="<?= JS_PATH ?>jquery.steps.js"></script>
     <script src="<?= JS_PATH ?>moment.min.js" ></script>
     <script src="<?= JS_PATH ?>bootstrap-datetimepicker.min.js"></script>
     

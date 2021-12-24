@@ -23,7 +23,6 @@ function is_secure_connection(){
 define('UP_ONE', '../');
 define('VERSION', '1.0');
 
-
 define('SERVER_PATH', $_SERVER['DOCUMENT_ROOT'] . DS);
 define('APP', basename(dirname(dirname(dirname(__FILE__)))));
 
@@ -33,12 +32,22 @@ if ($_SERVER['SERVER_PORT'] !== 80) {
 	define('PORT', '');
 }
 
+/*
 if (is_secure_connection() == 0):
-define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS.APP.DS;
-define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
+        define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS.APP.DS;
+        define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
+
  elseif (is_secure_connection() == 1):
-define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
-define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
+        define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
+        define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
+endif;
+*/
+if(MODE == 'development'):
+    define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
+    define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
+else:
+    define('BASE_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
+    define('WEB_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
 endif;
 
 define('LIB', 'lib' . DS);
@@ -53,6 +62,6 @@ define('SHARED', VIEWS. 'shared' . DS);
 define('LAYOUTS', VIEWS.DS.'layouts'.DS);
 
 //ResourcesURL
-define('CSS_PATH', WEB_URL . 'public' . DS . 'css' . DS);
-define('JS_PATH', WEB_URL . 'public' . DS . 'js' . DS);
-define('FONT_URL', WEB_URL . 'public' . DS . 'fonts' . DS);
+define('CSS_PATH',  WEB_URL.'public' . DS . 'css' . DS);
+define('JS_PATH',  WEB_URL.'public' . DS . 'js' . DS);
+define('FONT_URL', WEB_URL.'public' . DS . 'fonts' . DS);
