@@ -1,17 +1,19 @@
 $(function() {
-    var fireForm = fireForm
+    var fireForm = $("#fire-form")
+    var fireWizard = $("#fire-wizard")
     try {
         fireForm.validate({
-            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            errorPlacement: function errorPlacement(error, element) { element.after(error); },
             rules: {
-                policy_id: {
-                    required: "#policy_id"
-                }
+                policy_id: "required"
+            },
+            messages: {
+                policy_id: "Please provide a policy id to proceed"
             }
         });
 
 
-        fireForm.steps({
+        fireWizard.steps({
             headerTag: "h4",
             bodyTag: "section",
             transitionEffect: "fade",
@@ -20,9 +22,13 @@ $(function() {
 
             onStepChanging: function(event, currentIndex, newIndex) {
                 fireForm.validate().settings.ignore = ":disabled,:hidden";
-                return fireForm.valid();
+                console.log(fireForm.validate());
+
 
                 if (newIndex === 1) {
+                    if (fireForm.valid()) {
+                        alert('This is valid')
+                    }
                     $('.steps ul').addClass('step-2');
                 } else {
                     $('.steps ul').removeClass('step-2');

@@ -1458,3 +1458,9 @@ textarea.form-control {
     color: var(--danger);
     cursor: pointer;
 }
+
+.error {
+    color: var(--danger);
+    border-color: var(--danger);
+    font-size: 80%;
+}

@@ -1,5 +1,5 @@
 <div class="col-lg-8 offset-lg-2 form-card card shadow">
-    <form action="">
+    <form action="" id="fire-form">
         <div id="fire-wizard">
         <!-- SECTION 1 -->
             <h4></h4>
