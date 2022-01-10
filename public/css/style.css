@@ -695,6 +695,7 @@ div .services-card h3.title {
 
 .card {
     margin-top: 3rem;
+    padding-top: 10px;
 }
 
 .c-form {
@@ -976,7 +977,9 @@ select option[value=""][disabled] {
     display: none;
 }
 
-#fire-wizard {
+#fire-wizard,
+#motor-wizard,
+#motor-policy-wizard {
     background: #fff;
     min-height: unset;
     padding: 70px 20px 0px;
@@ -1012,11 +1015,15 @@ select option[value=""][disabled] {
 }
 
 .steps ul:after {
-    content: "Policy ID";
     font-size: 22px;
     color: #333;
     top: -38px;
     position: absolute;
+}
+
+.steps ul.step-1:after,
+.steps ul.motor-step-1:after {
+    content: "Policy ID";
 }
 
 .steps ul.step-2:after {
@@ -1037,6 +1044,54 @@ select option[value=""][disabled] {
 
 .steps ul.step-6:after {
     content: "Summary";
+}
+
+.steps ul.motor-step-2:after {
+    content: "Vehicle Details";
+}
+
+.steps ul.motor-step-3:after {
+    content: "Affected Persons";
+}
+
+.steps ul.motor-step-4:after {
+    content: "Witnesses";
+}
+
+.steps ul.motor-step-5:after {
+    content: "Damaged Assets";
+}
+
+.steps ul.motor-step-6:after {
+    content: "Summary";
+}
+
+.steps ul.motor-policy-step-0:after {
+    content: "Proposer Details";
+}
+
+.steps ul.motor-policy-step-1:after {
+    content: "Vehicle Details";
+}
+
+.steps ul.motor-policy-step-2:after {
+    content: "Vehicle Usage";
+}
+
+.steps ul.motor-policy-step-3:after {
+    content: "Insurance History";
+}
+
+.steps ul.motor-policy-step-4:after {
+    content: "Other Information";
+}
+
+.steps ul.motor-policy-step-5:after {
+    content: "Summary";
+}
+
+.steps ul.motor-policy-step-6:after {
+    content: "Terms and Conditions";
 }
 
 .form-row {
@@ -1456,6 +1511,15 @@ textarea.form-control {
 .item-remove:hover {
     opacity: 1;
     color: var(--danger);
+    cursor: pointer;
+}
+
+.data-control {
+    color: var(--grey);
+}
+
+.data-control:hover {
+    color: var(--primary-light);
     cursor: pointer;
 }
 

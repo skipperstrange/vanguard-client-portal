@@ -1,3 +1,21 @@
+<?php
+$navLinks = [
+    'home'=>['href'=>  WEB_URL],
+    'about' => ['href'=>_link('about','about')],
+    'claims' =>['href' => [ 
+            //'new fire claim' => ['href' => _link('fire-claim','fire-claim')],
+           // 'new motor claim' => ['href' => _link('motor-claim','motor-claim')],
+            'FAQ' => ['href'=> '#']
+        ],
+    ],
+    'proposals' =>['href' => [ 
+            'new motor policy' => ['href' => _link('motor-policy','motor-policy')],
+            'FAQ' => ['href'=> '#']
+        ],
+    ]
+];
+?>
+
 <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
             <div class="site-mobile-menu-close mt-3">
@@ -54,25 +72,11 @@
                                 </div>
 
                                 <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
-                                    <li class="active">
-                                        <a href="<?= WEB_URL ?>" class="nav-link">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="#about-section" class="nav-link">About</a>
-                                    </li>
-                                    <li>
-                                        <a href="#services-section" class="nav-link">Services</a>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#" class="nav-link">Sections</a>
-                                        <ul class="dropdown arrow-top">
-                                            <li><a href="#about-section" class="nav-link">About</a></li>
-                                            <li><a href="#services-section" class="nav-link">Services</a></li>
-                                            <li><a href="#pricing-section" class="nav-link">Pricing</a></li>
-                                            <li><a href="#" class="nav-link">FAQ</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                    
+                                <?php 
+                                    echo generateNavigation($navLinks);
+                                ?>
+                               </ul>
                             </div>
                         </nav>
                     </div>
@@ -81,3 +85,4 @@
         </div>
         <!-- /End Navigation Container-->
     </div>
+   

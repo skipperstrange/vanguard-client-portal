@@ -1,7 +1,9 @@
 
     <div class="row casualty" id="casualty_<?= $count?>">
-        <div class="col-lg-12"><h5 class="title">Casualty Details:
-        <div class="float-right"><i class="fa fa-times-circle item-remove" onclick="removeItem('casualty_<?= $count?>', 'casualty')" title="Remove from list"></i></div>
+        <div class="col-lg-12">
+            <h5 class="title">
+                <span class="count"></span> Casualty Details:
+            <div class="float-right"><i class="fa fa-times-circle item-remove" onclick="removeItem('casualty_<?= $count?>', 'casualty')" title="Remove from list"></i></div>
         </h5>
         </div>
         <div class="form-group col-lg-6 col-md-12">

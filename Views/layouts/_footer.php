@@ -1,5 +1,4 @@
 
-    <script src="<?= JS_PATH ?>wizard.js"></script>
     <script src="<?= JS_PATH ?>main.js"></script>
      <script>
          function initDateInputs(){
@@ -12,15 +11,21 @@
             });
          }
 
+         function initColorPicker(){
+            $('.body_color').colorpicker();
+         }
+
         casualtyCount = 0;
         witnessCount = 0;
         assetsCount = 0;
+        vehicleCount = 0;
 
 
 //item type can be one of three. assets, casualty or witness
 function addItem(itemType) {
     let count
     let initDate = false
+    let initColorPicker = false
     switch (itemType) {
         case 'casualty':
             casualtyCount++
@@ -35,6 +40,12 @@ function addItem(itemType) {
             witnessCount++
             count = witnessCount
             break;
+        case 'vehicle':
+            vehicleCount++
+            count = vehicleCount
+            initDate = true
+            initColorPicker = true
+            break;
     }
 
     let url ='<?= _link('add-item&itemType=','')?>'+itemType+'&count='+count;
@@ -44,6 +55,9 @@ function addItem(itemType) {
 
             if(initDate === true){
                 initDateInputs();
+            }
+            if(initColorPicker === true){
+                $('.body_color').colorpicker();
             }
             if($('#'+resetId).length){
 
@@ -65,6 +79,9 @@ function resetItems(itemType) {
         case 'witness':
             witnessCount = 0
             break;
+        case 'vehicle':
+            witnessCount = 0
+            break;
     }
     
     $('#'+itemType).html('')
@@ -84,6 +101,17 @@ function removeItem(itemId, classCheck){
 
 $(function(){
     initDateInputs();
+    initColorPicker();
+
+    $(".usage").change(function() {
+        var option = $(this).val();
+        var target = $(this).attr('data-target');
+        if(option == 'commercial'){
+            $('#'+target).show('slow');
+        }else{
+            $('#'+target).hide('slow');
+        }
+    })
 });        
             
     </script>

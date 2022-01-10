@@ -19,8 +19,9 @@
     <!-- Material icons -->
     <link rel="stylesheet" href="<?= FONT_URL ?>material-design-iconic-font/css/material-design-iconic-font.css">
     <link rel="stylesheet" href="<?= CSS_PATH ?>bootstrap-datetimepicker.min.css" />
-    <link rel="stylesheet" href="<?= CSS_PATH ?>tabs.css" />
     <link rel="stylesheet" href="<?= CSS_PATH ?>style.css" />
+    <link rel="stylesheet" href="<?= CSS_PATH.'bootstrap-colorpicker.css' ?>">
+
     
     <script src="<?= JS_PATH ?>jquery-3.3.1.min.js"></script>
     <script src="<?= JS_PATH ?>axios.min.js"></script>
@@ -31,8 +32,9 @@
     <script src="<?= JS_PATH ?>jquery.steps.min.js"></script>
     <script src="<?= JS_PATH ?>moment.min.js" ></script>
     <script src="<?= JS_PATH ?>bootstrap-datetimepicker.min.js"></script>
+    <script src="<?= JS_PATH ?>bootstrap-colorpicker.js"></script>
     
-    <title><?= _title() ?></title>
+    <title><?= _title($pageTitle) ?></title>
 </head>
 
 <body>

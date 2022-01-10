@@ -2,9 +2,9 @@
 function _title(String $title = ''){
     if(trim($title) == ''){
         return APP_NAME;
-    }
-
+    }else{
     return APP_NAME.' - '.$title;
+    }
 }
 
 function _link(String $controller = '', String $view = ''){
@@ -41,6 +41,31 @@ function mapObjectValues($object, $array) {
 
 function encryptValue($input) {
 	return sha1(md5($input));
+}
+
+//Function that generates navigation layout
+function generateNavigation($navArray){
+    $navLinks = '';
+   
+    foreach($navArray as $label => $link){
+        if(is_array($navArray[$label]['href'])){
+            $navLinks.= '<li class="has-children">';
+            $navLinks.= '<a href="#" class="nav-link">'.ucwords($label).'</a>';
+            $navLinks.= '<ul class="dropdown arrow-top">';
+            foreach($navArray[$label]['href'] as $label => $link){
+                $navLinks .= ' <li><a href="'.$link['href'].'" class="nav-link">'.ucwords($label).'</a></li>';
+            }
+             $navLinks.=  '</ul>';
+                '</li>';
+        }else{
+            $navLinks.=  "
+            <li class=''>
+                <a href='".$link['href']."' class='nav-link'>".ucwords($label)."</a>
+            </li>
+            ";
+        }
+    }
+    return $navLinks;
 }
 
 function json_response($message = null, $code = 200, $headers = [''])

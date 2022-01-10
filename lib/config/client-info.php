@@ -1,6 +1,6 @@
 <?php
 
-define('CLIENT_NAME', 'Vanguard Assurance Claims Portal');
+define('CLIENT_NAME', 'Vanguard Assurance Client Portal');
 define('WEBSITE', 'https://www.vanguardassurance.com');
 define('SLOGAN', '');
 define('SUPPORT_EMAIL', 'info@vanguardassurance.com');

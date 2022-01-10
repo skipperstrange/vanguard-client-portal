@@ -1,4 +1,7 @@
 $(function() {
+
+    var summaryUrl = "?controller=fire-summary"
+    var serverUrl = ""
     var fireForm = $("#fire-form")
     var fireWizard = $("#fire-wizard")
     try {
@@ -22,41 +25,75 @@ $(function() {
 
             onStepChanging: function(event, currentIndex, newIndex) {
                 fireForm.validate().settings.ignore = ":disabled,:hidden";
-                console.log(fireForm.validate());
+                //console.log(fireForm.validate());
 
 
                 if (newIndex === 1) {
                     if (fireForm.valid()) {
-                        alert('This is valid')
+                        if ($('#policy_id').val() == 'P-1001-201-2020-0005099') {
+                            $('.steps ul').addClass('step-2');
+                        } else {
+                            alert('Policy does ot exist')
+                            return false
+                        }
+                    } else {
+                        $('.steps ul').removeClass('step-2');
+                        return false
                     }
-                    $('.steps ul').addClass('step-2');
                 } else {
                     $('.steps ul').removeClass('step-2');
                 }
                 if (newIndex === 2) {
-                    $('.steps ul').addClass('step-3');
+                    if (fireForm.valid()) {
+                        $('.steps ul').addClass('step-3');
+                    } else {
+                        return false
+                    }
                 } else {
                     $('.steps ul').removeClass('step-3');
                 }
 
                 if (newIndex === 3) {
-                    $('.steps ul').addClass('step-4');
-                    //  $('.actions ul').addClass('step-last');
+                    if (fireForm.valid()) {
+                        $('.steps ul').addClass('step-4');
+                        //  $('.actions ul').addClass('step-last');
+                    } else {
+                        return false
+                    }
                 } else {
                     $('.steps ul').removeClass('step-4');
                     //  $('.actions ul').removeClass('step-last');
                 }
 
                 if (newIndex === 4) {
-                    $('.steps ul').addClass('step-5');
-                    // $('.actions ul').addClass('step-last');
+                    if (fireForm.valid()) {
+                        $('.steps ul').addClass('step-5');
+                        // $('.actions ul').addClass('step-last');
+                    } else {
+                        return false
+                    }
                 } else {
                     $('.steps ul').removeClass('step-5');
                     // $('.actions ul').removeClass('step-last');
                 }
+
                 if (newIndex === 5) {
-                    $('.steps ul').addClass('step-6');
-                    // $('.actions ul').addClass('step-last');
+                    if (fireForm.valid()) {
+                        $('.steps ul').addClass('step-6');
+                        try {
+                            $.post(summaryUrl, fireForm.serialize()).then(resp => {
+                                $('#summary').html('')
+                                $('#summary').append(resp)
+                            })
+                            console.log(fireForm.serialize())
+                        } catch (err) {
+                            console.log(err)
+                        }
+
+                        // $('.actions ul').addClass('step-last');
+                    } else {
+                        return false
+                    }
                 } else {
                     $('.steps ul').removeClass('step-6');
                     // $('.actions ul').removeClass('step-last');
@@ -82,7 +119,9 @@ $(function() {
     });
     // Custom Button Jquery Steps
     $('.forward').click(function() {
-        fireForm.steps('next');
+        if (fireForm.valid()) {
+            fireForm.steps('next');
+        }
     })
     $('.backward').click(function() {
             fireForm.steps('previous');

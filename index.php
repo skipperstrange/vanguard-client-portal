@@ -13,6 +13,7 @@ if(MVC_MODE == 'strict'){
     $view = $_GET['view'] ? @$_GET['view']: 'index' ;
 }
 
+$pageTitle = '';
 if(file_exists(CONTROLLERS.$controller.'.php')){
     include_once CONTROLLERS.$controller.'.php';
 }else{
