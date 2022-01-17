@@ -4,7 +4,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Claims\\": "./"
+            "ClientPortal\\": "./"
         },
         "classmap": ["lib/classes/"],
         "files": [
