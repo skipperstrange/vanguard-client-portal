@@ -4,6 +4,8 @@ include_once "vendor/autoload.php";
 
 if(MODE == 'development'){
     ini_set('display_errors',1);
+}else{
+    ini_set('display_errors',0);
 }
 
 $controller = @$_GET['controller'] ? @$_GET['controller']: 'index' ;

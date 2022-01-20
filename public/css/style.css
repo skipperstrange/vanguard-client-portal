@@ -1066,6 +1066,27 @@ select option[value=""][disabled] {
     content: "Summary";
 }
 
+.steps ul.motor-claim-step-2:after {
+    content: "Vehicle Details";
+}
+
+.steps ul.motor-claim-step-3:after {
+    content: "Third parties involved in accident";
+}
+
+.steps ul.motor-claim-step-4:after {
+    content: "Injured persons";
+}
+
+.steps ul.motor-claim-step-5:after {
+    content: "Witnesses";
+}
+
+.steps ul.motor-claim-step-6:after {
+    content: "Summary";
+}
+
+
 .steps ul.motor-policy-step-0:after {
     content: "Proposer Details";
 }

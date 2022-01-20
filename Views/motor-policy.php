@@ -11,6 +11,7 @@
             <section class="row">
             <div id="vehicle" class="col-sm-12 clear-fix clearfix"></div>
                 <?php include SHARED.'_vehicle_details.php'; ?>
+                
                 <!-- div class="col-sm-8 offset-sm-4 clear-fix clearfix">
                 <div id="vehicle-control" class="float-right">
                     <button type="button" class="btn btn-primary btn-sm action-call" onclick="addItem('vehicle')"><i class="fa fa-plus-circle"></i> Add vehicle</button>

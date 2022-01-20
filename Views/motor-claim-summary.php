@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-12"><strong>Date:</strong> <?= $claim['date'] ?></div>
+    <div class="col-sm-12"><strong>Date:</strong> <?= $accident_details['date'] ?></div>
     <div class="col-sm-12 text-sm-end"> <strong>Policy No:</strong> <?=$policy_id ?></div>
 	  
   </div>

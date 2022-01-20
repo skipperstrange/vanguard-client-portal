@@ -1,4 +1,3 @@
-
                 <div class="col-lg-12">
                     <label for="purpose">Purpose Of Vehicle </label>
                 </div>
