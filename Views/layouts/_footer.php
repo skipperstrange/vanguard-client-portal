@@ -65,7 +65,7 @@
             case 'policeDetails':
                 policeDetailsCount++
                 count = policeDetailsCount
-                appear(itemType, count)
+                appear()
 
                 break;
         }
@@ -156,13 +156,17 @@
     function appear(input, formval, itemType, count) {
         $id = $("#" + input)
         
+        count = 1
+        
+        
+        
         if ($id.val() == formval) {
-            // addItem(itemType);
-            $('#answer').append(addItem(itemType));
-
+            addItem(itemType);
+            
+            
 
         } else {
-            $('#' + input).val('')
+            $('#' + id).val('')
         }
 
     }
