@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-group col-lg-12">
-        <input type="radio" name="witnessMotorClaim[accident_reported]" id="" class="purpose-radio-input accident_reported" onclick="addItem('policeDetails')" value="yes">
+        <input type="radio" name="witnessMotorClaim[accident_reported]" id="accidentreportyes" class="purpose-radio-input accident_reported" onchange="addItem('policeDetails')" value="yes">
         <label for="accidentreportedyes" class="purpose-radio-label">
             <span class="label-text">Yes</span>
         </label>
@@ -48,6 +48,10 @@
             <span class="label-text">No</span>
         </label>
 
+    </div>
+
+    <div id="answer">
+        
     </div>
 
 

@@ -1,7 +1,7 @@
 <div class="row casualtyMotorClaim" id="casualtyMotorClaim_<?= $count ?>">
     <div class="col-lg-12">
         <h5 class="title">
-            <span class="count"></span> Third parties involved in accident:
+            <span class="count"></span> Third party involved in accident:
             <div class="float-right"><i class="fa fa-times-circle item-remove" onclick="removeItem('casualtyMotorClaim_<?= $count ?>', 'casualty')" title="Remove from list"></i></div>
         </h5>
     </div>

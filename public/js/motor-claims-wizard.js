@@ -1,8 +1,8 @@
 $(function() {
     var summaryUrl = "?controller=motor-claim-summary"
     var serverUrl = ""
-    var motorForm = $("#motor-form")
-    var motorWizard = $("#motor-wizard")
+    var motorForm = $("#motor-claim-form")
+    var motorWizard = $("#motor-claims-wizard")
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -29,13 +29,13 @@ $(function() {
                 if (newIndex === 1) {
                     // if (motorForm.valid()) {
                     //     if ($('#policy_id').val() == 'P-1001-201-2020-0005099') {
-                    //         $('.steps ul').addClass('motor-step-2');
+                    //         $('.steps ul').addClass('motor-claim-step-2');
                     //     } else {
                     //         alert('Policy does ot exist')
                     //         return false
                     //     }
                     // } else {
-                    //     $('.steps ul').removeClass('motor-step-2');
+                    //     $('.steps ul').removeClass('motor-claim-step-2');
                     //     return false
                     // }
                 } else {
@@ -113,7 +113,7 @@ $(function() {
 
 
     // Custom Steps Jquery Steps
-    $('#motor-wizard > .steps li a').click(function() {
+    $('#motor-claims-wizard > .steps li a').click(function() {
         $(this).parent().addClass('checked');
         $(this).parent().prevAll().addClass('checked');
         $(this).parent().nextAll().removeClass('checked');

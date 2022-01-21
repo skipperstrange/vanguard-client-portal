@@ -1,6 +1,6 @@
 <div class="col-lg-8 offset-lg-2 form-card card shadow">
-    <form action="" id="motor-form">
-        <div id="motor-wizard">
+    <form action="" id="motor-claim-form">
+        <div id="motor-claims-wizard">
             <!-- SECTION 1 -->
             <h4></h4>
             <section>
@@ -67,7 +67,7 @@
 <script src="<?= JS_PATH ?>motor-claims-wizard.js"></script>
 <script>
     $(function() {
-        $('.steps ul').addClass('motor-step-1');
+        $('.steps ul').addClass('step-1');
     })
 
 </script>

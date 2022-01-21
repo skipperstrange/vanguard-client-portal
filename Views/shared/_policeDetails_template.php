@@ -1,4 +1,4 @@
-<div class="row policeDetails" id="policeDetails_<?= $count ?>">
+<div class="row policeDetails" id="policeDetails">
     <div class="form-group col-lg-6 col-md-6">
         <div class="input-group date" id="id_0">
             <input type="text" name="policeDetails[date]" placeholder="Date accident was reported" title="" class="form-control" required />

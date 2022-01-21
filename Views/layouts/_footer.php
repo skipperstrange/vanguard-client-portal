@@ -15,6 +15,8 @@
         $('.body_color').colorpicker();
     }
 
+
+
     casualtyCount = 0;
     casualtyMotorClaimCount = 0;
     witnessCount = 0;
@@ -39,10 +41,7 @@
                 count = assetsCount
                 initDate = true
                 break;
-            case 'policeDetails':
-                policeDetailsCount++
-                count = policeDetailsCount
-                break;
+
             case 'casualtyMotorClaim':
                 casualtyMotorClaimCount++
                 count = casualtyMotorClaimCount
@@ -56,10 +55,18 @@
                 count = witnessMotorClaimCount
                 break;
             case 'vehicle':
+
                 vehicleCount++
                 count = vehicleCount
                 initDate = true
                 initColorPicker = true
+                break;
+
+            case 'policeDetails':
+                policeDetailsCount++
+                count = policeDetailsCount
+                appear(itemType, count)
+
                 break;
         }
 
@@ -82,6 +89,7 @@
         })
     }
 
+
     function resetItems(itemType) {
         let resetId = $('#' + itemType + '-reset')
         switch (itemType) {
@@ -91,9 +99,7 @@
             case 'assets':
                 assetsCount = 0
                 break;
-            case 'policeDetails':
-                policeDetailsCount = 0
-                break;
+
             case 'witness':
                 witnessCount = 0
                 break;
@@ -141,14 +147,25 @@
         })
     });
 
+
+
     // I'm experimenting on this
-    // $("input[type='radio']").change(function() {
-    //     if ($(this).val() == "yes") {
-    //         $(".purpose-radio-input accident_reported").show();
-    //     } else {
-    //         $(".purpose-radio-input accident_reported").hide();
-    //     }
-    // })
+
+
+
+    function appear(input, formval, itemType, count) {
+        $id = $("#" + input)
+        
+        if ($id.val() == formval) {
+            // addItem(itemType);
+            $('#answer').append(addItem(itemType));
+
+
+        } else {
+            $('#' + input).val('')
+        }
+
+    }
 </script>
 </body>
 

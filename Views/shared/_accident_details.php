@@ -46,13 +46,13 @@
 
 
 
-
+<!-- remember to put back required in the last 4 -->
 <div class="form-group col-lg-6">
-    <input type="text" id="location" required name="accident_details[location]" class="form-control" placeholder="Where did the accident occur *" value="" />
+    <input type="text" id="location"  name="accident_details[location]" class="form-control" placeholder="Where did the accident occur *" value="" />
 </div>
 <div class="form-group col-lg-6 ">
     <div class="input-group date" id="id_0">
-        <input type="text" id="accident_detailsdate" name="accident_details[date]" placeholder="Date of Accident" title="" class="form-control" required />
+        <input type="text" id="accident_detailsdate" name="accident_details[date]" placeholder="Date of Accident" title="" class="form-control"  />
         <div class="input-group-addon input-group-append">
             <div class="input-group-text">
                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -61,10 +61,10 @@
     </div>
 </div>
 <div class="form-group col-lg-6">
-    <input type="text" id="" required name="accident_details[cause]" class="form-control" placeholder="Cause of Accident *" value="" />
+    <input type="text" id=""  name="accident_details[cause]" class="form-control" placeholder="Cause of Accident *" value="" />
 </div>
 <div class="form-group col-lg-6">
-    <input type="text" id="" required name="accident_details[speed]" class="form-control" placeholder="Speed of vehicle *" value="" />
+    <input type="text" id=""  name="accident_details[speed]" class="form-control" placeholder="Speed of vehicle *" value="" />
 </div>
 
 <div class="form-group col-md-12">
