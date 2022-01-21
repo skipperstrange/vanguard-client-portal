@@ -1022,7 +1022,8 @@ select option[value=""][disabled] {
 }
 
 .steps ul.step-1:after,
-.steps ul.motor-step-1:after {
+.steps ul.motor-step-1:after 
+.steps ul.motor-claim-step-1:after{
     content: "Policy ID";
 }
 
@@ -1065,6 +1066,7 @@ select option[value=""][disabled] {
 .steps ul.motor-step-6:after {
     content: "Summary";
 }
+
 
 .steps ul.motor-claim-step-2:after {
     content: "Vehicle Details";

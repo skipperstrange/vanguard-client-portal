@@ -4,7 +4,7 @@ $navLinks = [
     'about' => ['href'=>_link('about','about')],
     'claims' =>['href' => [ 
             'new fire claim' => ['href' => _link('fire-claim','fire-claim')],
-           'new motor claim' => ['href' => _link('motor-claim','motor-claim')],
+           'new motor claim' => ['href' => _link('motor-claims','motor-claim')],
             'FAQ' => ['href'=> '#']
         ],
     ],
