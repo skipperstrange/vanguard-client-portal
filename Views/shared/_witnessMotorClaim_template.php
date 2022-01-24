@@ -36,21 +36,21 @@
     </div>
 
     <div class="form-group col-lg-12">
-        <input type="radio" name="witnessMotorClaim[accident_reported]" id="accidentreportyes" class="purpose-radio-input accident_reported" onchange="addItem('policeDetails')" value="yes">
+        <input type="radio" name="witnessMotorClaim[<?= $count ?>][accident_reported]" id="accidentreportyes_<?= $count ?>" class="purpose-radio-input accident_reported" onchange="appear('accidentreportyes_<?= $count ?>','yes', 'policeDetails', '<?= $count ?>')" value="yes">
         <label for="accidentreportedyes" class="purpose-radio-label">
             <span class="label-text">Yes</span>
         </label>
         
         &nbsp;
         &nbsp;
-        <input type="radio" name="witnessMotorClaim[accident_reported]" id="" class="purpose-radio-input accident_reported" value="no" checked>
+        <input type="radio" name="witnessMotorClaim[<?= $count ?>][accident_reported]" id="accidentreportno" class="purpose-radio-input accident_reported" onchange="appear('accidentreportno','yes', 'policeDetails', '<?= $count ?>')" value="no" checked>
         <label for="accidentreportedno" class="purpose-radio-label">
             <span class="label-text">No</span>
         </label>
 
     </div>
 
-    <div id="answer">
+    <div id="policeDetails_<?= $count ?>">
         
     </div>
 

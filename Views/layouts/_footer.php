@@ -26,7 +26,7 @@
     policeDetailsCount = 0;
 
 
-    //item type can be one of three. assets, casualty or witness
+    //item type can be one of these
     function addItem(itemType) {
         let count
         let initDate = false
@@ -60,13 +60,6 @@
                 count = vehicleCount
                 initDate = true
                 initColorPicker = true
-                break;
-
-            case 'policeDetails':
-                policeDetailsCount++
-                count = policeDetailsCount
-                appear()
-
                 break;
         }
 
@@ -109,17 +102,20 @@
             case 'witnessMotorClaim':
                 witnessMotorClaimCount = 0
                 break;
+            
             case 'vehicle':
                 witnessCount = 0
                 break;
-        }
 
+            case 'policeDetails':
+                policeDetailsCount = 0
+                break;
+        }
         $('#' + itemType).html('')
         resetId.remove()
     }
 
     function removeItem(itemId, classCheck) {
-        console.log(itemId, classCheck)
         let $reset = $('#' + classCheck + '-reset')
         $('#' + itemId).remove()
         if ($('.' + classCheck).length > 0) {
@@ -147,26 +143,20 @@
         })
     });
 
-
-
     // I'm experimenting on this
-
-
-
-    function appear(input, formval, itemType, count) {
-        $id = $("#" + input)
-        
-        count = 1
-        
-        
+    function appear(inputId, formval, itemType, count=null) {
+        console.log(inputId, formval, itemType);
+               
+        $id = $("#" + inputId)
         
         if ($id.val() == formval) {
-            addItem(itemType);
+            url = '<?= _link('add-item&itemType=')?>'+itemType+'&count='+count
+            content = $.post(url, function(data){
+                $('#' + itemType+'_'+count).append(data)
+            })
             
-            
-
-        } else {
-            $('#' + id).val('')
+        }else{
+            $('#' + itemType+'_'+count).html('')
         }
 
     }

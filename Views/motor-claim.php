@@ -33,7 +33,7 @@
                 <div id="casualtyMotorClaim" class="col-sm-12 clear-fix clearfix"></div>
                 <br>
                 <div class="col-sm-8 offset-sm-4 clear-fix clearfix">
-                    <div id="casualty-control" class="float-right">
+                    <div id="casualtyMotorClaim-control" class="float-right">
                         <button type="button" class="btn btn-primary btn-sm action-call" onclick="addItem('casualtyMotorClaim')"><i class="fa fa-plus-circle"></i> Add casualty</button>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 <div id="witnessMotorClaim" class="col-sm-12 clear-fix clearfix"></div>
                 <br>
                 <div class="col-sm-8 offset-sm-4 clear-fix clearfix">
-                    <div id="witness-control" class="float-right">
+                    <div id="witnessMotorClaim-control" class="float-right">
                         <button type="button" class="btn btn-primary btn-sm action-call" onclick="addItem('witnessMotorClaim')"><i class="fa fa-plus-circle"></i> Add witness</button>
                     </div>
                 </div>
