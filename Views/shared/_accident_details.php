@@ -25,6 +25,22 @@
     <input type="tel" id="contact" name="motor_policy[contact]" class="form-control" placeholder="Contact *" value="" />
 </div>
 
+<div class="form-group col-lg-6">
+    <input type="text" id="license_no" name="motor_policy[license_no]" class="form-control" placeholder="Driving license No *" value="" />
+</div>
+
+<div class="form-group col-lg-6">
+    <div class="input-group date" id="id_0">
+        <input type="text" id="dob" name="accident_details[date_of_issue]" placeholder="Date of Issue" title="" class="form-control" />
+        <div class="input-group-addon input-group-append">
+            <div class="input-group-text">
+                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- motor offence query -->
 <div class="col-lg-12">
     <label for="accident_details">Has the driver been convicted for a motor offence? </label>
