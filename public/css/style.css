@@ -768,7 +768,7 @@ div.form-group .opt {
 
 footer {
     padding-top: 2rem;
-    background: var(--black);
+    background: var(--grey5);
     color: var(--white);
 }
 
@@ -786,6 +786,10 @@ footer .copy {
     text-align: right;
     font-size: 11px;
     padding: 2rem 0px;
+}
+
+footer .site-logo img{
+    width: 150px;
 }
 
 @media screen and (max-width: 991px) {

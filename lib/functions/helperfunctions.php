@@ -50,14 +50,21 @@ function generateNavigation($navArray){
     foreach($navArray as $label => $link){
         if(is_array($navArray[$label]['href'])){
             $navLinks.= '<li class="has-children">';
-            $navLinks.= '<a href="#" class="nav-link">'.ucwords($label).'</a>';
-            $navLinks.= '<ul class="dropdown arrow-top">';
+            $navLinks.= '<a href="#" class="nav-link">
+            '.ucwords($label).'</a>';
+            $navLinks.= '
+            <ul class="dropdown arrow-top">
+            ';
             foreach($navArray[$label]['href'] as $label => $link){
-                $navLinks .= ' <li><a href="'.$link['href'].'" class="nav-link">'.ucwords($label).'</a></li>
+                $navLinks .= ' <li>
+                <a href="'.$link['href'].'" class="nav-link">'.ucwords($label).'</a>
+                </li>
                 ';
             }
-             $navLinks.=  '</ul>';
-                '</li>';
+             $navLinks.=  '
+             </ul>';
+                '
+            </li>';
         }else{
             $navLinks.=  "
             <li class=''>
