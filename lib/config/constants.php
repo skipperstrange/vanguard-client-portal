@@ -19,8 +19,6 @@ function is_secure_connection(){
     return $secure_connection;
 }
 
-
-define('DS', '/');
 define('UP_ONE', '../');
 define('VERSION', '1.0');
 
