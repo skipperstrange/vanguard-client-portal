@@ -40,6 +40,10 @@
     </div>
 </div>
 
+<div class="form-group col-lg-6">
+    <input type="text" id="license_group" name="accident_details[license_group]" class="form-control" placeholder="group of vehicles that the license has been issued *" value="" />
+</div>
+
 
 <!-- motor offence query -->
 <div class="col-lg-12">
@@ -47,18 +51,25 @@
 </div>
 
 <div class="form-group col-lg-12">
-    <input type="radio" name="accident_details[motor_offence]" id="" class="purpose-radio-input motor-offence" value="yes">
+    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motorOffence', '<?= $count ?>')"  value="yes">
     <label for="motoroffenceyes" class="purpose-radio-label">
         <span class="label-text">Yes</span>
     </label>
     &nbsp;
     &nbsp;
-    <input type="radio" name="accident_details[motor_offence]" id="" class="purpose-radio-input motor-offence" value="no" checked>
+    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motorOffence', '<?= $count ?>')" value="no" checked>
     <label for="motoroffenceno" class="purpose-radio-label">
         <span class="label-text">No</span>
     </label>
 
 </div>
+
+<div class="col-lg-12" id="motorOffence_<?= $count ?>">
+
+</div>
+
+
+
 
 
 

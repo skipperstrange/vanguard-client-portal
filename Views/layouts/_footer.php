@@ -150,6 +150,7 @@
         $id = $("#" + inputId)
         
         if ($id.val() == formval) {
+            
             url = '<?= _link('add-item&itemType=')?>'+itemType+'&count='+count
             content = $.post(url, function(data){
                 $('#' + itemType+'_'+count).append(data)
