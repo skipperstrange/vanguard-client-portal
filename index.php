@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('DS')) {
+    define('DS', '/');
+  }
 include_once "vendor/autoload.php";
 
 if(MODE == 'development'){

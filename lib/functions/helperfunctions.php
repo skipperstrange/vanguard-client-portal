@@ -53,7 +53,8 @@ function generateNavigation($navArray){
             $navLinks.= '<a href="#" class="nav-link">'.ucwords($label).'</a>';
             $navLinks.= '<ul class="dropdown arrow-top">';
             foreach($navArray[$label]['href'] as $label => $link){
-                $navLinks .= ' <li><a href="'.$link['href'].'" class="nav-link">'.ucwords($label).'</a></li>';
+                $navLinks .= ' <li><a href="'.$link['href'].'" class="nav-link">'.ucwords($label).'</a></li>
+                ';
             }
              $navLinks.=  '</ul>';
                 '</li>';
