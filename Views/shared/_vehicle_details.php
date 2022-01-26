@@ -17,14 +17,13 @@
                     </label>
                 </div>
                 </div>
-            </div>            
-            
-          <?php include SHARED. '_vehicle_information.php'?>
+            </div>      
 
-
-            <div class="form-group col-lg-6 col-md-6">
+             <div class="form-group col-lg-6 col-md-6">
               <input type="number" id="seats"  name="vehicle[seats]" class="form-control" placeholder="Seat No. *" value="" />
             </div>
+
+          <?php include SHARED. '_vehicle_information.php'?>
 
             <div class="form-group col-lg-7 col-md-7">
               <input type="text" id="tppd"  name="vehicle[tppd]" class="form-control" placeholder="Extra TPPD Limit" value="" />

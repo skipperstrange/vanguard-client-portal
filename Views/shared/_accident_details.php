@@ -1,14 +1,14 @@
 <div class="form-group col-lg-6">
-    <input type="text" id="fullname" name="motor_policy[fullname]" class="form-control" placeholder="Name of driver *" value="" />
+    <input type="text" id="fullname" name="accident_details[fullname]" class="form-control" placeholder="Name of driver *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="postalAddress" name="motor_policy[postal_address]" class="form-control" placeholder="Postal Address" value="" />
+    <input type="text" id="postalAddress" name="accident_details[postal_address]" class="form-control" placeholder="Postal Address" value="" />
 </div>
 
 <div class="form-group col-lg-6">
     <div class="input-group date" id="id_0">
-        <input type="text" id="dob" name="motor_policy[dob]" placeholder="Date of Birth" title="" class="form-control" />
+        <input type="text" id="dob" name="accident_details[dob]" placeholder="Date of Birth" title="" class="form-control" />
         <div class="input-group-addon input-group-append">
             <div class="input-group-text">
                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -18,15 +18,15 @@
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="occupation" name="motor_policy[occupation]" class="form-control" placeholder="Occupation *" value="" />
+    <input type="text" id="occupation" name="accident_details[occupation]" class="form-control" placeholder="Occupation *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="tel" id="contact" name="motor_policy[contact]" class="form-control" placeholder="Contact *" value="" />
+    <input type="tel" id="contact" name="accident_details[contact]" class="form-control" placeholder="Contact *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="license_no" name="motor_policy[license_no]" class="form-control" placeholder="Driving license No *" value="" />
+    <input type="text" id="license_no" name="accident_details[license_no]" class="form-control" placeholder="Driving license No *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
@@ -51,20 +51,20 @@
 </div>
 
 <div class="form-group col-lg-12">
-    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motorOffence', '<?= $count ?>')"  value="yes">
+    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motor_offence', '<?= $count ?>')"  value="yes">
     <label for="motoroffenceyes" class="purpose-radio-label">
         <span class="label-text">Yes</span>
     </label>
     &nbsp;
     &nbsp;
-    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motorOffence', '<?= $count ?>')" value="no" checked>
+    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motor_offence', '<?= $count ?>')" value="no" checked>
     <label for="motoroffenceno" class="purpose-radio-label">
         <span class="label-text">No</span>
     </label>
 
 </div>
 
-<div class="col-lg-12" id="motorOffence_<?= $count ?>">
+<div class="col-lg-12" id="motor_offence_<?= $count ?>">
 
 </div>
 

@@ -1077,7 +1077,7 @@ select option[value=""][disabled] {
 }
 
 .steps ul.motor-claim-step-3:after {
-    content: "Third parties involved in accident";
+    content: "Third parties involved";
 }
 
 .steps ul.motor-claim-step-4:after {

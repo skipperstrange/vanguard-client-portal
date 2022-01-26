@@ -3,21 +3,21 @@
                 </div>
                 
                 <div class="form-group col-lg-2 col-md-3">
-                    <input type="radio" name="vehicle[purpose]" id="" class="purpose-radio-input usage" data-target="usage_box" value="private" checked>
+                    <input type="radio" name="vehicle_usage[purpose]" id="" class="purpose-radio-input usage" data-target="usage_box" value="private" checked>
                     <label for="private" class="purpose-radio-label">
                         <span class="label-text">Private</span>
                         </label>
                 </div>
                 
                 <div class="col-lg-3 col-md-3">
-                    <input type="radio" name="vehicle[purpose]" id="" class="purpose-radio-input usage" data-target="usage_box" value="commercial" >
+                    <input type="radio" name="vehicle_usage[purpose]" id="" class="purpose-radio-input usage" data-target="usage_box" value="commercial" >
                     <label for="commercial" class="purpose-radio-label">
                         <span class="label-text">Commercial</span>
                     </label>
                 </div>
             
                 <div class="form-group col-lg-7 col-md-6" id="usage_box">
-                            <select class="selectpicker form-control usage" data-style="btn-info" name="vehicle[usage_type_id]">
+                            <select class="selectpicker form-control usage" data-style="btn-info" name="vehicle_usage[usage_type_id]">
                                  <optgroup label="Usage Type">
                                   <option value="1">X1(Private Vehicle(Individual))</option>
                                   <option value="2">X1(Private Vehicle(Company))</option>
@@ -47,14 +47,14 @@
             </div>
 
             <div class="form-group col-lg-2 col-md-2">
-                    <input type="radio" name="vehicle[altered]" id="" class="purpose-radio-input altered" value="yes" checked>
+                    <input type="radio" name="vehicle_usage[altered]" id="" class="purpose-radio-input altered" value="yes" checked>
                     <label for="alteredyes" class="purpose-radio-label">
                         <span class="label-text">Yes</span>
                         </label>
                 </div>
                 
                 <div class="col-lg-2 col-md-2">
-                    <input type="radio" name="vehicle[altered]" id="" class="purpose-radio-input altered" value="no" >
+                    <input type="radio" name="vehicle_usage[altered]" id="" class="purpose-radio-input altered" value="no" >
                     <label for="alteredno" class="purpose-radio-label">
                         <span class="label-text">No</span>
                     </label>
@@ -69,13 +69,13 @@
                         <label for="driverdefect">Have any physical defect or infirmity </label>
                     </div>
                     <div class="form-group col-lg-6 col-md-6">
-                        <input type="radio" name="motor_policy[driver_defect]" id="" class="purpose-radio-input driverdeffected" value="yes">
+                        <input type="radio" name="vehicle_usage[driver_defect]" id="" class="purpose-radio-input driverdeffected" value="yes">
                         <label for="driverdeffectedyes" class="purpose-radio-label">
                             <span class="label-text">Yes</span>
                         </label>
                         &nbsp;
                         &nbsp;
-                        <input type="radio" name="motor_policy[driver_defect]" id="" class="purpose-radio-input driverdeffected" value="no" checked>
+                        <input type="radio" name="vehicle_usage[driver_defect]" id="" class="purpose-radio-input driverdeffected" value="no" checked>
                         <label for="driverdeffectedno" class="purpose-radio-label">
                             <span class="label-text">No</span>
                         </label>
@@ -85,13 +85,13 @@
                         <label for="prosecution">Been prosecuted in court </label>
                     </div>
                     <div class="form-group col-lg-6 col-md-6">
-                        <input type="radio" name="motor_policy[prosecution]" id="" class="purpose-radio-input prosecution" value="yes">
+                        <input type="radio" name="vehicle_usage[prosecution]" id="" class="purpose-radio-input prosecution" value="yes">
                         <label for="prosecutionyes" class="purpose-radio-label">
                             <span class="label-text">Yes</span>
                         </label>
                         &nbsp;
                         &nbsp;
-                        <input type="radio" name="motor_policy[prosecution]" id="" class="purpose-radio-input prosecution" value="no" checked>
+                        <input type="radio" name="vehicle_usage[prosecution]" id="" class="purpose-radio-input prosecution" value="no" checked>
                         <label for="prosecutionno" class="purpose-radio-label">
                             <span class="label-text">No</span>
                         </label>
@@ -101,13 +101,13 @@
                         <label for="motor_offence">Been convicted for a motor offence </label>
                     </div>
                     <div class="form-group col-lg-6 col-md-6">
-                        <input type="radio" name="motor_policy[motor_offence]" id="" class="purpose-radio-input motor-offence" value="yes">
+                        <input type="radio" name="vehicle_usage[motor_offence]" id="" class="purpose-radio-input motor-offence" value="yes">
                         <label for="motoroffenceyes" class="purpose-radio-label">
                             <span class="label-text">Yes</span>
                         </label>
                         &nbsp;
                         &nbsp;
-                        <input type="radio" name="motor_policy[motor_offence]" id="" class="purpose-radio-input motor-offence" value="no" checked>
+                        <input type="radio" name="vehicle_usage[motor_offence]" id="" class="purpose-radio-input motor-offence" value="no" checked>
                         <label for="motoroffenceno" class="purpose-radio-label">
                             <span class="label-text">No</span>
                         </label>
