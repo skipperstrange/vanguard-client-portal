@@ -24,61 +24,61 @@ $(function() {
             transitionEffectSpeed: 500,
 
             onStepChanging: function(event, currentIndex, newIndex) {
-                fireForm.validate().settings.ignore = ":disabled,:hidden";
+              //  fireForm.validate().settings.ignore = ":disabled,:hidden";
                 //console.log(fireForm.validate());
 
 
                 if (newIndex === 1) {
-                    if (fireForm.valid()) {
-                        if ($('#policy_id').val() == 'P-1001-201-2020-0005099') {
+                   // if (fireForm.valid()) {
+                    //    if ($('#policy_id').val() == 'P-1001-201-2020-0005099') {
                             $('.steps ul').addClass('step-2');
-                        } else {
-                            alert('Policy does ot exist')
-                            return false
-                        }
-                    } else {
-                        $('.steps ul').removeClass('step-2');
-                        return false
-                    }
+                     //   } else {
+                        //    alert('Policy does ot exist')
+                     //       return false
+                     //   }
+                   // } else {
+                    //    $('.steps ul').removeClass('step-2');
+                   //     return false
+                  //  }
                 } else {
                     $('.steps ul').removeClass('step-2');
                 }
                 if (newIndex === 2) {
-                    if (fireForm.valid()) {
+                 //   if (fireForm.valid()) {
                         $('.steps ul').addClass('step-3');
-                    } else {
-                        return false
-                    }
+                 //   } else {
+                   //     return false
+                 //   }
                 } else {
                     $('.steps ul').removeClass('step-3');
                 }
 
                 if (newIndex === 3) {
-                    if (fireForm.valid()) {
+                   // if (fireForm.valid()) {
                         $('.steps ul').addClass('step-4');
                         //  $('.actions ul').addClass('step-last');
-                    } else {
-                        return false
-                    }
+                //    } else {
+                    //    return false
+                 //   }
                 } else {
                     $('.steps ul').removeClass('step-4');
                     //  $('.actions ul').removeClass('step-last');
                 }
 
                 if (newIndex === 4) {
-                    if (fireForm.valid()) {
+                  //  if (fireForm.valid()) {
                         $('.steps ul').addClass('step-5');
                         // $('.actions ul').addClass('step-last');
-                    } else {
-                        return false
-                    }
+                 //   } else {
+                 //       return false
+                 //    }
                 } else {
                     $('.steps ul').removeClass('step-5');
                     // $('.actions ul').removeClass('step-last');
                 }
 
                 if (newIndex === 5) {
-                    if (fireForm.valid()) {
+                //    if (fireForm.valid()) {
                         $('.steps ul').addClass('step-6');
                         try {
                             $.post(summaryUrl, fireForm.serialize()).then(resp => {
@@ -91,9 +91,9 @@ $(function() {
                         }
 
                         // $('.actions ul').addClass('step-last');
-                    } else {
-                        return false
-                    }
+                   // } else {
+                    //    return false
+                  //  }
                 } else {
                     $('.steps ul').removeClass('step-6');
                     // $('.actions ul').removeClass('step-last');
