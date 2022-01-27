@@ -7,8 +7,7 @@
             "ClientPortal\\": "./"
         },
         "classmap": ["lib/classes/"],
-        "files": [
-            "lib/config/config.php",
+        "files": [        "lib/config/config.php",
             "lib/config/constants.heroku.php",
             "lib/config/client-info.php",
             "lib/config/db.php",
