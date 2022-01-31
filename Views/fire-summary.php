@@ -31,25 +31,10 @@
            include SHARED.'_summary_rows.php'
            ?>
         <?php
+         
            $data = $assets;
            $controlId = 'assets';
            $data_title = "Damaged Items/Properties";
            include SHARED.'_summary_rows.php'
         ?>
 
-<script>
-   function toggleDataTable(tableId){
-        console.log($('#'+tableId))
-        tableData = $('#'+tableId);
-        dataControl = $('#'+tableId+'_data_control')
-        tableData.toggle(300, ()=>{
-            if ( tableData.is(":visible") ) {
-                dataControl.removeClass('icon-chevron-circle-down')
-                dataControl.addClass('icon-chevron-circle-up')
-            } else if ( tableData.is(":hidden") ) {
-                dataControl.removeClass('icon-chevron-circle-up')
-                dataControl.addClass('icon-chevron-circle-down')
-            }
-        })
-   }
-</script>

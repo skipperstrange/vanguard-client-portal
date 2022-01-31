@@ -1,14 +1,14 @@
 <div class="form-group col-lg-6">
-    <input type="text" id="fullname" name="accident_details[fullname]" class="form-control" placeholder="Name of driver *" value="" />
+    <input type="text" id="fullname" name="motor-claim[accident_details][fullname]" class="form-control" placeholder="Name of driver *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="postalAddress" name="accident_details[postal_address]" class="form-control" placeholder="Postal Address" value="" />
+    <input type="text" id="postalAddress" name="motor-claim[accident_details][postal_address]" class="form-control" placeholder="Postal Address" value="" />
 </div>
 
 <div class="form-group col-lg-6">
     <div class="input-group date" id="id_0">
-        <input type="text" id="dob" name="accident_details[dob]" placeholder="Date of Birth" title="" class="form-control" />
+        <input type="text" id="dob" name="motor-claim[accident_details][dob]" placeholder="Date of Birth" title="" class="form-control" />
         <div class="input-group-addon input-group-append">
             <div class="input-group-text">
                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -18,20 +18,20 @@
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="occupation" name="accident_details[occupation]" class="form-control" placeholder="Occupation *" value="" />
+    <input type="text" id="occupation" name="motor-claim[accident_details][driver_occupation]" class="form-control" placeholder="Driver Occupation *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="tel" id="contact" name="accident_details[contact]" class="form-control" placeholder="Contact *" value="" />
+    <input type="tel" id="contact" name="motor-claim[accident_details][contact]" class="form-control" placeholder="Contact *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="license_no" name="accident_details[license_no]" class="form-control" placeholder="Driving license No *" value="" />
+    <input type="text" id="license_no" name="motor-claim[accident_details][driver_license_no]" class="form-control" placeholder="Driving license No *" value="" />
 </div>
 
 <div class="form-group col-lg-6">
     <div class="input-group date" id="id_0">
-        <input type="text" id="dob" name="accident_details[date_of_issue]" placeholder="Date of Issue" title="" class="form-control" />
+        <input type="text" id="dob" name="motor-claim[accident_details][date_of_issue]" placeholder="Date of Issue" title="" class="form-control" />
         <div class="input-group-addon input-group-append">
             <div class="input-group-text">
                 <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -41,7 +41,7 @@
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="license_group" name="accident_details[license_group]" class="form-control" placeholder="group of vehicles that the license has been issued *" value="" />
+    <input type="text" id="license_group" name="motor-claim[accident_details][license_group]" class="form-control" placeholder="group of vehicles that the license has been issued *" value="" />
 </div>
 
 
@@ -51,13 +51,13 @@
 </div>
 
 <div class="form-group col-lg-12">
-    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motor_offence', '<?= $count ?>')"  value="yes">
+    <input type="radio" name="motor-claim[accident_details][motor_offence][<?= $count ?>]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motor_offence', '<?= $count ?>')"  value="yes">
     <label for="motoroffenceyes" class="purpose-radio-label">
         <span class="label-text">Yes</span>
     </label>
     &nbsp;
     &nbsp;
-    <input type="radio" name="accident_details[<?= $count ?>][motor_offence]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motor_offence', '<?= $count ?>')" value="no" checked>
+    <input type="radio" name="motor-claim[accident_details][motor_offence][<?= $count ?>]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motor_offence', '<?= $count ?>')" value="no" checked>
     <label for="motoroffenceno" class="purpose-radio-label">
         <span class="label-text">No</span>
     </label>

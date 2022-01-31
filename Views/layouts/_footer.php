@@ -168,7 +168,22 @@
         })
     });
 
-    // I'm experimenting on this
+    function toggleDataTable(tableId){
+        console.log($('#'+tableId))
+        tableData = $('#'+tableId);
+        dataControl = $('#'+tableId+'_data_control')
+        tableData.toggle(300, ()=>{
+            if ( tableData.is(":visible") ) {
+                dataControl.removeClass('icon-chevron-circle-down')
+                dataControl.addClass('icon-chevron-circle-up')
+            } else if ( tableData.is(":hidden") ) {
+                dataControl.removeClass('icon-chevron-circle-up')
+                dataControl.addClass('icon-chevron-circle-down')
+            }
+        })
+   }
+
+   //Similar to addItem function only it also checks for a value in input befor running. It renders only once
     function appear(inputId, formval, itemType, count=null) {
         console.log(inputId, formval, itemType);
                

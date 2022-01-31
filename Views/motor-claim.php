@@ -59,7 +59,7 @@
 
             <!-- SECTION 3 -->
             <h4></h4>
-            <section class="row">
+            <section class="row" id="accident_details">
 
                 <?php include SHARED . '_accident_details.php'; ?>
 
