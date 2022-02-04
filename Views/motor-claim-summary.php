@@ -1,5 +1,9 @@
+<? include('motor-claim-summary.php') ?>;
 <div class="row">
-    <div class="col-sm-12"><strong>Date:</strong> <?= $accident_details['date'] ?></div>
+
+
+
+    <div class="col-sm-12"><strong>Date of Accident:</strong> <?= $accident_details['date'] ?></div>
     <div class="col-sm-12 text-sm-end"> <strong>Policy No:</strong> <?=$policy_id ?></div>
 	  
   </div>
@@ -7,7 +11,7 @@
   <div class="row">
   <div class="col-sm-6 text-sm-end order-sm-1"> <strong>Claim Details:</strong>
       <address>
-      Location: <?= $claim['location']?> <br />
+      
       Cause: <?= $claim['location']?> <br />
       </address>
     </div>
@@ -17,7 +21,32 @@
       </address>
     </div>
   </div>
+
+  <div class="col-sm-6 text-sm-end order-sm-1"> <strong>Accident Details:</strong>
+      <address>
+      
+
+
+      </address>
+    </div>
+    
+  </div>
   
+        <?php 
+           $data = $vehicle_information;
+           $data_title = "Vehicle Information";
+           $controlId = 'vehicle_information';
+           include SHARED.'_summary_rows.php'
+        ?>
+        
+        <?php 
+           $data = $motorclaim;
+           
+           $data_title = "Accident Details";
+           $controlId = 'accident_details';
+           include SHARED.'_summary_rows.php'
+        ?>
+        
         <?php 
            $data = $casualties;
            $data_title = "Affected Persons";
@@ -25,31 +54,14 @@
            include SHARED.'_summary_rows.php'
         ?>
         <?php
-           $data = $witnesses;
-           $data_title = "Witnesses";
-           $controlId = 'witnesses';
+           $data = $casualty_motor_claim;
+           $data_title = "Casualties";
+           $controlId = 'casualty_motor_claim';
            include SHARED.'_summary_rows.php'
            ?>
         <?php
-           $data = $assets;
-           $controlId = 'assets';
-           $data_title = "Damaged Items/Properties";
+           $data = $witness_motor_claim;
+           $controlId = 'witness_motor_claim';
+           $data_title = "witnesses";
            include SHARED.'_summary_rows.php'
         ?>
-
-<script>
-   function toggleDataTable(tableId){
-        console.log($('#'+tableId))
-        tableData = $('#'+tableId);
-        dataControl = $('#'+tableId+'_data_control')
-        tableData.toggle(300, ()=>{
-            if ( tableData.is(":visible") ) {
-                dataControl.removeClass('icon-chevron-circle-down')
-                dataControl.addClass('icon-chevron-circle-up')
-            } else if ( tableData.is(":hidden") ) {
-                dataControl.removeClass('icon-chevron-circle-up')
-                dataControl.addClass('icon-chevron-circle-down')
-            }
-        })
-   }
-</script>
