@@ -1,7 +1,5 @@
 $(function() {
 
-    var summaryUrl = "?controller=fire-summary"
-    var serverUrl = ""
     var fireForm = $("#fire-form")
     var fireWizard = $("#fire-wizard")
     try {
@@ -81,7 +79,8 @@ $(function() {
                 //    if (fireForm.valid()) {
                         $('.steps ul').addClass('step-6');
                         try {
-                            $.post(summaryUrl, fireForm.serialize()).then(resp => {
+                            $.post(apiUrls.fireClaimSummaryUrl = "?controller=fire-summary"
+                            , fireForm.serialize()).then(resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
                             })
@@ -99,6 +98,9 @@ $(function() {
                     // $('.actions ul').removeClass('step-last');
                 }
                 return true;
+            },
+            onFinishing: function(event, currentIndex, newIndex){
+                console.log(event, currentIndex, newIndex)
             },
             labels: {
                 finish: "Submit",

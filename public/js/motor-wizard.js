@@ -1,6 +1,4 @@
 $(function() {
-    var summaryUrl = "?controller=motor-summary"
-    var serverUrl = ""
     var motorForm = $("#motor-form")
     var motorWizard = $("#motor-wizard")
     try {

@@ -33,7 +33,6 @@
     <script src="<?= JS_PATH ?>moment.min.js" ></script>
     <script src="<?= JS_PATH ?>bootstrap-datetimepicker.min.js"></script>
     <script src="<?= JS_PATH ?>bootstrap-colorpicker.js"></script>
-    
     <title><?= _title($pageTitle) ?></title>
 </head>
 

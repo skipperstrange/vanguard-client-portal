@@ -639,10 +639,11 @@ a:hover {
 
 .header-content {
     margin-top: 4.8rem;
-    min-height: calc(100vh - 90px);
+    min-height: calc(100vh - 500px);
 }
 
 .header-content .row {
+    min-height: 20 rem;
     vertical-align: middle;
 }
 

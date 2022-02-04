@@ -1,6 +1,4 @@
 $(function() {
-    var summaryUrl = "?controller=motor-policy-summary"
-    var serverUrl = ""
     var motorForm = $("#motor-policy-form")
     var motorWizard = $("#motor-policy-wizard")
     try {
@@ -69,11 +67,11 @@ $(function() {
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-5');
                         try {
-                            $.post(summaryUrl, motorForm.serialize()).then(resp => {
+                            $.post(apiUrls.motorProposalSummaryUrl, motorForm.serialize()).then(resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
                             })
-                            console.log(motorForm.serialize())
+                           
                         } catch (err) {
                             console.log(err)
                         }
@@ -87,6 +85,17 @@ $(function() {
                     // $('.actions ul').removeClass('motor-step-last');
                 }
                 return true;
+            },
+            onFinishing: function(event, currentIndex, newIndex){
+                console.log(event, currentIndex, newIndex)
+                
+                axios.post(apiUrls.applicationServerUrl+'portal/add-motorpolicy',  motorForm.serialize())
+                .then(data=>{
+                    console.log(data)
+                })
+                .catch(e=>{
+                    console.log(e)
+                })
             },
             labels: {
                 finish: "Submit",

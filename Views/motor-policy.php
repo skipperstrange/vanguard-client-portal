@@ -45,7 +45,7 @@
         </div>
     </form>
 </div>    
-
+<script src="<?= JS_PATH ?>urls.js"></script>
 <script src="<?= JS_PATH ?>motor-policy-wizard.js"></script>
 <script>
     $(function(){
