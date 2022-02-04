@@ -24,9 +24,9 @@
     </footer>
 
 <script src="<?= JS_PATH ?>main.js"></script>
-<<<<<<< HEAD
+
 <script src="<?= JS_PATH ?>helperfunctions.js"></script>
-=======
+
 <script>
     function initDateInputs() {
         $('.date').datetimepicker({
@@ -205,7 +205,7 @@
 
     }
 </script>
->>>>>>> 529eedcda0f2aad2994596023016f3436a370830
+
 </body>
 
 </html>
