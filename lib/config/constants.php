@@ -41,6 +41,7 @@ define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);
 endif;
 
 define('LIB', 'lib' . DS);
+define('STATIC_DATA', 'db' . DS.'static'.DS);
 define('CONFIG_PATH', LIB.'config'.DS);
 define('PUBLIC_PATH', 'public'.DS);
 define('FILE_UPLOADS_PATH', 'public'.DS.'uploads'.DS);

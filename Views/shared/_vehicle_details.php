@@ -26,7 +26,7 @@
           <?php include SHARED. '_vehicle_information.php'?>
 
             <div class="form-group col-lg-7 col-md-7">
-              <input type="text" id="tppd"  name="vehicle[tppd]" class="form-control" placeholder="Extra TPPD Limit" value="" />
+              <input type="text" id="tppd"  name="policy[tppd]" class="form-control" placeholder="Extra TPPD" value="" />
             </div>
 
             <div class="row p-0">

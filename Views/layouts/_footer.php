@@ -29,13 +29,28 @@
 
 <script>
     function initDateInputs() {
-        $('.date').datetimepicker({
+        dp = $('.date')
+        yp = $('.date-year')
+        db.datetimepicker({
             "allowInputToggle": true,
             "showClose": true,
             "showClear": true,
             "showTodayButton": true,
-            "format": "MM/DD/YYYY",
+            "format": "DD-MM-YYYY",
+            //"viewMode": 'years',
+            "maxDate": new Date(),
+
+        });
+
+        yp.datetimepicker({
+            "allowInputToggle": true,
+            "showClose": true,
+            "showClear": true,
+            "showTodayButton": true,
+            "format": "YYYY",
             "viewMode": 'years',
+            "maxDate": new Date(),
+
         });
     }
 

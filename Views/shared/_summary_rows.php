@@ -13,7 +13,6 @@
 <?php 
 
 foreach($data as $c => $info){
-    echo $c;
 ?>
     <tr><td colspan="12" style="background: #ccc;"></td></tr>
         <?php foreach($info as $title => $detail){ ?>
