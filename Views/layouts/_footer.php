@@ -31,7 +31,7 @@
     function initDateInputs() {
         dp = $('.date')
         yp = $('.date-year')
-        db.datetimepicker({
+        dp.datetimepicker({
             "allowInputToggle": true,
             "showClose": true,
             "showClear": true,
@@ -184,6 +184,12 @@
                 $('#' + target).hide('slow');
             }
         })
+
+          yp.on("dp.change", function (e) {
+        //$('.date-duration-expire').data("DateTimePicker").minDate(e.date);
+        $("#reg-input").removeAttr("disabled");
+        $("#registration").datetimepicker({minDate: e.date, format: "YYYY"});
+    });
     });
 
     function toggleDataTable(tableId){
@@ -217,7 +223,6 @@
         }else{
             $('#' + itemType+'_'+count).html('')
         }
-
     }
 </script>
 

@@ -27,7 +27,7 @@
             </div>
             <div class="form-group col-lg-5 col-md-6">
             <div class="input-group date" id="id_0">
-                    <input type="text" id="dob"  name="proposer[dob]" data-date-end-date="0d" placeholder="Date of Birth/Incorporation" title="" class="form-control" />
+                    <input type="text" id="dob"  name="proposer[dob]"  placeholder="Date of Birth/Incorporation" title="" class="form-control" />
                     <div class="input-group-addon input-group-append">
                         <div class="input-group-text">
                             <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -39,19 +39,19 @@
                             <input type="text" id="occupation"  name="proposer[occupation]" class="form-control" placeholder="Occupation *" value="" />
             </div>
             <div class="form-group col-lg-6 col-md-6">
-                            <select class="form-control" data-style="btn-info" name="proposer[id_type]">
-                                <option value="">Select ID type</option>
-                                <option value="<?= $type ?>"><?= ucfirst(strtolower($type))?></option>
-                                <optgroup title="ID type" label="Select ID type">
-                                <?php 
-                                    foreach($id_types as $type){
-                                ?>
-                                 <option value="<?= $type ?>"><?= ucfirst(strtolower(str_replace('_',' ',$type)))?></option>
-                                <?php
-                                }
-                                ?>
-                                </optgroup>
-                            </select>
+                <select class="form-control" data-style="btn-info" name="proposer[id_type]">
+                    <option value="">Select ID type</option>
+                    <option value="<?= $type ?>"><?= ucfirst(strtolower($type))?></option>
+                    <optgroup title="ID type" label="Select ID type">
+                    <?php 
+                        foreach($id_types as $type){
+                    ?>
+                        <option value="<?= $type ?>"><?= ucfirst(strtolower(str_replace('_',' ',$type)))?></option>
+                    <?php
+                    }
+                    ?>
+                    </optgroup>
+                </select>
             </div>
             <div class="form-group col-lg-6 col-md-6">
                             <input type="text" id="id_number"  name="proposer[id_number]" class="form-control" placeholder="ID Number *" value="" />
