@@ -2,7 +2,7 @@
     include_once STATIC_DATA.'branches.php';
 ?>
             <div class="form-group col-lg-6 col-md-6">
-                <select class="form-control"  name="policy[branch]" id="branches">
+                <select class="form-control"  name="policy[branch_id]" id="branches">
                     <option value="">Select Preferred Branch</option>
                    <?php
                     foreach($branches as $branch){
@@ -14,19 +14,12 @@
                 </select>
             </div>
 
+
             <div class="form-group col-lg-6 col-md-6">
-               
+              <input type="text" id="tppd"  name="policy[tppd]" class="form-control" placeholder="Extra TPPD" value="" />
             </div>
 
-            <!-- Start date -->
-            <div class="input-group input-daterange">
-
-            <div class="form-group col-lg-6 col-md-6">
-                <div class="date-duration-start" >
-                    <input type="text" name="policy[start]" placeholder="Date of commence" data-date-end-date="0d" title="Start date" data-target="date-duration-start" class="form-control date-duration-start"/>
-                </div>
-            </div> 
-            <!-- End date -->
+            <!-- Duration -->
             <div class="form-group col-lg-6 col-md-6">
                 <select class="form-control"  name="policy[policy_duration]">
                         <option value="">Policy Duration</option>
@@ -37,7 +30,13 @@
                 </select>
             </div>
 
-
+            <!-- Start date -->
+            <div class="form-group col-lg-6 col-md-6">
+                <div class="date-duration-start" >
+                    <input type="text" name="policy[start]" placeholder="Date of commence" data-date-end-date="0d" title="Start date" data-target="date-duration-start" class="form-control date-duration-start"/>
+                </div>
+            </div> 
+            
             <script>
                 policyStart = $('.date-duration-start')
                 policyStart.datetimepicker({
@@ -46,7 +45,7 @@
                     "showClear": true,
                     "showTodayButton": true,
                     //"format": "DD MMMM YYYY",
-                    "format": "DD/MM/YYYY",
+                    "format": "DD-MM-YYYY",
                     //"defaultDate": new Date(),
                     useCurrent: true,
                     minDate: new Date(),

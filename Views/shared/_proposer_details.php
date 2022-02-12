@@ -8,7 +8,7 @@
                             <input type="text" id="fullname"  name="proposer[fullname]" class="form-control" placeholder="Full Name Of Proposer *" value="" />
             </div>
             <div class="form-group col-lg-6 col-md-6">
-                    <select class="form-control"  name="proposer[proposer_type]">
+                    <select class="form-control"  name="policy[proposer_type]">
                         <option title="Proposer Type">Select Proposer Type</option>
                         <?php 
                             foreach($proposer_types as $type){
@@ -41,8 +41,6 @@
             <div class="form-group col-lg-6 col-md-6">
                 <select class="form-control" data-style="btn-info" name="proposer[id_type]">
                     <option value="">Select ID type</option>
-                    <option value="<?= $type ?>"><?= ucfirst(strtolower($type))?></option>
-                    <optgroup title="ID type" label="Select ID type">
                     <?php 
                         foreach($id_types as $type){
                     ?>
@@ -68,19 +66,19 @@
                 </div>
                 <div class="row form-group">
                 <div class="col-lg-4 col-md-4">
-                    <input type="radio" name="policy[cover_type]" id="comprehensive" class="purpose-radio-input" value="Comprehensive">
+                    <input type="radio" name="policy[cover_type]" id="comprehensive" class="purpose-radio-input" value="COMP" >
                     <label for="comprehensive" class="purpose-radio-label">
                         <span class="label-text">Comprehensive</span>
                         </label>
                 </div>
                 <div class="col-lg-5 col-md-4">
-                    <input type="radio" name="policy[cover_type]" id="thirdPartyFireAndTheft" class="purpose-radio-input" value="Third Party Fire & Theft" checked >
+                    <input type="radio" name="policy[cover_type]" id="thirdPartyFireAndTheft" class="purpose-radio-input" value="TPFT"  >
                     <label for="thirdPartyFireAndTheft" class="purpose-radio-label">
                         <span class="label-text">Third Party Fire & Theft</span>
                     </label>
                 </div>
                 <div class="col-lg-3 col-md-4">
-                    <input type="radio" name="policy[cover_type]" id="thirdFarty" class="purpose-radio-input excess motor" value="Third Party" checked >
+                    <input type="radio" name="policy[cover_type]" id="thirdParty" class="purpose-radio-input excess motor" value="TP"  checked>
                     <label for="thirdParty" class="purpose-radio-label">
                         <span class="label-text">Third Party</span>
                     </label>

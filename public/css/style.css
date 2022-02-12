@@ -1112,7 +1112,7 @@ select option[value=""][disabled] {
 }
 
 .steps ul.motor-policy-step-4:after {
-    content: "Other Information";
+    content: "Policy Options";
 }
 
 .steps ul.motor-policy-step-5:after {

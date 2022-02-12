@@ -1,4 +1,4 @@
-<div class="col-lg-8 offset-lg-2 form-card card shadow">
+<div class="col-lg-10 offset-lg-1 form-card card shadow">
     <form action="" id="motor-policy-form">
         <div id="motor-policy-wizard">
         <!-- SECTION 1 -->
@@ -33,7 +33,7 @@
             <!-- SECTION 5 -->
             <h4></h4>
             <section class="row">
-                <?php include SHARED.'_other_details.php'; ?>
+                <?php include SHARED.'motor_policy_details.php'; ?>
             </section>
              <!-- SECTION 6 -->
             <h4></h4>

@@ -38,7 +38,7 @@
             "showTodayButton": true,
             "format": "DD-MM-YYYY",
             //"viewMode": 'years',
-            "maxDate": new Date(),
+            "maxDate": '01-01-2004',
 
         });
 
@@ -49,7 +49,7 @@
             "showTodayButton": true,
             "format": "YYYY",
             "viewMode": 'years',
-            "maxDate": new Date(),
+            
 
         });
     }
@@ -188,7 +188,7 @@
           yp.on("dp.change", function (e) {
         //$('.date-duration-expire').data("DateTimePicker").minDate(e.date);
         $("#reg-input").removeAttr("disabled");
-        $("#registration").datetimepicker({minDate: e.date, format: "YYYY"});
+        $("#registration").datetimepicker({minDate: e.date, format: "YYYY", setValue: e.date});
     });
     });
 
@@ -209,17 +209,12 @@
 
    //Similar to addItem function only it also checks for a value in input befor running. It renders only once
     function appear(inputId, formval, itemType, count=null) {
-        console.log(inputId, formval, itemType);
-               
         $id = $("#" + inputId)
-        
         if ($id.val() == formval) {
-            
             url = '<?= _link('add-item&itemType=')?>'+itemType+'&count='+count
             content = $.post(url, function(data){
                 $('#' + itemType+'_'+count).append(data)
             })
-            
         }else{
             $('#' + itemType+'_'+count).html('')
         }
