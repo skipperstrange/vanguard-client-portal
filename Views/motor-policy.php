@@ -36,11 +36,17 @@
                 <?php include SHARED.'motor_policy_details.php'; ?>
             </section>
              <!-- SECTION 6 -->
-            <h4></h4>
+             <h4></h4>
             <section>
                 <div id="summary" class="col-sm-12 clear-fix clearfix">
                     
                 </div>
+            </section>
+
+             <!-- SECTION 7 -->
+             <h4></h4>
+            <section class="row">
+                <?php include SHARED.'motor_policy_declaration.php'; ?>
             </section>
         </div>
     </form>

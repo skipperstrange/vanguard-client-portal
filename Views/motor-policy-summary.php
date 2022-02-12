@@ -25,9 +25,11 @@
            include SHARED.'_summary_rows.php'
         ?>
         <?php
-           $data = $witnesses;
-           $data_title = "Witnesses";
-           $controlId = 'witnesses';
+        $data = null;
+        
+           $data []= $vuseage;
+           $data_title = "Vehicle Usage";
+           $controlId = 'vehicle_usage';
            include SHARED.'_summary_rows.php'
            ?>
         

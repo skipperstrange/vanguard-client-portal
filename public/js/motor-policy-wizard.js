@@ -84,6 +84,22 @@ $(function() {
                     $('.steps ul').removeClass('motor-policy-step-5');
                     // $('.actions ul').removeClass('motor-step-last');
                 }
+
+                if (newIndex === 6) {
+                    console.log($('#fullname').val())
+                    $('span#signed').append($('#fullname').val())
+                    console.log( $('#signed'))
+                    
+                    if (motorForm.valid()) {
+                        $('.steps ul').addClass('motor-policy-step-6');
+                        // $('.actions ul').addClass('motor-step-last');
+                    } else {
+                        return false
+                    }
+                } else {
+                    $('.steps ul').removeClass('motor-policy-step-6');
+                    // $('.actions ul').removeClass('motor-step-last');
+                }
                 return true;
             },
             onFinishing: function(event, currentIndex, newIndex){

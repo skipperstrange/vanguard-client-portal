@@ -21,7 +21,7 @@
                 </div>
             
                 <div class="form-group col-lg-7 col-md-6" id="usage_box ">
-                            <select class="selectpicker form-control" id="vuseage" data-style="btn-info" name="vehicle_usage[usage_type_id]">
+                            <select class="selectpicker form-control" id="vuseage" data-style="btn-info" name="vehicle_usage[useage_type_id]">
                                   
                             </select>
               </div>
@@ -108,8 +108,6 @@
                         toggleVusage(itemType, cat)
 
                        $('.usage').on('change', (e)=>{
-                           console.log((e))
-                           console.log((e.target.id))
                            cat = e.target.id
                            toggleVusage(itemType, cat)
                            
@@ -119,7 +117,6 @@
                     function toggleVusage(itemType, cat){
                         url = '<?= _link('add-item&itemType=')?>'+itemType+"&cat="+cat
                             content = $.post(url, function(data){
-                                console.log(data)
                                 $('select#vuseage').html('')
                                 $('select#vuseage').append(data)
                             })

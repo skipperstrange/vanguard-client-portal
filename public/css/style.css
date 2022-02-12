@@ -1120,7 +1120,7 @@ select option[value=""][disabled] {
 }
 
 .steps ul.motor-policy-step-6:after {
-    content: "Terms and Conditions";
+    content: "Declaration";
 }
 
 .form-row {
@@ -1556,4 +1556,9 @@ textarea.form-control {
     color: var(--danger);
     border-color: var(--danger);
     font-size: 80%;
+}
+
+.declaration {
+    font-size: .9rem;
+    margin: 1rem auto;
 }

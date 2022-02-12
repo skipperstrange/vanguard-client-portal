@@ -2,7 +2,6 @@
     include_once STATIC_DATA.'cover_types.php';
     include_once STATIC_DATA.'proposer_types.php';
     include_once STATIC_DATA.'id_types.php';
-
 ?>            
             <div class="form-group col-lg-6 col-md-6">
                             <input type="text" id="fullname"  name="proposer[fullname]" class="form-control" placeholder="Full Name Of Proposer *" value="" />
