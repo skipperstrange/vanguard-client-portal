@@ -20,6 +20,7 @@ $(function() {
                 console.log(currentIndex, newIndex);
 
                 if (newIndex === 1) {
+                    
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-1');
 
@@ -27,6 +28,7 @@ $(function() {
                         $('.steps ul').removeClass('motor-policy-step-1');
                         return false
                     }
+                   
                 }
 
                 if (newIndex === 2) {
@@ -101,6 +103,9 @@ $(function() {
                     // $('.actions ul').removeClass('motor-step-last');
                 }
                 return true;
+            },
+            onFinishing: function (event, currentIndex){
+                console.log("finishing on frame+currentIndex");
             },
             onFinishing: function(event, currentIndex, newIndex){
                 console.log(event, currentIndex, newIndex)

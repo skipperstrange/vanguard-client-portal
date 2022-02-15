@@ -17,16 +17,15 @@ person who, to my/our knowledge; has been refused any motor vehicle/cycle insura
         policy, as a result of any material fact being misrepresented to us or withheld by you. 
         </strong>
 
-        <br />
-    <br />
-    Signed: <span id="signed"></span>
     </div>
 </div>
 
-<div class="form-group  col-md-2 offset-md-9">
-    <label for="aggreeDeclare" class="purpose-radio-label">
+<div class="form-group  col-lg-2 offset-lg-1">
+    Signed: <span id="signed"></span>
+</div>
+<div class="form-group  col-lg-2 offset-lg-6">
+    <label for="agreeDeclare" class="purpose-radio-label">
         <span class="label-text">I Agree</span>
     </label>
-    <input type="checkbox" name="aggreeDeclare" id="aggreeDeclare" class="purpose-radio-input agree" value="" >
-    
+    <input type="checkbox" name="agreeDeclare" id="agreeDeclare" class="purpose-radio-input agree" value="" >
 </div>

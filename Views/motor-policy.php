@@ -33,7 +33,7 @@
             <!-- SECTION 5 -->
             <h4></h4>
             <section class="row">
-                <?php include SHARED.'motor_policy_details.php'; ?>
+                <?php include SHARED.'motor_policy_options.php'; ?>
             </section>
              <!-- SECTION 6 -->
              <h4></h4>

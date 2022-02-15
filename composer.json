@@ -1,7 +1,8 @@
 {
     "require": {
         "illuminate/database": "~5.7",
-        "doctrine/mongodb-odm": "^2.3"
+        "doctrine/mongodb-odm": "^2.3",
+        "phpmailer/phpmailer": "^6.5"
     },
     "autoload": {
         "psr-4": {
@@ -12,7 +13,7 @@
         "classmap": ["lib/classes/"],
         "files": [        
             "lib/config/config.php",
-            "lib/config/constants.heroku.php",
+            "lib/config/constants.php",
             "lib/config/client-info.php",
             "lib/config/db.php",
             "lib/functions/sysfunctions.php",

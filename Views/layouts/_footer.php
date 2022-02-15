@@ -22,12 +22,50 @@
             </div>
         </div>
     </footer>
+    <?php require_once SHARED.'_modal.php'; ?>
 
 <script src="<?= JS_PATH ?>main.js"></script>
 
 <script src="<?= JS_PATH ?>helperfunctions.js"></script>
 
 <script>
+
+    casualtyCount = 0;
+    casualtyMotorClaimCount = 0;
+    witnessCount = 0;
+    assetsCount = 0;
+    vehicleCount = 0;
+    witnessMotorClaimCount = 0;
+    policeDetailsCount = 0;
+    
+    vehicleUsage = $(".usage")
+    vehicleRegistrationYear = $("#reg-input")
+    bodyColor = $('.body_color')
+
+    date = new Date()
+    legalAge = -(date.getFullYear() - 18)
+
+    console.log(legalAge)
+    console.log(date)
+
+    function setProposerFields(proposerType){
+        
+        template = ''
+        if(proposerType == 'agent' || proposerType == 'broker'){
+            template = ' <h4 class="ab-info">'+proposerType+' details</h4>'
+            template +=  '<div class="form-group col-lg-6 col-md-6">'
+            template +=  '<input type="text" id="fullname"  name="proposer[proposer_type_name]"  required class="form-control" placeholder="Full name of '+proposerType+' applying on client behalf *" value="" />'
+            template +=  '</div>'
+            template +=  '<div class="form-group col-lg-6 col-md-6">'
+            template +=  '<input type="text" id="fullname"  name="proposer[proposer_type_email]" required class="form-control" placeholder="Email of '+proposerType+'." value="" />'
+            template +=  '</div>'
+        }
+        $('#agent-broker').html('')
+        $('#agent-broker').append(template)
+
+        
+    }
+
     function initDateInputs() {
         dp = $('.date')
         yp = $('.date-year')
@@ -38,7 +76,6 @@
             "showTodayButton": true,
             "format": "DD-MM-YYYY",
             //"viewMode": 'years',
-            "maxDate": '01-01-2004',
 
         });
 
@@ -49,25 +86,12 @@
             "showTodayButton": true,
             "format": "YYYY",
             "viewMode": 'years',
-            
-
         });
     }
 
     function initColorPicker() {
         $('.body_color').colorpicker();
     }
-
-
-
-    casualtyCount = 0;
-    casualtyMotorClaimCount = 0;
-    witnessCount = 0;
-    assetsCount = 0;
-    vehicleCount = 0;
-    witnessMotorClaimCount = 0;
-    policeDetailsCount = 0;
-
 
     //item type can be one of these
     function addItem(itemType) {
@@ -115,7 +139,7 @@
                 initDateInputs();
             }
             if (initColorPicker === true) {
-                $('.body_color').colorpicker();
+               bodyColor.colorpicker();
             }
             if ($('#' + resetId).length) {
 
@@ -172,8 +196,9 @@
     $(function() {
         initDateInputs();
         initColorPicker();
+        
 
-        $(".usage").change(function() {
+        vehicleUsage.change(()=> {
             var option = $(this).val();
             var target = $(this).attr('data-target');
             if (option == 'commercial') {
@@ -185,11 +210,11 @@
             }
         })
 
-          yp.on("dp.change", function (e) {
+          yp.on("dp.change", (e) => {
         //$('.date-duration-expire').data("DateTimePicker").minDate(e.date);
-        $("#reg-input").removeAttr("disabled");
+        vehicleRegistrationYear.removeAttr("disabled");
         $("#registration").datetimepicker({minDate: e.date, format: "YYYY", setValue: e.date});
-    });
+        });
     });
 
     function toggleDataTable(tableId){
@@ -220,6 +245,7 @@
         }
     }
 </script>
+
 
 </body>
 

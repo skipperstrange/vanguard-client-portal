@@ -1,5 +1,6 @@
 <?php
     include_once STATIC_DATA.'branches.php';
+    include_once STATIC_DATA.'currencies.php';
 ?>
             <div class="form-group col-lg-6 col-md-6">
                 <select class="form-control"  name="policy[branch_id]" id="branches">
@@ -16,7 +17,7 @@
 
 
             <div class="form-group col-lg-6 col-md-6">
-              <input type="text" id="tppd"  name="policy[tppd]" class="form-control" placeholder="Extra TPPD" value="" />
+              <input type="text" id="tppd" name="policy[tppd]" class="form-control" placeholder="Extra TPPD" value="" />
             </div>
 
             <!-- Duration -->
@@ -35,7 +36,33 @@
                 <div class="date-duration-start" >
                     <input type="text" name="policy[start]" placeholder="Date of commence" data-date-end-date="0d" title="Start date" data-target="date-duration-start" class="form-control date-duration-start"/>
                 </div>
-            </div> 
+            </div>
+
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12"><label for="cover_type">Currency </label></div>
+                </div>
+                <div class="row form-group">
+                    <?php
+                    $grid = 9;
+                    $each_column = $grid/count($currencies);
+                    foreach($currencies as $currency_code => $currency){
+                        ?>
+                            <div class="col-lg-<?= $each_column ?> col-md-<?= $each_column ?>">
+                                <input type="radio" name="policy[currency]" id="currency<?= $currency['name'] ?>" class="purpose-radio-input" value="<?= $currency_code ?>" >
+                                <label for="<?= strtolower($currency['name']) ?>" class="purpose-radio-label">
+                                    <span class="label-text"><?= ucfirst(strtolower($currency['name'])) ?> (<?= $currency['symbol']?>)</span>
+                                    </label>
+                            </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <span id="agent-broker" style="width:100%">
+            
+            </span>
             
             <script>
                 policyStart = $('.date-duration-start')
@@ -55,6 +82,5 @@
                             up: "fa fa-arrow-up",
                             down: "fa fa-arrow-down"
                         }
-                        
                 });
             </script>

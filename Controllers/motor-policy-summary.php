@@ -25,7 +25,7 @@ $proposer_details['fullname'] = $proposer['fullname'];
 $proposer_details['dob'] = $proposer['dob'];
 $proposer_details["$proposer[id_type]"] = $proposer['id_number'];
 $proposer_details['occupation'] = $proposer['occupation'];
-$proposer_details['proposer_type'] = $proposer['proposer_type'];
+$proposer_details['proposer_type'] = $policy['proposer_type'];
 
 
 $proposer_contacts['address']= $proposer['postal_address'];

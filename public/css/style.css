@@ -1562,3 +1562,8 @@ textarea.form-control {
     font-size: .9rem;
     margin: 1rem auto;
 }
+
+.ab-info{
+    text-transform:capitalize;
+    margin: 2rem;
+}

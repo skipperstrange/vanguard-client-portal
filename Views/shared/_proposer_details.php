@@ -7,7 +7,7 @@
                             <input type="text" id="fullname"  name="proposer[fullname]" class="form-control" placeholder="Full Name Of Proposer *" value="" />
             </div>
             <div class="form-group col-lg-6 col-md-6">
-                    <select class="form-control"  name="policy[proposer_type]">
+                    <select class="form-control"  name="policy[proposer_type]" onchange="setProposerFields(this.value)" id="propserTYpe">
                         <option title="Proposer Type">Select Proposer Type</option>
                         <?php 
                             foreach($proposer_types as $type){
@@ -26,7 +26,7 @@
             </div>
             <div class="form-group col-lg-5 col-md-6">
             <div class="input-group date" id="id_0">
-                    <input type="text" id="dob"  name="proposer[dob]"  placeholder="Date of Birth/Incorporation" title="" class="form-control" />
+                    <input type="text" id="dob"  name="proposer[dob]" value=""  placeholder="Date of Birth/Incorporation" title="" class="form-control" />
                     <div class="input-group-addon input-group-append">
                         <div class="input-group-text">
                             <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
