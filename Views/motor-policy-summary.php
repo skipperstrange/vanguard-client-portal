@@ -1,5 +1,11 @@
         <?php
-            $summary_columns["proposer_details"] = $proposer_details;
+
+            $summary_columns["proposer_details"] = $proposer_details_left;
+            $summary_columns[""] = $proposer_details_right;
+            include SHARED.'_summary_columns.php';
+
+            $summary_columns=null;
+            $summary_columns["Insurer_details"] = $insurer_details;
             
             $summary_columns[''] = $proposer_contacts;
             include SHARED.'_summary_columns.php';
