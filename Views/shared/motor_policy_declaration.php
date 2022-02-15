@@ -16,7 +16,6 @@ person who, to my/our knowledge; has been refused any motor vehicle/cycle insura
         for the relevant policy document when this policy is issued to you. We reserve the right to invalidate this policy at anytime during the currency of this
         policy, as a result of any material fact being misrepresented to us or withheld by you. 
         </strong>
-
     </div>
 </div>
 
