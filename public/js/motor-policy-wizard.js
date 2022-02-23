@@ -66,16 +66,20 @@ $(function() {
                 }
 
                 if (newIndex === 5) {
+                    $('#agreeDeclare').prop('checked', false)
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-5');
                         try {
-                            $.post(apiUrls.motorProposalSummaryUrl, motorForm.serialize()).then(resp => {
+                            showOverlay()
+                            $.post(apiUrls.motorProposalSummaryUrl, motorForm.serialize(), resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
+                                hideOverlay()
                             })
-                           
+                            hideOverlay()
                         } catch (err) {
                             console.log(err)
+                            hideOverlay()
                         }
 
                         // $('.actions ul').addClass('motor-step-last');
@@ -88,10 +92,8 @@ $(function() {
                 }
 
                 if (newIndex === 6) {
-                    console.log($('#fullname').val())
+                    $('span#signed').html('')
                     $('span#signed').append($('#fullname').val())
-                    console.log( $('#signed'))
-                    
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-6');
                         // $('.actions ul').addClass('motor-step-last');
@@ -108,15 +110,65 @@ $(function() {
                 console.log("finishing on frame+currentIndex");
             },
             onFinishing: function(event, currentIndex, newIndex){
-                console.log(event, currentIndex, newIndex)
+                showOverlay()
                 
-                axios.post(apiUrls.applicationServerUrl+'portal/add-motorpolicy',  motorForm.serialize())
-                .then(data=>{
-                    console.log(data)
-                })
-                .catch(e=>{
-                    console.log(e)
-                })
+                $.get('?controller=motor_policy_declaration', data=>{
+                    
+                    bootbox.confirm({
+                        size: "large",
+                        className: '',
+                        title: "Declaration",
+                        message: data,
+                        buttons: {
+                            cancel: {
+                                label: '<i class="fa fa-times"></i> Cancel'
+                            },
+                            confirm: {
+                                label: '<i class="fa fa-check"></i> Accept'
+                            }
+                        },
+                        callback: function (result) {
+                            if(result == true){
+                                setTimeout(()=>{
+                                    /*
+                                        try{
+                                    showOverlay()
+                                        $.post('?controller=process-motor-policy', motorForm.serialize(),data=>{
+                                        axios.post(apiUrls.applicationServerUrl+'portal/add-motorpolicy/',  data.message)
+                                            .then(data=>{
+                                                hideOverlay()
+                                                console.log(data)
+                                            })
+                                            .catch(e=>{
+                                                hideOverlay()
+                                                console.log(e)
+                                            })
+                                        // hideOverlay()
+                                        })
+                                        .fail((e)=>{
+                                            hideOverlay()
+                                            console.log(e)
+                                        })
+                                    }
+                                    catch(e){
+                                        hideOverlay()
+                                        console.log(e)
+                                    }
+                                    */
+
+                                }, 1000)
+                            }
+
+                            if(result == false){
+                                console.log(result);
+                                hideOverlay()
+                            }
+                            
+                        }
+                    });
+
+                    $('.bootbox-accept').prop('disabled', true)
+                });
             },
             labels: {
                 finish: "Submit",

@@ -1,4 +1,4 @@
-<div class="form-group col-lg-10 col-md-10 offset-md-1">
+<div class="form-group col-lg-12 col-md-12">
     <div class="declaration">
     I/We warrant that the above statements and particulars completed by me/us or on my/our behalf, are true, correct and complete, and contain all information known
 to me/us as affecting the risk to be insured. I/We declare that no information has been withheld that might influence acceptance of the insurance, and I/We agree
@@ -19,12 +19,14 @@ person who, to my/our knowledge; has been refused any motor vehicle/cycle insura
     </div>
 </div>
 
-<div class="form-group  col-lg-2 offset-lg-1">
+<div class="row">
+<div class="form-group  col-lg-4">
     Signed: <span id="signed"></span>
 </div>
-<div class="form-group  col-lg-2 offset-lg-6">
+<div class="form-group  col-lg-2 offset-lg-3">
     <label for="agreeDeclare" class="purpose-radio-label">
         <span class="label-text">I Agree</span>
     </label>
-    <input type="checkbox" name="agreeDeclare" id="agreeDeclare" class="purpose-radio-input agree" value="" >
+    <input type="checkbox" name="agreeDeclare" id="agreeDeclare" onclick="toggleAgree('agreeDeclare', '.bootbox-accept')" class="purpose-radio-input agree" value="agree" >
+</div>
 </div>

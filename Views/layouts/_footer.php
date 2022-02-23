@@ -44,12 +44,27 @@
 
     date = new Date()
     legalAge = -(date.getFullYear() - 18)
+    defaultDoB =  date.getDay()+'-'+date.getMonth()+'-'+date.getFullYear()
+    console.log(defaultDoB)
+    function showOverlay(){
+        $('body').LoadingOverlay('show', {background: "rgba(0 , 0, 0, 0.7)", zIndex: 2, imageColor: "#ccc"})
+    }
 
-    console.log(legalAge)
-    console.log(date)
+    function hideOverlay(){
+        $('body').LoadingOverlay('hide')
+    }
+
+
+    function toggleAgree(checkbox_id, button){
+        checkbox = $("#"+checkbox_id)
+        checkboxState = checkbox.prop('checked')
+        continueButton = $(button)
+        continueState = !checkboxState
+        continueButton.prop('disabled', continueState)
+    }
 
     function setProposerFields(proposerType){
-        
+        showOverlay()
         template = ''
         if(proposerType == 'agent' || proposerType == 'broker'){
             template = ' <h4 class="ab-info">'+proposerType+' details</h4>'
@@ -62,8 +77,7 @@
         }
         $('#agent-broker').html('')
         $('#agent-broker').append(template)
-
-        
+        hideOverlay()
     }
 
     function initDateInputs() {
@@ -193,10 +207,11 @@
         console.log($('#' + classCheck).length)
     }
 
-    $(function() {
+
+        $(function() {
+        
         initDateInputs();
         initColorPicker();
-        
 
         vehicleUsage.change(()=> {
             var option = $(this).val();
@@ -218,7 +233,6 @@
     });
 
     function toggleDataTable(tableId){
-        console.log($('#'+tableId))
         tableData = $('#'+tableId);
         dataControl = $('#'+tableId+'_data_control')
         tableData.toggle(300, ()=>{

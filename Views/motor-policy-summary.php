@@ -33,7 +33,7 @@
         <?php
         $data = null;
         
-           $data []= $vuseage;
+           $data []= $vusage;
            $data_title = "Vehicle Usage";
            $controlId = 'vehicle_usage';
            include SHARED.'_summary_rows.php'

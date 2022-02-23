@@ -23,7 +23,7 @@
             <!-- Duration -->
             <div class="form-group col-lg-6 col-md-6">
                 <select class="form-control"  name="policy[policy_duration]">
-                        <option value="">Policy Duration</option>
+                        <option value="">Policy Duration *</option>
                         <option value="1">1 Month</option>
                         <option value="3">3 Months</option>
                         <option value="6">6 Months</option> 
@@ -40,7 +40,7 @@
 
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-lg-12"><label for="cover_type">Currency </label></div>
+                    <div class="col-lg-12"><label for="cover_type">Currency *</label></div>
                 </div>
                 <div class="row form-group">
                     <?php
@@ -49,7 +49,7 @@
                     foreach($currencies as $currency_code => $currency){
                         ?>
                             <div class="col-lg-<?= $each_column ?> col-md-<?= $each_column ?>">
-                                <input type="radio" name="policy[currency]" id="currency<?= $currency['name'] ?>" class="purpose-radio-input" value="<?= $currency_code ?>" >
+                                <input type="radio" name="policy[currency]" id="currency<?= $currency['name'] ?>" class="purpose-radio-input" value="<?= $currency_code ?>" <?php if($currency_code == 0) echo "checked"; ?>>
                                 <label for="<?= strtolower($currency['name']) ?>" class="purpose-radio-label">
                                     <span class="label-text"><?= ucfirst(strtolower($currency['name'])) ?> (<?= $currency['symbol']?>)</span>
                                     </label>

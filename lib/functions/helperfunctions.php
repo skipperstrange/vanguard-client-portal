@@ -116,3 +116,64 @@ function json_response($message = null, $code = 200, $headers = [''])
         'message' => $message
         ));
 }
+
+//checks if post or get value is not null
+ /**
+ * Check for get post in requests
+ * @param string 'post' or 'get', 'p' or 'g'
+ * @param string optional key  $key
+ * @return bool true or false
+ */
+function check_post_get($post_or_get, $key = null, $value = null){
+    if(trim($post_or_get) == 'get' || trim($post_or_get) == 'g'){
+        if(isset($_GET[$key]) && trim($_GET[$key]) != ''){
+            if(trim($value) != ''){
+                if(trim($_GET[$key]) == "$value"){
+                    return true;
+                }
+                return false;
+            }
+                return true;
+            }
+    }
+    if(trim($post_or_get) == 'post' || trim($post_or_get) == 'p'){
+        if(isset($_POST[$key]) && trim($_POST[$key]) != ''){
+            if(trim($value) != ''){
+                if(trim($_POST[$key]) == "$value"){
+                    return true;
+                }
+                return false;
+            }
+                return true;
+            }
+    }
+    return false;
+}
+
+function post_get($post_or_get, $key = null, $value = null){
+    if(trim($post_or_get) == 'get' || trim($post_or_get) == 'g'){
+        if(trim($post_or_get) == 'get' || trim($post_or_get) == 'g'){
+            return $_GET[$key];
+        }
+    }
+    if(check_post_get($post_or_get) == 'post' || trim($post_or_get) == 'p'){
+        if(trim($post_or_get) == 'post' || trim($post_or_get) == 'p'){
+            return $_POST[$key];
+        }
+    }
+}
+
+function remove_empty_order($arr)
+{
+	$arr = array_filter($arr);
+	$newMy = array();
+	foreach($arr as $key => $value) {
+		if(!is_null($value)) {
+			$newMy[] = $value;
+		}
+	}
+	return $newMy;
+}
+
+
+

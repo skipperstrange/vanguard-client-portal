@@ -4,11 +4,13 @@
     include_once STATIC_DATA.'id_types.php';
 ?>            
             <div class="form-group col-lg-6 col-md-6">
+                <span class="has-float-label">
                             <input type="text" id="fullname"  name="proposer[fullname]" class="form-control" placeholder="Full Name Of Proposer *" value="" />
+                </span>
             </div>
             <div class="form-group col-lg-6 col-md-6">
                     <select class="form-control"  name="policy[proposer_type]" onchange="setProposerFields(this.value)" id="propserTYpe">
-                        <option title="Proposer Type">Select Proposer Type</option>
+                        <option title="Proposer Type" value="">Select Proposer Type</option>
                         <?php 
                             foreach($proposer_types as $type){
                         ?>
