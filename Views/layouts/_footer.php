@@ -44,7 +44,7 @@
 
     date = new Date()
     legalAge = -(date.getFullYear() - 18)
-    defaultDoB =  date.getDay()+'-'+date.getMonth()+'-'+date.getFullYear()
+    defaultDoB =  date.getDay()+'-'+date.getMonth()+'-'+(date.getFullYear() - legalAge)
     console.log(defaultDoB)
     function showOverlay(){
         $('body').LoadingOverlay('show', {background: "rgba(0 , 0, 0, 0.7)", zIndex: 2, imageColor: "#ccc"})
@@ -246,6 +246,15 @@
         })
    }
 
+   function defaultErrorModal(e){
+    hideOverlay()
+    bootbox.alert({
+    title: '<i class="fa fa-close" style="#f35b35"></i> Something went wrong !!',
+    message: " <p> Please try again later </p>.",
+        })
+   }
+   
+   
    //Similar to addItem function only it also checks for a value in input befor running. It renders only once
     function appear(inputId, formval, itemType, count=null) {
         $id = $("#" + inputId)

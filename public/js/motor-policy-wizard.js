@@ -130,31 +130,37 @@ $(function() {
                         callback: function (result) {
                             if(result == true){
                                 setTimeout(()=>{
-                                    /*
+                                    
                                         try{
                                     showOverlay()
-                                        $.post('?controller=process-motor-policy', motorForm.serialize(),data=>{
+                                        $.post('?controller=process-motor-policy', motorForm.serialize()+'&agreeDeclare=agree',data=>{
+                                            //edited below line to produce error. edit: url
                                         axios.post(apiUrls.applicationServerUrl+'portal/add-motorpolicy/',  data.message)
                                             .then(data=>{
                                                 hideOverlay()
                                                 console.log(data)
-                                            })
+                                                bootbox.alert({
+                                                        title: '<i class="fa fa-check" style="#f35b35"></i> Submitted',
+                                                        message: " <p> Thank You for submitting. Our agents will call you shortly to proceed with the process.</p>.",
+                                                        })
+                                                        
+                                                        hideOverlay()
+                                                    })
                                             .catch(e=>{
+                                                defaultErrorModal()
                                                 hideOverlay()
-                                                console.log(e)
-                                            })
-                                        // hideOverlay()
+                                                })
                                         })
                                         .fail((e)=>{
-                                            hideOverlay()
-                                            console.log(e)
+                                            defaultErrorModal()
+                                                hideOverlay()
                                         })
                                     }
                                     catch(e){
+                                        defaultErrorModal()
                                         hideOverlay()
-                                        console.log(e)
                                     }
-                                    */
+                                    
 
                                 }, 1000)
                             }
