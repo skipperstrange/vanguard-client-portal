@@ -8,6 +8,13 @@ if ( ! file_exists($file = __DIR__.'/vendor/autoload.php')) {
     throw new RuntimeException('Install dependencies to run this script.');
 }
 include_once "vendor/autoload.php";
+//Load symphny libraries to be used by app
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception; 
+
+$_mailer =  new PHPMailer();
+$_mailerException =  new Exception();
+
 
 if(MODE == 'development'){
     ini_set('display_errors',1);

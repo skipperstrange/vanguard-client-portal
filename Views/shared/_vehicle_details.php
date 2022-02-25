@@ -21,7 +21,7 @@
                 </div>
 
              <div class="form-group col-lg-6 col-md-6">
-              <input type="number" id="seats"  name="vehicle[seats]" class="form-control" placeholder="Seat No. *" value="" />
+              <input type="number" id="seats" required name="vehicle[seats]" class="form-control" placeholder="Seat No. *" value="" />
             </div>
 
           <?php include SHARED. '_vehicle_information.php'?>

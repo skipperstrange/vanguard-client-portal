@@ -8,7 +8,7 @@
         "psr-4": {
             "ClientPortal\\": "./",
             "Classes\\": "./lib/classes/",
-            "Models\\": "./lModels/"
+            "Models\\": "./Models/"
         },
         "classmap": ["lib/classes/"],
         "files": [        

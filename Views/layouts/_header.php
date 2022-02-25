@@ -36,11 +36,31 @@
     <script src="<?= JS_PATH ?>bootstrap-colorpicker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
-    
-   
-    
-
     <title><?= _title($pageTitle) ?></title>
+    <style>
+            /* force apply styling to selects */
+    select.selectpicker {
+    padding: 13px 25px;
+    min-height: 50px;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 4px;
+    border: solid 1px #ececec;
+    }
+
+    /* remove arrows from number fields*/
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+    </style>
 </head>
 
 <body>

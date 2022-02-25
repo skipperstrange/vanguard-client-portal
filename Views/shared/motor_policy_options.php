@@ -17,12 +17,12 @@
 
 
             <div class="form-group col-lg-6 col-md-6">
-              <input type="text" id="tppd" name="policy[tppd]" class="form-control" placeholder="Extra TPPD" value="" />
+              <input type="text" id="tppd" name="policy[tppd]" class="form-control" placeholder="Extra TPPD ( default 0)" value="" />
             </div>
 
             <!-- Duration -->
             <div class="form-group col-lg-6 col-md-6">
-                <select class="form-control"  name="policy[policy_duration]">
+                <select required class="form-control"  name="policy[policy_duration]">
                         <option value="">Policy Duration *</option>
                         <option value="1">1 Month</option>
                         <option value="3">3 Months</option>
@@ -33,8 +33,8 @@
 
             <!-- Start date -->
             <div class="form-group col-lg-6 col-md-6">
-                <div class="date-duration-start" >
-                    <input type="text" name="policy[start]" placeholder="Date of commence" data-date-end-date="0d" title="Start date" data-target="date-duration-start" class="form-control date-duration-start"/>
+                <div class="" >
+                    <input type="text" required name="policy[start]" title="Date expected to start your insurance cover" placeholder="Date of commence *" data-date-end-date="0d" title="Start date" data-target="date-duration-start" class="form-control date-duration-start"/>
                 </div>
             </div>
 

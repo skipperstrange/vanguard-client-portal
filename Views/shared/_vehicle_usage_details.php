@@ -21,7 +21,7 @@
                 </div>
             
                 <div class="form-group col-lg-7 col-md-6" id="usage_box ">
-                            <select class="selectpicker form-control" id="vuseage" data-style="btn-info" name="vehicle_usage[useage_type_id]">
+                            <select required class="selectpicker form-control" id="vuseage" data-style="btn-info" name="vehicle_usage[useage_type_id]">
                                   
                             </select>
               </div>
