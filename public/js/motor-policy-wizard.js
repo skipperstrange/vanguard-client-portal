@@ -16,11 +16,16 @@ $(function() {
             transitionEffectSpeed: 500,
 
             onStepChanging: function(event, currentIndex, newIndex) {
+                showOverlay();
                 motorForm.validate().settings.ignore = ":disabled,:hidden";
                 console.log(currentIndex, newIndex);
 
+                if (newIndex === 0) {
+                    hideOverlay()
+                }
+
                 if (newIndex === 1) {
-                    
+                    hideOverlay()
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-1');
 
@@ -32,6 +37,7 @@ $(function() {
                 }
 
                 if (newIndex === 2) {
+                    hideOverlay()
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-2');
                     } else {
@@ -42,6 +48,7 @@ $(function() {
                 }
 
                 if (newIndex === 3) {
+                    hideOverlay()
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-3');
                         //  $('.actions ul').addClass('motor-policy-step-last');
@@ -54,6 +61,7 @@ $(function() {
                 }
 
                 if (newIndex === 4) {
+                    hideOverlay()
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-4');
                         // $('.actions ul').addClass('motor-step-last');
@@ -66,6 +74,7 @@ $(function() {
                 }
 
                 if (newIndex === 5) {
+                    hideOverlay()
                     $('#agreeDeclare').prop('checked', false)
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-5');
@@ -92,6 +101,7 @@ $(function() {
                 }
 
                 if (newIndex === 6) {
+                    hideOverlay()
                     $('span#signed').html('')
                     $('span#signed').append($('#fullname').val())
                     if (motorForm.valid()) {
@@ -107,7 +117,7 @@ $(function() {
                 return true;
             },
             onFinishing: function (event, currentIndex){
-                console.log("finishing on frame+currentIndex");
+                console.log("finishing on frame "+currentIndex);
             },
             onFinishing: function(event, currentIndex, newIndex){
                 showOverlay()

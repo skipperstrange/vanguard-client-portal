@@ -1,4 +1,12 @@
-        <?php
+<?php
+            $printDivId = "summary";
+            $printTitle  = "Motor Proposal Summary";
+            include SHARED.'_print_buttons.php';
+
+            echo "<hr />";
+            
+            $letter_header_title  = $printTitle;
+            include SHARED.'_letter_header_template.php';
 
             $summary_columns["proposer_details"] = $proposer_details_left;
             $summary_columns[""] = $proposer_details_right;
@@ -16,26 +24,26 @@
             $summary_columns[''] = $proposer_policy_options_right;
             include SHARED.'_summary_columns.php';
 
-        ?>
-        <?php 
+?>
+<?php 
            $data[] = $insurance_history;
            $data_title = "Insurance History";
            $controlId = 'insurance_history';
            include SHARED.'_summary_rows.php'
-        ?>
-        <?php
+?>
+<?php
         $data = null;
            $data[] = $vehicle_details;
            $controlId = 'assets';
            $data_title = "Vehicle Details";
            include SHARED.'_summary_rows.php'
-        ?>
-        <?php
+?>
+<?php
         $data = null;
         
            $data []= $vusage;
            $data_title = "Vehicle Usage";
            $controlId = 'vehicle_usage';
            include SHARED.'_summary_rows.php'
-           ?>
-        
+?>
+        <hr />

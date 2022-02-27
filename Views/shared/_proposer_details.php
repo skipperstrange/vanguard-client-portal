@@ -27,7 +27,7 @@
                             <input type="text" id="digitalAddress"  name="proposer[digital_address]" class="form-control" title="Digital Address" placeholder="Digital Address" value="" />
             </div>
             <div class="form-group col-lg-5 col-md-6">
-                    <input required type="text" id="dob"  name="proposer[dob]" value=""  title="Date of Birth" placeholder="Date of Birth/Incorporation" title="" class="form-control input-group date" />
+                    <input required type="text" id="dob"  name="proposer[dob]" value=""  title="Date of Birth" placeholder="Date of Birth/Incorporation" title="" class="form-control input-group date dob" />
             </div>
             <div class="form-group col-lg-7 col-md-6">
                             <input type="text" id="occupation"  name="proposer[occupation]" class="form-control" title="Occupation"  placeholder="Occupation *" value="" />

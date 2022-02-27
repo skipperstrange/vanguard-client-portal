@@ -1,19 +1,4 @@
-function initDateInputs() {
-    $('.date').datetimepicker({
-        "allowInputToggle": true,
-        "showClose": true,
-        "showClear": true,
-        "showTodayButton": true,
-        "format": "MM/DD/YYYY",
-        "viewMode": 'years',
-    });
-}
-
-function initColorPicker() {
-    $('.body_color').colorpicker();
-}
-
-
+//Variables used throughout app
 
 casualtyCount = 0;
 casualtyMotorClaimCount = 0;
@@ -22,6 +7,100 @@ assetsCount = 0;
 vehicleCount = 0;
 witnessMotorClaimCount = 0;
 policeDetailsCount = 0;
+
+vehicleUsage = $(".usage")
+vehicleRegistrationYear = $("#reg-input")
+bodyColor = $('.body_color')
+
+legalAge = 18  
+var year  = new Date().getFullYear();
+var month = new Date().getMonth();
+var day   = new Date().getDate();
+
+var currentDate = new Date(year, month, day);
+var defaultDoB  = new Date(year - 18, month, day);
+console.log(day, month,)
+
+
+//specific functions for manipulating particular date fieldset
+function initDateInputs() {
+    dp = $('.date')
+    yp = $('.date-year')
+    manufactureDate = $('#manufacture')
+    reg = $('#registration')
+    
+    dp.datetimepicker({
+        "allowInputToggle": true,
+        "showClose": true,
+        "showClear": true,
+        "showTodayButton": true,
+        "format": "DD-MM-YYYY",
+        "maxDate": defaultDoB,
+        "date": null
+
+    });
+
+    manufactureDate.datetimepicker({
+        "allowInputToggle": true,
+        "showClose": true,
+        "showClear": true,
+        "showTodayButton": true,
+        "format": "YYYY",
+        "viewMode": 'years',
+        "maxDate":currentDate,
+        "date": null
+    });
+
+    reg.datetimepicker({
+        "allowInputToggle": true,
+        "showClose": true,
+        "showClear": true,
+        "showTodayButton": true,
+        "format": "YYYY",
+        "viewMode": 'years',
+    })
+
+    manufactureDate.on('dp.change', function(e){
+        d = manufactureDate.val()
+        console.log('date is: '+d)
+        if(d === null || d == ''){
+            minDate = currentDate
+            reg.prop('disabled', true)
+            reg.data("DateTimePicker")
+            .date(null)
+        }else{
+            minDate = d
+            reg.prop('disabled', false)
+            reg.data("DateTimePicker")
+            .date(d)
+            .minDate(minDate)
+            .maxDate(currentDate)
+        }
+      });
+}
+
+
+//General app functions
+
+function showOverlay(){
+    $('body').LoadingOverlay('show', {background: "rgba(0 , 0, 0, 0.7)", zIndex: 2, imageColor: "#ccc"})
+}
+
+function hideOverlay(){
+    $('body').LoadingOverlay('hide')
+}
+
+function toggleAgree(checkbox_id, button){
+    checkbox = $("#"+checkbox_id)
+    checkboxState = checkbox.prop('checked')
+    continueButton = $(button)
+    continueState = !checkboxState
+    continueButton.prop('disabled', continueState)
+}
+
+function initColorPicker() {
+    $('.body_color').colorpicker();
+}
 
 
 //item type can be one of these
@@ -124,22 +203,7 @@ function removeItem(itemId, classCheck) {
     console.log($('#' + classCheck).length)
 }
 
-$(function() {
-    initDateInputs();
-    initColorPicker();
 
-    $(".usage").change(function() {
-        var option = $(this).val();
-        var target = $(this).attr('data-target');
-        if (option == 'commercial') {
-            $('#' + target).show('slow');
-        }
-
-        if (option == 'private') {
-            $('#' + target).hide('slow');
-        }
-    })
-});
 
 // I'm experimenting on this
 function appear(inputId, formval, itemType, count=null) {

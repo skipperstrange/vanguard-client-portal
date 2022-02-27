@@ -1,5 +1,5 @@
 <?php if(count($data) > 0): ?>
-<div class="table-responsive d-print-none mb-3">
+<div class="table-responsive mb-3">
       <table class="table table-bordered table-sm">
       <thead class="card-header">
           <tr>

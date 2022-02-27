@@ -22,7 +22,7 @@
 </div>
 
 <div class="form-group col-lg-6 ">
-        <input type="text" name="vehicle[year_of_reg]" id="reg-input" title="Year of registration" placeholder="Year of registration" title="" class="form-control date-year"  id="registration"/>
+        <input type="text" name="vehicle[year_of_reg]" required disabled="true" title="Year of registration" placeholder="Year of registration" title="" class="form-control date-year"  id="registration"/>
 </div>
 
 

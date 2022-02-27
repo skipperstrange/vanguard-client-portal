@@ -30,38 +30,6 @@
 
 <script>
 
-    casualtyCount = 0;
-    casualtyMotorClaimCount = 0;
-    witnessCount = 0;
-    assetsCount = 0;
-    vehicleCount = 0;
-    witnessMotorClaimCount = 0;
-    policeDetailsCount = 0;
-    
-    vehicleUsage = $(".usage")
-    vehicleRegistrationYear = $("#reg-input")
-    bodyColor = $('.body_color')
-
-    date = new Date()
-    legalAge = -(date.getFullYear() - 18)
-    defaultDoB =  date.getDay()+'-'+date.getMonth()+'-'+(date.getFullYear() - legalAge)
-    console.log(defaultDoB)
-    function showOverlay(){
-        $('body').LoadingOverlay('show', {background: "rgba(0 , 0, 0, 0.7)", zIndex: 2, imageColor: "#ccc"})
-    }
-
-    function hideOverlay(){
-        $('body').LoadingOverlay('hide')
-    }
-
-
-    function toggleAgree(checkbox_id, button){
-        checkbox = $("#"+checkbox_id)
-        checkboxState = checkbox.prop('checked')
-        continueButton = $(button)
-        continueState = !checkboxState
-        continueButton.prop('disabled', continueState)
-    }
 
     function setProposerFields(proposerType){
         showOverlay()
@@ -80,28 +48,7 @@
         hideOverlay()
     }
 
-    function initDateInputs() {
-        dp = $('.date')
-        yp = $('.date-year')
-        dp.datetimepicker({
-            "allowInputToggle": true,
-            "showClose": true,
-            "showClear": true,
-            "showTodayButton": true,
-            "format": "DD-MM-YYYY",
-            //"viewMode": 'years',
 
-        });
-
-        yp.datetimepicker({
-            "allowInputToggle": true,
-            "showClose": true,
-            "showClear": true,
-            "showTodayButton": true,
-            "format": "YYYY",
-            "viewMode": 'years',
-        });
-    }
 
     function initColorPicker() {
         $('.body_color').colorpicker();
@@ -208,6 +155,7 @@
     }
 
 
+    
         $(function() {
         
         initDateInputs();
@@ -268,8 +216,6 @@
         }
     }
 </script>
-
-
 </body>
 
 </html>
