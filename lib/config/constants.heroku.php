@@ -65,4 +65,5 @@ define('LAYOUTS', VIEWS.DS.'layouts'.DS);
 //ResourcesURL
 define('CSS_PATH',  WEB_URL.'public' . DS . 'css' . DS);
 define('JS_PATH',  WEB_URL.'public' . DS . 'js' . DS);
+define('IMAGES_URL', WEB_URL . 'public' . DS . 'images' . DS);
 define('FONT_URL', WEB_URL.'public' . DS . 'fonts' . DS);
