@@ -21,6 +21,15 @@ var currentDate = new Date(year, month, day);
 var defaultDoB  = new Date(year - 18, month, day);
 console.log(day, month,)
 
+//Geneic functions
+function defaultErrorModal(e){
+    hideOverlay()
+    bootbox.alert({
+    title: '<i class="fa fa-close" style="#f35b35"></i> Something went wrong !!',
+    message: " <p> Please try again later </p>.",
+        })
+   }
+
 
 //specific functions for manipulating particular date fieldset
 function initDateInputs() {
@@ -206,7 +215,7 @@ function removeItem(itemId, classCheck) {
 
 
 // I'm experimenting on this
-function appear(inputId, formval, itemType, count=null) {
+function appearJs(inputId, formval, itemType, count=null) {
     console.log(inputId, formval, itemType);
            
     $id = $("#" + inputId)
@@ -221,7 +230,6 @@ function appear(inputId, formval, itemType, count=null) {
     }else{
         $('#' + itemType+'_'+count).html('')
     }
-
 }
 
 function toggleDataTable(tableId){

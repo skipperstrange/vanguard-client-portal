@@ -175,32 +175,13 @@
 
           yp.on("dp.change", (e) => {
         //$('.date-duration-expire').data("DateTimePicker").minDate(e.date);
-        vehicleRegistrationYear.removeAttr("disabled");
-        $("#registration").datetimepicker({minDate: e.date, format: "YYYY", setValue: e.date});
+        //vehicleRegistrationYear.removeAttr("disabled");
+        //$("#registration").datetimepicker({minDate: e.date, format: "YYYY", setValue: e.date});
         });
     });
 
-    function toggleDataTable(tableId){
-        tableData = $('#'+tableId);
-        dataControl = $('#'+tableId+'_data_control')
-        tableData.toggle(300, ()=>{
-            if ( tableData.is(":visible") ) {
-                dataControl.removeClass('icon-chevron-circle-down')
-                dataControl.addClass('icon-chevron-circle-up')
-            } else if ( tableData.is(":hidden") ) {
-                dataControl.removeClass('icon-chevron-circle-up')
-                dataControl.addClass('icon-chevron-circle-down')
-            }
-        })
-   }
+  
 
-   function defaultErrorModal(e){
-    hideOverlay()
-    bootbox.alert({
-    title: '<i class="fa fa-close" style="#f35b35"></i> Something went wrong !!',
-    message: " <p> Please try again later </p>.",
-        })
-   }
    
    
    //Similar to addItem function only it also checks for a value in input befor running. It renders only once

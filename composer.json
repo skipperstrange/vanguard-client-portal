@@ -17,7 +17,8 @@
             "lib/config/client-info.php",
             "lib/config/db.php",
             "lib/functions/sysfunctions.php",
-            "lib/functions/helperfunctions.php"
+            "lib/functions/helperfunctions.php",
+            "lib/functions/utilities.php"
         ]
     },
     "require-dev": {

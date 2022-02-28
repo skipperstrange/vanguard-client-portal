@@ -5,7 +5,7 @@ if(check_post_get('p','agreeDeclare', 'agree')){
     include STATIC_DATA.'cover_types.php';
     include STATIC_DATA.'vehicle_usage.php';
     include STATIC_DATA.'currencies.php';
-print_r($_mailer);
+
     $proposer = post_get('p','proposer');
 
     $policy = post_get('p','policy');
@@ -44,22 +44,7 @@ print_r($_mailer);
     $data['insurance_history'] = $insurance_history;
 
     //Send emails out
-            $_mailer->isSMTP();
-            $_mailer->Host = $config['mailer']['outgoing'];
-            $_mailer->SMTPAuth = true;
-            $_mailer->Username = $config['mailer']['user']; 
-            $_mailer->Password = $config['mailer']['pass']; 
-            //$_mailer->SMTPSecure = 'tls';
-            $_mailer->Port = $config['mailer']['smtp_out'];
-            $_mailer->isHTML(true);
-
-           /* $mail->setFrom($info['email'], $info['name']);
-            $mail->addReplyTo($info['email'], $info['name']);
-            $mail->addAddress($config['mailer']['from']);
-            $mail->Subject = $info['subject'];
-            $mail->Body = $info['message'];
-            */
-
+        
             //if($mail->send()){
                 echo json_response($data);
             //}
