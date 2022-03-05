@@ -31,7 +31,7 @@ if(check_post_get('p','agreeDeclare', 'agree')){
     
 
     $vusage['purpose'] = $v_usage['purpose'];
-    $vusage['type'] = $vehicle_usage[$v_usage['purpose']][$v_usage['useage_type_id']];
+    $vusage['type'] = @$vehicle_usage[$v_usage['purpose']][$v_usage['useage_type_id']];
     $vusage['has vehicle been altered?'] = $v_usage['altered'];
     $vusage['has driver been defected'] = $v_usage['driver_defect'];
     $vusage['has driver commited motor offence'] = $v_usage['motor_offence'];

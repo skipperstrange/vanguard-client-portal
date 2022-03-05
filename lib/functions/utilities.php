@@ -9,7 +9,6 @@ $_mailer =  new PHPMailer();
 $_mailerException =  new Exception();
 
     $config = get_config('mailer');
-    print_r($config);
     $_mailer->isSMTP();
     $_mailer->Host = $config['outgoing'];
     $_mailer->SMTPAuth = true;

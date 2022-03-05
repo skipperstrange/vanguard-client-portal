@@ -1567,3 +1567,10 @@ textarea.form-control {
     text-transform:capitalize;
     margin: 2rem;
 }
+
+span.printer a{
+    color: var(--grey3);
+  }          
+  span.printer a:hover{
+    color: var(--grey);
+  }

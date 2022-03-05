@@ -19,7 +19,6 @@ var day   = new Date().getDate();
 
 var currentDate = new Date(year, month, day);
 var defaultDoB  = new Date(year - 18, month, day);
-console.log(day, month,)
 
 //Geneic functions
 function defaultErrorModal(e){
@@ -245,4 +244,11 @@ function toggleDataTable(tableId){
             dataControl.addClass('icon-chevron-circle-down')
         }
     })
+}
+
+
+function redirectTo(url,time = 1000){
+    setTimeout((e)=>{
+        window.location.replace(url)
+    }, time)
 }

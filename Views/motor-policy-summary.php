@@ -1,16 +1,16 @@
 <?php
-            $printDivId = "summary";
+            $printDivId = "motor-policy-wizard-p-5";
             $printTitle  = "Motor Proposal Summary";
             include SHARED.'_print_buttons.php';
-
-            echo "<hr />";
             
             $letter_header_title  = $printTitle;
             include SHARED.'_letter_header_template.php';
 
+            if($policy['proposer_type'] !== 'personal'){
             $summary_columns["proposer_details"] = $proposer_details_left;
             $summary_columns[""] = $proposer_details_right;
             include SHARED.'_summary_columns.php';
+            }
 
             $summary_columns=null;
             $summary_columns["insurer_details"] = $insurer_details;
@@ -55,3 +55,7 @@
            $controlId = 'vehicle_usage';
            include SHARED.'_summary_rows.php'
            */
+          ?>
+<div id="declaration-confirm">
+   
+</div>

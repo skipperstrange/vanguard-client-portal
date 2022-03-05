@@ -1,6 +1,9 @@
 $(function() {
     var motorForm = $("#motor-policy-form")
     var motorWizard = $("#motor-policy-wizard")
+    var finishButton = motorWizard.find('a[href="#finish"]');
+    $summaryDeclaration = $("#summary-declaration")                     
+    var restartUrl = window.location.origin+window.location.pathname
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -18,8 +21,7 @@ $(function() {
             onStepChanging: function(event, currentIndex, newIndex) {
                 showOverlay();
                 motorForm.validate().settings.ignore = ":disabled,:hidden";
-                console.log(currentIndex, newIndex);
-
+                
                 if (newIndex === 0) {
                     hideOverlay()
                 }
@@ -28,12 +30,10 @@ $(function() {
                     hideOverlay()
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-1');
-
                     } else {
                         $('.steps ul').removeClass('motor-policy-step-1');
                         return false
                     }
-                   
                 }
 
                 if (newIndex === 2) {
@@ -74,6 +74,16 @@ $(function() {
                 }
 
                 if (newIndex === 5) {
+                    $('#finished').click((e)=>{
+                        showOverlay()
+                        e.preventDefault();
+                        setTimeout((e)=>{
+                            hideOverlay()
+                            window.location.replace($(location).attr('href'))
+                        }, 1500)
+
+                    })
+                    
                     hideOverlay()
                     $('#agreeDeclare').prop('checked', false)
                     if (motorForm.valid()) {
@@ -83,6 +93,7 @@ $(function() {
                             $.post(apiUrls.motorProposalSummaryUrl, motorForm.serialize(), resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
+                                
                                 hideOverlay()
                             })
                             hideOverlay()
@@ -102,13 +113,12 @@ $(function() {
 
                 if (newIndex === 6) {
                     hideOverlay()
-                    $('span#signed').html('')
-                    $('span#signed').append($('#fullname').val())
+                    
                     if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-policy-step-6');
                         // $('.actions ul').addClass('motor-step-last');
                     } else {
-                        return false
+                      //  return false
                     }
                 } else {
                     $('.steps ul').removeClass('motor-policy-step-6');
@@ -116,18 +126,14 @@ $(function() {
                 }
                 return true;
             },
-            onFinishing: function (event, currentIndex){
-                console.log("finishing on frame "+currentIndex);
-            },
+            
             onFinishing: function(event, currentIndex, newIndex){
                 showOverlay()
-                
                 $.get('?controller=motor_policy_declaration', data=>{
-                    
                     bootbox.confirm({
                         size: "large",
                         className: '',
-                        title: "Declaration",
+                        title: "Declaration <i class='fa fa-spin fa-spinner'></i> ",
                         message: data,
                         buttons: {
                             cancel: {
@@ -139,23 +145,62 @@ $(function() {
                         },
                         callback: function (result) {
                             if(result == true){
+                                $ack = $('#dec').html()
                                 setTimeout(()=>{
-                                    
                                         try{
-                                    showOverlay()
+                                        showOverlay()
                                         $.post('?controller=process-motor-policy', motorForm.serialize()+'&agreeDeclare=agree',data=>{
-                                            //edited below line to produce error. edit: url
+
                                         axios.post(apiUrls.applicationServerUrl+'portal/add-motorpolicy/',  data.message)
                                             .then(data=>{
                                                 hideOverlay()
-                                                console.log(data)
-                                                bootbox.alert({
+                                                $summaryDeclaration.html('')
+                                                $summaryDeclaration.append('<strong style="text-transform: uppercase;">Declaration</strong><br />')
+                                                $summaryDeclaration.append($ack)
+
+                                                $print = '<div class="row not-this">'
+                                                $print += '<div class="col-lg-6 col-md-6 col-sm-6 offset-sm-6  offset-md-6  offset-lg-6"> '
+                                                $print += '<span class="float-right mute printer">'
+                                                $print += '<a href="#" onclick="print(\'motor-policy-wizard-p-5\', \'Motor Policy Summary\')" class="p-3 m-0">'
+                                                $print += 'Save to device <span class="icon-print"></span>'
+                                                $print += '</a>'
+                                                $print += '</span>'
+                                                $print += '</div>'
+                                                $print += '</div>'
+
+                                                $("#print").html('')
+                                                $("#print").append($print)
+                                                    bootbox.dialog({
                                                         title: '<i class="fa fa-check" style="#f35b35"></i> Submitted',
-                                                        message: " <p> Thank You for submitting. Our agents will call you shortly to proceed with the process.</p>.",
-                                                        })
-                                                        
-                                                        hideOverlay()
+                                                        message: " <p> Thank you for submitting. Our agents will call you shortly to proceed with the process.</p>.",
+                                                        buttons: {
+                                                            cancel: {
+                                                                label: "Return to summary",
+                                                                className: 'btn-info',
+                                                                callback: function(){
+                                                                    $(document).find("div.actions ul").children().last().css('float', 'right');
+                                                                    $(document).find("div.actions ul").children().last().remove();
+                                                                    var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
+                                                                    var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
+
+                                                                    $(document).find("div.actions ul").append(saveBtn)
+                                                                }
+                                                            },
+                                                            
+                                                            ok: {
+                                                                label: "Finish",
+                                                                className: 'btn-success',
+                                                                callback: function(){
+                                                                    showOverlay()
+                                                                    setTimeout(()=>{
+                                                                        redirectTo(window.location.replace($(location).attr('href')))
+                                                                    }, 1000)
+                                                                }
+                                                            }
+                                                        }
                                                     })
+                                                    hideOverlay()
+                                                })
                                             .catch(e=>{
                                                 defaultErrorModal()
                                                 hideOverlay()
@@ -170,8 +215,6 @@ $(function() {
                                         defaultErrorModal()
                                         hideOverlay()
                                     }
-                                    
-
                                 }, 1000)
                             }
 
@@ -185,6 +228,9 @@ $(function() {
 
                     $('.bootbox-accept').prop('disabled', true)
                 });
+            },
+            onFinished: function(e, currentIndex) {
+               
             },
             labels: {
                 finish: "Submit",
@@ -210,9 +256,9 @@ $(function() {
         }
     })
     $('.backward').click(function() {
-            motorForm.steps('previous');
-        })
-        // Checkbox
+        motorForm.steps('previous');
+    })
+    // Checkbox
     $('.checkbox-circle label').click(function() {
         $('.checkbox-circle label').removeClass('active');
         $(this).addClass('active');

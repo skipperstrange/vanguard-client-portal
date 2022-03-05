@@ -37,8 +37,17 @@
             </section>
              <!-- SECTION 6 -->
              <h4></h4>
-            <section id="last-section">
+            <section>
                 <div  id="summary" class="col-sm-12 clear-fix clearfix">
+                    
+                </div>
+                <div id="summary-declaration">
+                    
+                </div>
+                <div id="signature-container">
+                            
+                </div>
+                <div id="print">
                     
                 </div>
             </section>

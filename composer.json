@@ -18,6 +18,7 @@
             "lib/config/db.php",
             "lib/functions/sysfunctions.php",
             "lib/functions/helperfunctions.php",
+            "lib/functions/javascriptfunctions.php",
             "lib/functions/utilities.php"
         ]
     },

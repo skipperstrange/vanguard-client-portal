@@ -16,3 +16,15 @@ function set_config(string $key, $value){
     global $config;
     return $config[$key] = $value;
 }
+
+function run_scripts($scriptsArray = []){
+    global $scripts;
+    $scriptsText =  '<script>';
+    foreach($scriptsArray as $script){
+        $scriptsText .= "$scripts[$script]
+";
+    }
+    $scriptsText .=  '</script>';
+    echo $scriptsText;
+}
+
