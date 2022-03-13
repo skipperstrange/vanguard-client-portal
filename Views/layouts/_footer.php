@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-3 brand">
-                    <h4 class="my-0 site-logo"><a href="index.html"><img src="<?=IMAGES_URL ?>cropped-Vanguard-logo-02-300x81.png" alt="" /></a></h4>
+                    <h4 class="my-0 site-logo"><a href="<?= WEB_URL ?>"><img src="<?=IMAGES_URL ?>cropped-Vanguard-logo-02-300x81.png" alt="" /></a></h4>
                     <span class="slogan"> <?= SLOGAN ?></span>
                 </div>
                 <div class="col-md-5 brand">
@@ -31,28 +31,6 @@
 <script>
 
 
-    function setProposerFields(proposerType){
-        showOverlay()
-        template = ''
-        if(proposerType == 'agent' || proposerType == 'broker'){
-            template = ' <h4 class="ab-info">'+proposerType+' details</h4>'
-            template +=  '<div class="form-group col-lg-6 col-md-6">'
-            template +=  '<input type="text" id="fullname"  name="proposer[proposer_type_name]"  required class="form-control" placeholder="Full name of '+proposerType+' applying on client behalf *" value="" />'
-            template +=  '</div>'
-            template +=  '<div class="form-group col-lg-6 col-md-6">'
-            template +=  '<input type="text" id="fullname"  name="proposer[proposer_type_email]" required class="form-control" placeholder="Email of '+proposerType+'." value="" />'
-            template +=  '</div>'
-        }
-        $('#agent-broker').html('')
-        $('#agent-broker').append(template)
-        hideOverlay()
-    }
-
-
-
-    function initColorPicker() {
-        $('.body_color').colorpicker();
-    }
 
     //item type can be one of these
     function addItem(itemType) {
@@ -109,51 +87,6 @@
             }
         })
     }
-
-
-    function resetItems(itemType) {
-        let resetId = $('#' + itemType + '-reset')
-        switch (itemType) {
-            case 'casualty':
-                casualtyCount = 0
-                break;
-            case 'assets':
-                assetsCount = 0
-                break;
-
-            case 'witness':
-                witnessCount = 0
-                break;
-            case 'casualtyMotorClaim':
-                casualtyMotorClaimCount = 0
-                break;
-            case 'witnessMotorClaim':
-                witnessMotorClaimCount = 0
-                break;
-            
-            case 'vehicle':
-                witnessCount = 0
-                break;
-
-            case 'policeDetails':
-                policeDetailsCount = 0
-                break;
-        }
-        $('#' + itemType).html('')
-        resetId.remove()
-    }
-
-    function removeItem(itemId, classCheck) {
-        let $reset = $('#' + classCheck + '-reset')
-        $('#' + itemId).remove()
-        if ($('.' + classCheck).length > 0) {
-
-        } else {
-            $reset.remove()
-        }
-        console.log($('#' + classCheck).length)
-    }
-
 
     
         $(function() {

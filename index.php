@@ -31,3 +31,4 @@ if(file_exists(CONTROLLERS.$controller.'.php')){
 }
 
 include_once VIEWS.'layouts'.DS.'layout.php';
+

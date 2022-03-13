@@ -59,7 +59,7 @@ $navLinks = ['home'=>['href'=>  WEB_URL],
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-6 brand">
-                        <h1 class="my-0 site-logo"><a href="<?= WEBSITE ?>"><?= CLIENT_NAME ?></a></h1>
+                        <h1 class="my-0 site-logo"><span><img src="<?= IMAGES_URL ?>logo-mini.png" /><span><a href="<?= WEB_URL ?>"><?= CLIENT_NAME ?></a></h1>
                         <span class="slogan"><?= SLOGAN ?></span>
                     </div>
                     <div class="col-6">

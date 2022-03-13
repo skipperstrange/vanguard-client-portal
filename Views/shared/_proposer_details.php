@@ -27,7 +27,7 @@
                             <input type="text" id="digitalAddress"  name="proposer[digital_address]" class="form-control" title="Digital Address" placeholder="Digital Address" value="" />
             </div>
             <div class="form-group col-lg-5 col-md-6">
-                    <input required type="text" id="dob"  name="proposer[dob]" value=""  title="Date of Birth" placeholder="Date of Birth/Incorporation" title="" class="form-control input-group date dob" />
+                    <input required type="text" id="dob"  name="proposer[dob]" value=""  title="Date of Birth" placeholder="Date of Birth/Incorporation (MM-DD-YYYY)" title="MM-DD-YYYY" class="form-control input-group date dob" />
             </div>
             <div class="form-group col-lg-7 col-md-6">
                             <input type="text" id="occupation"  name="proposer[occupation]" class="form-control" title="Occupation"  placeholder="Occupation *" value="" />
@@ -54,28 +54,4 @@
             <div class="form-group col-lg-6 col-md-6">
                             <input type="email" id="email" required name="proposer[email]" class="form-control" title="Email of owner" placeholder="Email" value="" />
             </div>
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-lg-12"><label for="cover_type">Type of cover required </label></div>
-                </div>
-                <div class="row form-group">
-                <div class="col-lg-4 col-md-4">
-                    <input type="radio" name="policy[cover_type]" id="comprehensive" class="purpose-radio-input" value="COMP" >
-                    <label for="comprehensive" class="purpose-radio-label">
-                        <span class="label-text">Comprehensive</span>
-                        </label>
-                </div>
-                <div class="col-lg-5 col-md-4">
-                    <input type="radio" name="policy[cover_type]" id="thirdPartyFireAndTheft" class="purpose-radio-input" value="TPFT"  >
-                    <label for="thirdPartyFireAndTheft" class="purpose-radio-label">
-                        <span class="label-text">Third Party Fire & Theft</span>
-                    </label>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <input type="radio" name="policy[cover_type]" id="thirdParty" class="purpose-radio-input excess motor" value="TP"  checked>
-                    <label for="thirdParty" class="purpose-radio-label">
-                        <span class="label-text">Third Party</span>
-                    </label>
-                </div>
-                </div>
-            </div>
+           

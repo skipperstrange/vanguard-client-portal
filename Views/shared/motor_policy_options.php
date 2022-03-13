@@ -34,7 +34,7 @@
             <!-- Start date -->
             <div class="form-group col-lg-6 col-md-6">
                 <div class="" >
-                    <input type="text" required name="policy[start]" title="Date expected to start your insurance cover" placeholder="Date of commence *" data-date-end-date="0d" title="Start date" data-target="date-duration-start" class="form-control date-duration-start"/>
+                    <input type="text" required name="policy[start]" title="Date expected to start your insurance cover" placeholder="Date of commence *" title="Start date"  class="form-control date-duration-start"/>
                 </div>
             </div>
 
@@ -65,22 +65,5 @@
             </span>
             
             <script>
-                policyStart = $('.date-duration-start')
-                policyStart.datetimepicker({
-                    "allowInputToggle": true,
-                    "showClose": true,
-                    "showClear": true,
-                    "showTodayButton": true,
-                    //"format": "DD MMMM YYYY",
-                    "format": "DD-MM-YYYY",
-                    //"defaultDate": new Date(),
-                    useCurrent: true,
-                    minDate: new Date(),
-                    icons: {
-                            time: "fa fa-clock-o",
-                            date: "fa fa-calendar",
-                            up: "fa fa-arrow-up",
-                            down: "fa fa-arrow-down"
-                        }
-                });
+                
             </script>

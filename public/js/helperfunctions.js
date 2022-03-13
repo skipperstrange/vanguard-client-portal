@@ -32,17 +32,17 @@ function defaultErrorModal(e){
 
 //specific functions for manipulating particular date fieldset
 function initDateInputs() {
-    dp = $('.date')
+    dob = $('.dob')
     yp = $('.date-year')
     manufactureDate = $('#manufacture')
     reg = $('#registration')
     
-    dp.datetimepicker({
+    dob.datetimepicker({
         "allowInputToggle": true,
         "showClose": true,
         "showClear": true,
         "showTodayButton": true,
-        "format": "DD-MM-YYYY",
+        "format": "MM-DD-YYYY",
         "maxDate": defaultDoB,
         "date": null
 
@@ -85,6 +85,25 @@ function initDateInputs() {
             .maxDate(currentDate)
         }
       });
+
+      policyStart = $('.date-duration-start')
+        policyStart.datetimepicker({
+            "allowInputToggle": true,
+            "showClose": true,
+            "showClear": true,
+            "showTodayButton": true,
+            //"format": "DD MMMM YYYY",
+            "format": "DD-MM-YYYY",
+            //"defaultDate": new Date(),
+            useCurrent: true,
+            minDate: new Date(),
+            icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+        });
 }
 
 
@@ -105,6 +124,26 @@ function toggleAgree(checkbox_id, button){
     continueState = !checkboxState
     continueButton.prop('disabled', continueState)
 }
+
+
+function setProposerFields(proposerType){
+    showOverlay()
+    template = ''
+    if(proposerType == 'agent' || proposerType == 'broker'){
+        template = ' <h4 class="ab-info">'+proposerType+' details</h4>'
+        template +=  '<div class="form-group col-lg-6 col-md-6">'
+        template +=  '<input type="text" id="fullname"  name="proposer[proposer_type_name]"  required class="form-control" placeholder="Full name of '+proposerType+' applying on client behalf *" value="" />'
+        template +=  '</div>'
+        template +=  '<div class="form-group col-lg-6 col-md-6">'
+        template +=  '<input type="text" id="fullname"  name="proposer[proposer_type_email]" required class="form-control" placeholder="Email of '+proposerType+'." value="" />'
+        template +=  '</div>'
+    }
+    $('#agent-broker').html('')
+    $('#agent-broker').append(template)
+    hideOverlay()
+}
+
+
 
 function initColorPicker() {
     $('.body_color').colorpicker();
@@ -251,4 +290,12 @@ function redirectTo(url,time = 1000){
     setTimeout((e)=>{
         window.location.replace(url)
     }, time)
+}
+
+function changeContent(div = String , content = String, type = "id"){
+    $section = $("."+div)
+    if(type === 'id'){
+        $section = $("#"+div)
+    }
+    $section.html(content)
 }

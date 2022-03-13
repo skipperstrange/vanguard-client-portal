@@ -1,9 +1,12 @@
+
 $(function() {
     var motorForm = $("#motor-policy-form")
     var motorWizard = $("#motor-policy-wizard")
     var finishButton = motorWizard.find('a[href="#finish"]');
     $summaryDeclaration = $("#summary-declaration")                     
     var restartUrl = window.location.origin+window.location.pathname
+
+
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -91,9 +94,7 @@ $(function() {
                         try {
                             showOverlay()
                             $.post(apiUrls.motorProposalSummaryUrl, motorForm.serialize(), resp => {
-                                $('#summary').html('')
-                                $('#summary').append(resp)
-                                
+                                changeContent('summary', resp)
                                 hideOverlay()
                             })
                             hideOverlay()
@@ -153,10 +154,9 @@ $(function() {
 
                                         axios.post(apiUrls.applicationServerUrl+'portal/add-motorpolicy/',  data.message)
                                             .then(data=>{
-                                                hideOverlay()
-                                                $summaryDeclaration.html('')
-                                                $summaryDeclaration.append('<strong style="text-transform: uppercase;">Declaration</strong><br />')
-                                                $summaryDeclaration.append($ack)
+                                               
+                                                changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
+                                               
 
                                                 $print = '<div class="row not-this">'
                                                 $print += '<div class="col-lg-6 col-md-6 col-sm-6 offset-sm-6  offset-md-6  offset-lg-6"> '
@@ -167,9 +167,9 @@ $(function() {
                                                 $print += '</span>'
                                                 $print += '</div>'
                                                 $print += '</div>'
-
-                                                $("#print").html('')
-                                                $("#print").append($print)
+                                                $("#print").append($print) 
+                                                
+                                                hideOverlay()
                                                     bootbox.dialog({
                                                         title: '<i class="fa fa-check" style="#f35b35"></i> Submitted',
                                                         message: " <p> Thank you for submitting. Our agents will call you shortly to proceed with the process.</p>.",

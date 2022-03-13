@@ -6,8 +6,8 @@
 include_once 'constants.php';
 
 //get a cofiguration value
-function get_config(string $key){
-    global $config;
+function get_config($config, string $key){
+    
     return $config[$key];
 }
 

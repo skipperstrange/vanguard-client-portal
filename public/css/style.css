@@ -133,6 +133,12 @@ a:hover {
     padding-bottom: 0px;
 }
 
+.site-navbar .site-logo span img{
+    width: 30px;
+    margin-top:12px;
+    margin-right: 3px;
+}
+
 .site-navbar .site-logo a {
     font-weight: 200;
     color: var(--white);

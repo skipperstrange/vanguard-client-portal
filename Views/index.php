@@ -61,3 +61,7 @@
                                 </section>
                         </div>
                     </div>
+                    <?php 
+                     $config = config();
+                     sendEmail($config['mailer'], '', 'skipperstrange@gmail.com', 'Hi this is a test', "Test Subject");
+                    ?>

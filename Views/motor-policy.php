@@ -3,8 +3,9 @@
         <div id="motor-policy-wizard">
         <!-- SECTION 1 -->
             <h4></h4>
-            <section class="row">
+            <section class="row" id="yep">
                 <?php include SHARED.'_proposer_details.php'; ?>
+                <?php include SHARED.'motor_insurance_picks.php'; ?>
             </section>
             <!-- SECTION 2 -->
             <h4></h4>
