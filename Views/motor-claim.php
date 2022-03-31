@@ -13,7 +13,7 @@
                 </div>
             <div class="col-md-6 col-sm-12 form-group ">
                 <div class="form-group">
-                    <input type="text" id="policy_id" required name="policy_id" class="form-control" value="GR 9966-15" placeholder="Motor Policy ID * (P-001-1001-2020-000001)" value="" />
+                    <input type="text" id="policy_id" required name="policy_id" class="form-control" value="" placeholder="Vehicle Registration/Motor Policy ID * (P-001-1001-2020-000001)" value="" />
                 </div>
             </div>
             </section>
