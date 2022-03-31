@@ -20,23 +20,19 @@
     <link rel="stylesheet" href="<?= FONT_URL ?>material-design-iconic-font/css/material-design-iconic-font.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.6.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= CSS_PATH ?>bootstrap-datetimepicker.min.css" />
-    <link rel="stylesheet" href="<?= CSS_PATH ?>style.css" />
-    <link rel="stylesheet" href="<?= CSS_PATH.'bootstrap-colorpicker.css' ?>">
+
     <link rel="stylesheet" href="<?= CSS_PATH ?>bootstrap-toaster.min.css" />
     
+    <link rel="stylesheet" href="<?= CSS_PATH ?>style.css" />
+      
     <script src="<?= JS_PATH ?>jquery-3.3.1.min.js"></script>
     <script src="<?= JS_PATH ?>axios.min.js"></script>
     <script src="<?= JS_PATH ?>popper.min.js"></script>
     <script src="<?= JS_PATH ?>bootstrap.min.js"></script>
     <script src="<?= JS_PATH ?>jquery.sticky.js"></script>
-    <script src="<?= JS_PATH ?>jquery.validate.js"></script>
-    <script src="<?= JS_PATH ?>jquery.steps.min.js"></script>
-    <script src="<?= JS_PATH ?>moment.min.js" ></script>
-    <script src="<?= JS_PATH ?>bootstrap-datetimepicker.min.js"></script>
-    <script src="<?= JS_PATH ?>bootstrap-colorpicker.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
-    <script src="<?= JS_PATH ?>jQuery.print.min.js"></script>
 
     <title><?= _title($pageTitle) ?></title>
     <style>

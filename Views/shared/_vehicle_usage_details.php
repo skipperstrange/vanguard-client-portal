@@ -115,9 +115,8 @@
                     });
                     
                     function toggleVusage(itemType, cat){
-                        url = '<?= _link('add-item&itemType=')?>'+itemType+"&cat="+cat
                             showOverlay()
-                            content = $.post(url, function(data){
+                            content = $.post('<?= _link('add-item&itemType=')?>'+itemType+"&cat="+cat, function(data){
                                 $('select#vuseage').html('')
                                 $('select#vuseage').append(data)
                                 hideOverlay()

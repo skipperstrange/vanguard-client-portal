@@ -18,9 +18,9 @@ include STATIC_DATA.'currencies.php';
 
     $proposer['occupation'] =  (empty($proposer['occupation'])) ? "N/A" : $proposer['occupation'];
 
-    $policy['currency_code'] = $policy['currency'];
-    $policy['currency'] = $currencies[$policy['currency_code']]['name'];
-    $policy['currency_symbol'] = $currencies[$policy['currency_code']]['symbol'];
+    $policy['currency_'] = $policy['currency'];
+    $policy['currency'] = $currencies[$policy['currency_']]['name'];
+    $policy['currency_symbol'] = $currencies[$policy['currency_']]['currency_code'];
     $policy['tppd'] =  (empty($policy['tppd'])) ? "0" : $policy['tppd'];
     $policy['cover_type_desc'] = ucfirst(strtolower($cover_types[$policy['cover_type']]));
     $policy['branch'] = (empty( $policy['branch_id'] )) ? "N/A" : ucfirst(strtolower($branches[$policy['branch_id']]['BRANCH_DESC']));

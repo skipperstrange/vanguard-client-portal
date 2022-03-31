@@ -1081,22 +1081,26 @@ select option[value=""][disabled] {
 
 
 .steps ul.motor-claim-step-2:after {
-    content: "Vehicle Details";
+    content: "Confirm Details";
 }
 
 .steps ul.motor-claim-step-3:after {
-    content: "Third parties involved";
+    content: "Driver Details";
 }
 
 .steps ul.motor-claim-step-4:after {
-    content: "Injured persons";
+    content: "Third Party Driver";
 }
 
 .steps ul.motor-claim-step-5:after {
-    content: "Witnesses";
+    content: "Casualties/Damages";
 }
 
 .steps ul.motor-claim-step-6:after {
+    content: "Witnesses";
+}
+
+.steps ul.motor-claim-step-7:after {
     content: "Summary";
 }
 

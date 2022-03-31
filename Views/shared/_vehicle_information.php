@@ -14,9 +14,6 @@
     <input type="text" id="vehicle_model" required name="vehicle[vehicle_model]" class="form-control" title="Model" placeholder="Model *" value="" />
 </div>
 
-
-
-
 <div class="form-group col-lg-6">
         <input type="text" name="vehicle[year_of_manufacture]" required placeholder="Year Of Manufacture" title="" class="form-control date-year" id="manufacture"/>
 </div>

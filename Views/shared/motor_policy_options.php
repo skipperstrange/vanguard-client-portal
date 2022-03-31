@@ -38,6 +38,12 @@
                 </div>
             </div>
 
+            <div class="form-group col-lg-6 col-md-6">
+                <div class="" >
+                    <?php include "_motor_vehicle_value.php"; ?>
+                </div>
+            </div>
+
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-12"><label for="cover_type">Currency *</label></div>
@@ -51,7 +57,7 @@
                             <div class="col-lg-<?= $each_column ?> col-md-<?= $each_column ?>">
                                 <input type="radio" name="policy[currency]" id="currency<?= $currency['name'] ?>" class="purpose-radio-input" value="<?= $currency_code ?>" <?php if($currency_code == 0) echo "checked"; ?>>
                                 <label for="<?= strtolower($currency['name']) ?>" class="purpose-radio-label">
-                                    <span class="label-text"><?= ucfirst(strtolower($currency['name'])) ?> (<?= $currency['symbol']?>)</span>
+                                    <span class="label-text"><?= ucfirst(strtolower($currency['name'])) ?> (<?= $currency['currency_code']?>)</span>
                                     </label>
                             </div>
                         <?php
@@ -63,7 +69,4 @@
             <span id="agent-broker" style="width:100%">
             
             </span>
-            
-            <script>
-                
-            </script>
+

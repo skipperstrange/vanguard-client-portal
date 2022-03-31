@@ -7,10 +7,10 @@
                 </div>
                 <div class="col-md-5 brand">
                     <!-div class="social-media-links">
-                        <a href="<?= TWITTER ?>" class="p-3 m-0"><span class="icon-twitter"></span></a>
-                        <a href="<?= FACEBOOK ?>" class="p-3 m-0"><span class="icon-facebook"></span></a>
-                        <a href="<?= LINKEDIN ?>" class="p-3 m-0"><span class="icon-linkedin"></span></a>
-                        <a href="<?= INSTAGRAM ?>" class="p-3 m-0"><span class="icon-instagram"></span></a>
+                        <a href="<?= TWITTER ?>" target="_blank" class="p-3 m-0"><span class="icon-twitter"></span></a>
+                        <a href="<?= FACEBOOK ?>" target="_blank" class="p-3 m-0"><span class="icon-facebook"></span></a>
+                        <a href="<?= LINKEDIN ?>" target="_blank" class="p-3 m-0"><span class="icon-linkedin"></span></a>
+                        <a href="<?= INSTAGRAM ?>" target="_blank" class="p-3 m-0"><span class="icon-instagram"></span></a>
                     </!-div>
                 </div>
 
@@ -29,12 +29,8 @@
 <script src="<?= JS_PATH ?>helperfunctions.js"></script>
 
 <script>
-
-
-
     //item type can be one of these
     function addItem(itemType) {
-        let count
         let initDate = false
         let initColorPicker = false
         switch (itemType) {
@@ -48,7 +44,7 @@
                 initDate = true
                 break;
 
-            case 'casualtyMotorClaim':
+            case 'casualty_damage':
                 casualtyMotorClaimCount++
                 count = casualtyMotorClaimCount
                 break;
@@ -56,12 +52,13 @@
                 witnessCount++
                 count = witnessCount
                 break;
-            case 'witnessMotorClaim':
+
+            case 'witness_motor_claim':
                 witnessMotorClaimCount++
                 count = witnessMotorClaimCount
                 break;
-            case 'vehicle':
 
+            case 'vehicle':
                 vehicleCount++
                 count = vehicleCount
                 initDate = true
@@ -73,7 +70,7 @@
         $.get(url).then(resp => {
             let resetId = itemType + '-reset'
             $('#' + itemType).append(resp)
-
+            
             if (initDate === true) {
                 initDateInputs();
             }
@@ -88,72 +85,35 @@
         })
     }
 
-    
-        $(function() {
-        
-        initDateInputs();
-        initColorPicker();
-
-        vehicleUsage.change(()=> {
-            var option = $(this).val();
-            var target = $(this).attr('data-target');
-            if (option == 'commercial') {
-                $('#' + target).show('slow');
-            }
-
-            if (option == 'private') {
-                $('#' + target).hide('slow');
-            }
-        })
-
-          yp.on("dp.change", (e) => {
-        //$('.date-duration-expire').data("DateTimePicker").minDate(e.date);
-        //vehicleRegistrationYear.removeAttr("disabled");
-        //$("#registration").datetimepicker({minDate: e.date, format: "YYYY", setValue: e.date});
+    function print(divId){
+        div = '#'+divId
+        $(div).print({
+            //Use Global styles
+            globalStyles : false,
+            //Add link with attrbute media=print
+            mediaPrint : true,
+            //Custom stylesheet
+            //stylesheet : "http://fonts.googleapis.com/css?family=Inconsolata",
+            stylesheet: ["<?= CSS_PATH?>style.css","<?= CSS_PATH ?>bootstrap.min.css"],
+            //Print in a hidden iframe
+            iframe : false,
+            //Don't print this
+            noPrintSelector : ".not-this",
+            //title
+            title:"<?= CLIENT_NAME?>",
+            //Add this at top
+            prepend : "<p><?= SUPPORT_CONTACT_1?> | <?= SUPPORT_EMAIL ?></p>",
+            //Add this on bottom
+            //append : "<span></span>",
+            //Log to console when printing is done via a deffered callback
+            deferred: $.Deferred().done(function() { console.log('Printing done', arguments); })
         });
-    });
-
-  
-
-   
-   
-   //Similar to addItem function only it also checks for a value in input befor running. It renders only once
-    function appear(inputId, formval, itemType, count=null) {
-        $id = $("#" + inputId)
-        if ($id.val() == formval) {
-            url = '<?= _link('add-item&itemType=')?>'+itemType+'&count='+count
-            content = $.post(url, function(data){
-                $('#' + itemType+'_'+count).append(data)
-            })
-        }else{
-            $('#' + itemType+'_'+count).html('')
-        }
     }
 
-    function print(divId){
-            div = '#'+divId
-            $(div).print({
-                        //Use Global styles
-                        globalStyles : false,
-                        //Add link with attrbute media=print
-                        mediaPrint : true,
-                        //Custom stylesheet
-                        //stylesheet : "http://fonts.googleapis.com/css?family=Inconsolata",
-                        stylesheet: ["<?= CSS_PATH?>style.css","<?= CSS_PATH ?>bootstrap.min.css"],
-                        //Print in a hidden iframe
-                        iframe : false,
-                        //Don't print this
-                        noPrintSelector : ".not-this",
-                        //title
-                        title:"<?= CLIENT_NAME?>",
-                        //Add this at top
-                        prepend : "<p><?= SUPPORT_CONTACT_1?> | <?= SUPPORT_EMAIL ?></p>",
-                        //Add this on bottom
-                        //append : "<span></span>",
-                        //Log to console when printing is done via a deffered callback
-                        deferred: $.Deferred().done(function() { console.log('Printing done', arguments); })
-                    });
-          }
+    $(()=>{
+        initDateInputs();
+        initColorPicker();
+;    })
 </script>
 
 </body>

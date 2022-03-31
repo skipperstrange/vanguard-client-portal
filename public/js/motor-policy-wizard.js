@@ -229,6 +229,9 @@ $(function() {
                     $('.bootbox-accept').prop('disabled', true)
                 });
             },
+            onStepChanged: function(event, currentIndex, newIndex) {
+                hideOverlay()
+            },
             onFinished: function(e, currentIndex) {
                
             },

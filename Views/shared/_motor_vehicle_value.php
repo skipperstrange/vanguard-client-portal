@@ -1,0 +1,1 @@
+<input type="text" id="vehicle_value" name="policy[vehicle_value]" class="form-control" placeholder="Vehicle Value" value="" />

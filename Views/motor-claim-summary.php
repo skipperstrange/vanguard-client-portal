@@ -1,4 +1,4 @@
-<? include('motor-claim-summary.php') ?>;
+
 <div class="row">
 
 

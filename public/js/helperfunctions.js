@@ -1,12 +1,12 @@
 //Variables used throughout app
-
-casualtyCount = 0;
-casualtyMotorClaimCount = 0;
-witnessCount = 0;
-assetsCount = 0;
-vehicleCount = 0;
-witnessMotorClaimCount = 0;
-policeDetailsCount = 0;
+var count;
+var casualtyCount = 0;
+var casualtyMotorClaimCount = 0;
+var witnessCount = 0;
+var assetsCount = 0;
+var vehicleCount = 0;
+var witnessMotorClaimCount = 0;
+var policeDetailsCount = 0;
 
 vehicleUsage = $(".usage")
 vehicleRegistrationYear = $("#reg-input")
@@ -32,7 +32,8 @@ function defaultErrorModal(e){
 
 //specific functions for manipulating particular date fieldset
 function initDateInputs() {
-    dob = $('.dob')
+    dob = $('#dob')
+    dob3rd = $('#dob-third-party')
     yp = $('.date-year')
     manufactureDate = $('#manufacture')
     reg = $('#registration')
@@ -53,8 +54,8 @@ function initDateInputs() {
         "showClose": true,
         "showClear": true,
         "showTodayButton": true,
-        "format": "YYYY",
         "viewMode": 'years',
+        "format": "YYYY",
         "maxDate":currentDate,
         "date": null
     });
@@ -70,7 +71,6 @@ function initDateInputs() {
 
     manufactureDate.on('dp.change', function(e){
         d = manufactureDate.val()
-        console.log('date is: '+d)
         if(d === null || d == ''){
             minDate = currentDate
             reg.prop('disabled', true)
@@ -110,7 +110,7 @@ function initDateInputs() {
 //General app functions
 
 function showOverlay(){
-    $('body').LoadingOverlay('show', {background: "rgba(0 , 0, 0, 0.7)", zIndex: 2, imageColor: "#ccc"})
+    $('body').LoadingOverlay('show', {background: "rgba(0 , 0, 0, 0.7)", zIndex: 2, imageColor: "#bbb"})
 }
 
 function hideOverlay(){
@@ -138,21 +138,26 @@ function setProposerFields(proposerType){
         template +=  '<input type="text" id="fullname"  name="proposer[proposer_type_email]" required class="form-control" placeholder="Email of '+proposerType+'." value="" />'
         template +=  '</div>'
     }
+    if(proposerType == 'corporate'){
+
+    }
     $('#agent-broker').html('')
     $('#agent-broker').append(template)
     hideOverlay()
 }
 
-
+function setCoverTypeFeilds(proposerType){
+   
+}
 
 function initColorPicker() {
     $('.body_color').colorpicker();
 }
 
-
+/*
 //item type can be one of these
-function addItem(itemType) {
-    let count
+function addItem(itemType ='', url = '') {
+    alert(count)
     let initDate = false
     let initColorPicker = false
     switch (itemType) {
@@ -186,10 +191,13 @@ function addItem(itemType) {
             initColorPicker = true
             break;
     }
-
-    let url = 'add-item&itemType=' + itemType + '&count=' + count;
+    if(!url){
+        let url = 'add-item&itemType=' + itemType + '&count=' + count;
+    }
     $.get(url).then(resp => {
         let resetId = itemType + '-reset'
+        alert(resp)
+        console.log(jQuery(resp).find("#large"))
         $('#' + itemType).append(resp)
 
         if (initDate === true) {
@@ -205,7 +213,7 @@ function addItem(itemType) {
         }
     })
 }
-
+*/
 
 function resetItems(itemType) {
     let resetId = $('#' + itemType + '-reset')
@@ -220,7 +228,7 @@ function resetItems(itemType) {
         case 'witness':
             witnessCount = 0
             break;
-        case 'casualtyMotorClaim':
+        case 'casualty_motor_claim':
             casualtyMotorClaimCount = 0
             break;
         case 'witnessMotorClaim':
@@ -240,6 +248,7 @@ function resetItems(itemType) {
 }
 
 function removeItem(itemId, classCheck) {
+    console.log(itemId, classCheck)
     let $reset = $('#' + classCheck + '-reset')
     $('#' + itemId).remove()
     if ($('.' + classCheck).length > 0) {
@@ -250,28 +259,38 @@ function removeItem(itemId, classCheck) {
     console.log($('#' + classCheck).length)
 }
 
-
+// I'm experimenting on this
+function appear(inputId, formval, itemType, count=null, url = null) {
+    $id = $("#" + inputId)
+   
+   if ($id.val() == formval) {
+       if(!url){
+       url = '?controller=add-item&itemType='+itemType+'&count='+count
+       }
+       content = $.post(url, function(data){
+           changeContent((itemType+'_'+count), data)
+       })
+   }else{
+       changeContent((itemType+'_'+count), '')
+   }
+}
 
 // I'm experimenting on this
-function appearJs(inputId, formval, itemType, count=null) {
-    console.log(inputId, formval, itemType);
-           
-    $id = $("#" + inputId)
-    
-    if ($id.val() == formval) {
-        
-        url = 'add-item&itemType='+itemType+'&count='+count
-        content = $.post(url, function(data){
-            $('#' + itemType+'_'+count).append(data)
-        })
-        
-    }else{
-        $('#' + itemType+'_'+count).html('')
+function ToggleRadioButtonViewControl(RadioInputId, radioVal, targetContent = string, type="id") {
+    $id = $("#" + RadioInputId)
+    $target = $("#" + targetContent)
+    if(type == "class"){
+        $target = $("." + targetContent)
     }
+   
+   if ($id.val() == radioVal) {
+       $target.show('fast')
+   }else{
+    $target.hide('fast')
+   }
 }
 
 function toggleDataTable(tableId){
-    console.log($('#'+tableId))
     tableData = $('#'+tableId);
     dataControl = $('#'+tableId+'_data_control')
     tableData.toggle(300, ()=>{
@@ -292,7 +311,7 @@ function redirectTo(url,time = 1000){
     }, time)
 }
 
-function changeContent(div = String , content = String, type = "id"){
+function changeContent(div = String , content = '', type = "id"){
     $section = $("."+div)
     if(type === 'id'){
         $section = $("#"+div)

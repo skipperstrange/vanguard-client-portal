@@ -1,18 +1,5 @@
 <?php
-$navLinks = ['home'=>['href'=>  WEB_URL],
-    'about' => ['href'=>_link('about','about')],
-   /* 'claims' =>['href' => [ 
-            'new fire claim' => ['href' => _link('fire-claim','fire-claim')],
-           'new motor claim' => ['href' => _link('motor-claims','motor-claim')],
-            'FAQ' => ['href'=> '#']
-        ],
-    ],*/
-    'proposals' =>['href' => [ 
-            'new motor policy' => ['href' => _link('motor-policy','motor-policy')],
-            'FAQ' => ['href'=> '#']
-        ],
-    ]
-];
+include_once STATIC_DATA.'nav.php';
 ?>
 
 <div class="site-mobile-menu site-navbar-target">
@@ -42,13 +29,13 @@ $navLinks = ['home'=>['href'=>  WEB_URL],
                     </div>
                     <div class="col-5 text-right">
                         <div class="mr-auto">
-                            <a href="<?= TWITTER ?>" class="p-2 pl-0"><span class="icon-twitter"></span
+                            <a href="<?= TWITTER ?>" target="_blank" class="p-2 pl-0"><span class="icon-twitter"></span
                 ></a>
-                            <a href="<?= FACEBOOK ?>" class="p-2 pl-0"><span class="icon-facebook"></span
+                            <a href="<?= FACEBOOK ?>" target="_blank" class="p-2 pl-0"><span class="icon-facebook"></span
                 ></a>
-                            <a href="<?= LINKEDIN ?>" class="p-2 pl-0"><span class="icon-linkedin"></span
+                            <a href="<?= LINKEDIN ?>" target="_blank" class="p-2 pl-0"><span class="icon-linkedin"></span
                 ></a>
-                            <a href="<?= INSTAGRAM ?>" class="p-2 pl-0"><span class="icon-instagram"></span
+                            <a href="<?= INSTAGRAM ?>" target="_blank" class="p-2 pl-0"><span class="icon-instagram"></span
                 ></a>
                         </div>
                     </div>

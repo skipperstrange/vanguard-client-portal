@@ -3,5 +3,6 @@
 $proposer_types = [
     "agent",
     "broker",
-    "personal"
+    "personal",
+    "corporate"
 ];

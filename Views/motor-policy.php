@@ -55,8 +55,8 @@
 
         </div>
     </form>
-</div>    
-<script src="<?= JS_PATH ?>urls.js"></script>
+</div> 
+<?php include SHARED.'_form_wizard_scripts.php'; ?>  
 <script src="<?= JS_PATH ?>motor-policy-wizard.js"></script>
 <script>
     $(function(){

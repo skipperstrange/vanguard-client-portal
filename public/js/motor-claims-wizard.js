@@ -1,8 +1,8 @@
 $(function() {
     var summaryUrl = "?controller=motor-claim-summary"
-    var serverUrl = ""
     var motorForm = $("#motor-claim-form")
     var motorWizard = $("#motor-claims-wizard")
+    var policy_owner = {}
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -14,7 +14,6 @@ $(function() {
             }
         });
 
-
         motorWizard.steps({
             headerTag: "h4",
             bodyTag: "section",
@@ -23,27 +22,52 @@ $(function() {
             transitionEffectSpeed: 500,
 
             onStepChanging: function(event, currentIndex, newIndex) {
+                showOverlay()
               //  motorForm.validate().settings.ignore = ":disabled,:hidden";
                 //console.log(motorForm.validate());
-
+                console.log( currentIndex, newIndex)
+                if (currentIndex === 0) {
+                    search_by = $("#search_by").val()
+                    query = $("#policy_id").val()
+                   //if (motorForm.valid()) {
+                        axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
+                        .then(response=>{
+                            policy_owner = response.data
+                            $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
+                                changeContent('confirm-details', response )
+                            })                        
+                        })
+                        .catch(e=>{
+                                bootbox.alert({
+                                title: '<i class="fa fa-close" style="#f35b35"></i> Record not found',
+                                message: " <p> The policy you are looking for does not exist. Please try again. </p>.",
+                                    })
+                                    changeContent('confirm-details', '' )
+                                    hideOverlay()
+                                return false
+                        })
+                        
+                            
+                 /*   }
+                    else{
+                        hideOverlay()
+                        return false
+                    } */
+                }
                 if (newIndex === 1) {
-                    // if (motorForm.valid()) {
-                    //     if ($('#policy_id').val() == 'P-1001-201-2020-0005099') {
-                    //         $('.steps ul').addClass('motor-claim-step-2');
-                    //     } else {
-                    //         alert('Policy does ot exist')
-                    //         return false
-                    //     }
-                    // } else {
-                    //     $('.steps ul').removeClass('motor-claim-step-2');
-                    //     return false
-                    // }
-                } else {
+                     if (motorForm.valid()) {
+                        $('.steps ul').addClass('motor-claim-step-2');
+                    } else {
+                        return false
+                    }
+                }
+                else {
                     $('.steps ul').removeClass('motor-claim-step-2');
                 }
+
                 if (newIndex === 2) {
-                    if (motorForm.valid()) {
-                        $('.steps ul').addClass('motor-claim-step-3');
+                   if (motorForm.valid()) {
+                    $('.steps ul').addClass('motor-claim-step-3');
                     } else {
                         return false
                     }
@@ -52,54 +76,71 @@ $(function() {
                 }
 
                 if (newIndex === 3) {
-                    if (motorForm.valid()) {
+                   // if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-4');
-                        //  $('.actions ul').addClass('motor-step-last');
-                    } else {
-                        return false
-                    }
+                    //} else {
+                      //  return false
+                    //}
                 } else {
                     $('.steps ul').removeClass('motor-claim-step-4');
-                    //  $('.actions ul').removeClass('motor-step-last');
                 }
 
                 if (newIndex === 4) {
-                    if (motorForm.valid()) {
+                  //  if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-5');
-                        
-                        // $('.actions ul').addClass('motor-step-last');
-                    } else {
-                        return false
-                    }
+                        //  $('.actions ul').addClass('motor-step-last');
+                  //  } else {
+                      //  return false
+                //    }
                 } else {
                     $('.steps ul').removeClass('motor-claim-step-5');
+                    //  $('.actions ul').removeClass('motor-step-last');
+                }
+
+                if (newIndex === 5) {
+                   // if (motorForm.valid()) {
+                        $('.steps ul').addClass('motor-claim-step-6');
+                        
+                        // $('.actions ul').addClass('motor-step-last');
+                   // } else {
+                     //   return false
+                   // }
+                } else {
+                    $('.steps ul').removeClass('motor-claim-step-6');
                     // $('.actions ul').removeClass('motor-step-last');
 
                     
                 } 
 
-                if (newIndex === 5) {
-                    if (motorForm.valid()) {
-                        $('.steps ul').addClass('motor-claim-step-6');
+                if (newIndex === 6) {
+                   // if (motorForm.valid()) {
+                        $('.steps ul').addClass('motor-claim-step-7');
                         try {
-                            $.post(summaryUrl, motorForm.serialize()).then(resp => {
+                            claim = {};
+                            $.each(motorForm.serializeArray(), function(i, field) {
+                            claim[field.name] = field.value;
+                            });
+                            console.log(claim, policy_owner)
+                            $.post(summaryUrl, {claim:claim, policy: policy_owner}).then(resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
                             })
-                            console.log(motorForm.serialize())
                         } catch (err) {
                             console.log(err)
                         }
 
-                        // $('.actions ul').addClass('motor-step-last');
-                    } else {
-                        return false
-                    }
+                         $('.actions ul').addClass('motor-step-last');
+                   // } else {
+                     //   return false
+                    //}
                 } else {
-                    $('.steps ul').removeClass('motor-claim-step-6');
+                    $('.steps ul').removeClass('motor-claim-step-7');
                     // $('.actions ul').removeClass('motor-step-last');
                 }
                 return true;
+            },
+            onStepChanged: function(event, currentIndex, newIndex) {
+                hideOverlay()
             },
             labels: {
                 finish: "Submit",

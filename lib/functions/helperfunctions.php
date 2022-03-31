@@ -175,5 +175,218 @@ function remove_empty_order($arr)
 	return $newMy;
 }
 
+function generate_html_attributes($attributes){
+    $attr = "";
+    foreach($attributes as $attribute => $properties){
+        if(is_array($properties) || !is_int($attribute)){
+            if(is_array($properties)){
+               $props = implode(' ',$properties);
+            }else{
+                $props = $attributes[$attribute];
+            }
+            $attr .= " $attribute=\"".$props."\"";
+        }
+        else{
+            $attr .= " $properties";
+        }
+    }
+
+    return $attr;
+}
+
+function form_options_generator($options = [
+    // key => [label=>''], ...
+], 
+$name="", 
+$placeholder="",
+$select_attributes = [
+    // "class"=>"strings", id=>"strings"...
+],
+$options_attributes = [
+    // "class"=>"strings", id=>"strings"...
+]){
+    $selectTag = "";
+    $select_attr = "";
+    $options_attr = "";
+    
+    $select_attr = generate_html_attributes($select_attributes);
+    $options_attr = generate_html_attributes($options_attributes);
+    
+    $selectTag .= "<select name=\"$name\" $select_attr>
+    <option value=\"\">$placeholder</option>
+    ";
+    foreach($options as $option => $label){
+        if(is_array($options[$option]) || empty($options[$option])){
+            if(trim($label['label']) == ''){
+                $value = $option;
+            }else{
+                $value = $options[$option]['label'];
+            }
+            $selectTag .= "<option $options_attr value=\"$option\">".ucwords(strtolower(str_replace('_',' ',$value)))."</option>
+        ";
+        }else{
+            $selectTag .= "<option $options_attr value=\"$options[$option]\">".ucwords(strtolower(str_replace('_',' ',$options[$option]))) ."</option>
+        ";
+        }
+    }
+    $selectTag .= "</select>";
+    return $selectTag;
+}
+
+
+
+//Array Functions
+//takes an array and removes all empty value keys
+/**
+ *@abstract function that removes all empty keys in an array
+ *@author skipper
+ *@param array
+ */
+function ArrayRemoveEmpty($arr)
+{
+    $arr = array_filter($arr);
+    return $arr;
+}
+
+
+//takes an array and removes all empty value keys
+/**
+ *@abstract function that removes all empty keys in an array and returns them in order
+ * keys will be replaced by indexed keys
+ *@author skipper
+ *@param array
+ */
+function ArrayRemoveEmptyOrder($arr)
+{
+
+    $arr = array_filter($arr);
+
+    $newMy = array();
+    $i = 0;
+
+    foreach ($arr as $key => $value) {
+        if (!is_null($value)) {
+            $newMy[$i] = $value;
+            $i++;
+        }
+    }
+    return $newMy;
+}
+
+function time_elapsed_string($datetime, $full = false) {
+		$today = time();    
+                 $createdday= strtotime($datetime); 
+                 $datediff = abs($today - $createdday);  
+                 $difftext="";  
+                 $years = floor($datediff / (365*60*60*24));  
+                 $months = floor(($datediff - $years * 365*60*60*24) / (30*60*60*24));  
+                 $days = floor(($datediff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));  
+                 $hours= floor($datediff/3600);  
+                 $minutes= floor($datediff/60);  
+                 $seconds= floor($datediff);  
+                 //year checker  
+                 if($difftext=="")  
+                 {  
+                   if($years>1)  
+                    $difftext=$years." years ago";  
+                   elseif($years==1)  
+                    $difftext=$years." year ago";  
+                 }  
+                 //month checker  
+                 if($difftext=="")  
+                 {  
+                    if($months>1)  
+                    $difftext=$months." months ago";  
+                    elseif($months==1)  
+                    $difftext=$months." month ago";  
+                 }  
+                 //month checker  
+                 if($difftext=="")  
+                 {  
+                    if($days>1)  
+                    $difftext=$days." days ago";  
+                    elseif($days==1)  
+                    $difftext=$days." day ago";  
+                 }  
+                 //hour checker  
+                 if($difftext=="")  
+                 {  
+                    if($hours>1)  
+                    $difftext=$hours." hours ago";  
+                    elseif($hours==1)  
+                    $difftext=$hours." hour ago";  
+                 }  
+                 //minutes checker  
+                 if($difftext=="")  
+                 {  
+                    if($minutes>1)  
+                    $difftext=$minutes." minutes ago";  
+                    elseif($minutes==1)  
+                    $difftext=$minutes." minute ago";  
+                 }  
+                 //seconds checker  
+                 if($difftext=="")  
+                 {  
+                    if($seconds>1)  
+                    $difftext=$seconds." seconds ago";  
+                    elseif($seconds==1)  
+                    $difftext=$seconds." second ago";  
+                 }  
+                 return $difftext;  
+	}
+    
+    
+    
+/*******************************************************************************************88
+*Function that comverts strings t to acsii.
+* http://cubiq.org/the-perfect-php-clean-url-generator
+* @author
+* @param string $str - string to be worked on
+* @param array $replace - array of characters to be stripped out
+* @param delimiter - what the characters should be replaced with
+********************************************************************************************99*/
+
+//Original
+function toAscii($str, $replace = array(), $delimiter = null)
+{
+    if (!empty($replace)) {
+        $str = str_replace((array )$replace, ' ', $str);
+    }
+
+    $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+    $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+    $clean = trim($clean, '-');
+    $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+    return $clean;
+}
+
+//lesser options
+//toAsciiMed("i'll be back") or toAsciiMed("i'll be-- --back") to "i-ll-be-back"
+function toAsciiMed($str, $delimiter = null)
+{
+    $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+    $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", $delimiter, $clean);
+    $clean = strtolower(trim($clean, '-'));
+    $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+    return $clean;
+}
+
+
+function toAsciiMin($str)
+{
+    $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+    $clean = preg_replace("/[^a-zA-Z0-9\/_| -]/", '', $clean);
+    $clean = strtolower(trim($clean, '-'));
+    $clean = preg_replace("/[\/_| -]+/", '-', $clean);
+
+    return $clean;
+}
+
+/********************************************************************************
+********************************************************************************/
+
+
 
 
