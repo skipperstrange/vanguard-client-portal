@@ -1,7 +1,6 @@
 <?php
 //determines if requests are async or javascript triggered
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-    echo "Yaaa!!";
     define('IS_AJAX', true);
 }else{
     define('IS_AJAX', false);
