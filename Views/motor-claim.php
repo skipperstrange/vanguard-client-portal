@@ -24,6 +24,15 @@
                     <div id="confirm-details">
                     </div>
                 </div>
+                
+                <?php 
+                    include SHARED.'_extra_vehicle_owner_claim_details.php';
+                ?>
+
+                <?php
+                    include SHARED.'_claim_police_details.php';
+                ?>
+                
                 <br>
             </section>
             <h4></h4>
@@ -65,8 +74,17 @@
             <!-- SECTION 6 -->
             <h4></h4>
             <section>
-                <div id="summary" class="col-sm-12 clear-fix clearfix">
-
+                <div  id="summary" class="col-sm-12 clear-fix clearfix">
+                    
+                </div>
+                <div id="summary-declaration">
+                    
+                </div>
+                <div id="signature-container">
+                            
+                </div>
+                <div id="print">
+                    
                 </div>
             </section>
         </div>

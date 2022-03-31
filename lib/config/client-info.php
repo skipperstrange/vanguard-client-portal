@@ -3,7 +3,7 @@
 define('CLIENT_NAME', 'Vanguard Client Portal');
 define('WEBSITE', 'https://www.vanguardassurance.com');
 define('SLOGAN', '');
-define('SUPPORT_EMAIL', 'info@vanguardassurance.com');
+define('SUPPORT_EMAIL', 'vacmails@vanguardassurance.com');
 define('SUPPORT_CONTACT_1', '+233 244 334 407');
 define('SUPPORT_CONTACT_2', '+233 302 213 940');
 

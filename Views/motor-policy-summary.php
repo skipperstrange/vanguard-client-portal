@@ -1,9 +1,7 @@
 <?php
-            $printDivId = "motor-policy-wizard-p-5";
-            $printTitle  = "Motor Proposal Summary";
+
             include SHARED.'_print_buttons.php';
             
-            $letter_header_title  = $printTitle;
             include SHARED.'_letter_header_template.php';
 
             if($policy['proposer_type'] !== 'personal'){

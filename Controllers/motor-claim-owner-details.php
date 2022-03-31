@@ -5,6 +5,11 @@ include STATIC_DATA.'cover_types.php';
 include STATIC_DATA.'currencies.php';
 
 $data = $_POST;
+
+if($_POST['policy']){
+    $data = $_POST['policy'];
+}
+
 foreach($data as $key => $value){
     if($value == ''){
         $data[$key] = "N/A";
@@ -31,7 +36,6 @@ foreach($data as $key => $value){
     $info['policy_details']['branch'] = $branches[$data['branch_code']]['BRANCH_DESC'];
     $info['policy_details']['vehicle_usage'] = $data['vehicle_usage'];
     $info['policy_details']['duration'] = $data['inception_date'] .' - '.$data['expiry_date'];
-
 
 
     include SHARED.'motor-claim-owner-details.php';

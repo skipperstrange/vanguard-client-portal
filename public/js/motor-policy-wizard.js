@@ -84,7 +84,6 @@ $(function() {
                             hideOverlay()
                             window.location.replace($(location).attr('href'))
                         }, 1500)
-
                     })
                     
                     hideOverlay()

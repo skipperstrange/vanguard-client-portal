@@ -34,7 +34,7 @@ $(function() {
                         .then(response=>{
                             policy_owner = response.data
                             $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
-                                changeContent('confirm-details', response )
+                                changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
                             })                        
                         })
                         .catch(e=>{

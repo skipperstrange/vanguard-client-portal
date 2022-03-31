@@ -18,7 +18,7 @@
                             <input type="text" id="postalAddress" required name="proposer[postal_address]" class="form-control" title="Postal Address" placeholder="Postal Address" value="" />
             </div>
             <div class="form-group col-lg-4 col-md-6">
-                            <input type="text" id="digitalAddress"  name="proposer[digital_address]" class="form-control" title="Digital Address" placeholder="Digital Address" value="" />
+                            <input type="text" id="digitalAddress"  name="proposer[residential_address]" class="form-control" title="Digital/Residential Address" placeholder="Digital Address" value="" />
             </div>
             <div class="form-group col-lg-5 col-md-6">
                     <input required type="text" id="dob"  name="proposer[dob]" value=""  title="Date of Birth" placeholder="Date of Birth/Incorporation (MM-DD-YYYY)" title="MM-DD-YYYY" class="form-control input-group date dob" />

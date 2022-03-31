@@ -1,13 +1,11 @@
 <?php
 $motorclaim = $_POST;
 
+
+$printDivId = "motor-policy-wizard-p-5";
+$printTitle  = "Motor Claim Summary";
+$letter_header_title  = $printTitle;
+
 $view = null;
-$policy_id = $_POST['policy_id'];
-$casualty_motor_claim = $_POST['casualty_motor_claim'];
-$witness_motor_claim = $_POST['witness_motor_claim'];
-$vehicle_information = $_POST['vehicle_information'];
 
-
-print_r($motorclaim);
-
-//include VIEWS.'motor-claim-summary.php';
+include VIEWS.'motor-claim-summary.php';

@@ -5,6 +5,10 @@ include STATIC_DATA.'cover_types.php';
 include STATIC_DATA.'vehicle_usage.php';
 include STATIC_DATA.'currencies.php';
 
+$printDivId = "motor-policy-wizard-p-5";
+$printTitle  = "Motor Proposal Summary";
+$letter_header_title  = $printTitle;
+
 
     $proposer = post_get('p','proposer');
 
