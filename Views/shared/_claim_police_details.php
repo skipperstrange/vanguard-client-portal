@@ -3,7 +3,7 @@
         </div>
 
         <div class="form-group col-lg-12">
-            <input type="radio" name="reported" id="accidentreportedyes" class="purpose-radio-input accident_reported" 
+            <input type="radio" name="reported[option]" id="accidentreportedyes" class="purpose-radio-input accident_reported" 
             onchange="ToggleRadioButtonViewControl('accidentreportedyes', 'yes', 'police-details')"
             value="yes">
             <label for="accidentreportedyes" class="purpose-radio-label">
@@ -11,7 +11,7 @@
             </label>
             &nbsp;
             &nbsp;
-            <input type="radio" name="reported" id="accidentreportedno" class="purpose-radio-input accident_reported" 
+            <input type="radio" name="reported[option]" id="accidentreportedno" class="purpose-radio-input accident_reported" 
             onchange="ToggleRadioButtonViewControl('accidentreportedno', 'yes', 'police-details')" 
             value="no" checked>
             <label for="accidentreportedno" class="purpose-radio-label">

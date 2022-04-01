@@ -1,3 +1,3 @@
 <?php
 
-$licence_groups = ["a","b","c","d","e","f",];
+$licence_groups = ["A","B","C","D","E","F",];

@@ -2,7 +2,7 @@
                     <label for="vehicle_agreement">Is the vehicle the subject of a hire purchase or loan agreement?</label>
                 </div>
                 <div class="form-group col-lg-6 col-md-6">
-                    <input type="radio" name="loan_or_hire" id="loan_or_hireyes" class="purpose-radio-input" 
+                    <input type="radio" name="loan_or_hire[option]" id="loan_or_hireyes" class="purpose-radio-input" 
                     onchange="ToggleRadioButtonViewControl('loan_or_hireyes', 'yes', 'loan_or_hire_')" 
                     value="yes">
                     <label for="loan_or_hireyes" class="purpose-radio-label">
@@ -10,7 +10,7 @@
                     </label>
                     &nbsp;
                     &nbsp;
-                    <input type="radio" name="loan_or_hire" id="loan_or_hireno" class="purpose-radio-input"
+                    <input type="radio" name="loan_or_hire[option]" id="loan_or_hireno" class="purpose-radio-input"
                     onchange="ToggleRadioButtonViewControl('loan_or_hireno', 'yes', 'loan_or_hire_')"
                     value="no" checked >
                     <label for="loan_or_hireno" class="purpose-radio-label">

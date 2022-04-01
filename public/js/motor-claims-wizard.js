@@ -116,14 +116,17 @@ $(function() {
                    // if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-7');
                         try {
-                            claim = {};
-                            $.each(motorForm.serializeArray(), function(i, field) {
-                            claim[field.name] = field.value;
-                            });
-                            console.log(claim, policy_owner)
-                            $.post(summaryUrl, {claim:claim, policy: policy_owner}).then(resp => {
+                            claim = motorForm.serializeArray()
+                            
+                            $.post(summaryUrl, {policy:policy_owner}, resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
+                                $.post(summaryUrl, motorForm.serialize(), resp => {
+                                    $('#summary').append(resp)
+                                })
+                                .fail(e=>{
+                                    alert('failed')
+                                })
                             })
                         } catch (err) {
                             console.log(err)

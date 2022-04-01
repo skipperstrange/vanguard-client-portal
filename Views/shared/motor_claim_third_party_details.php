@@ -10,20 +10,20 @@ include SHARED.'_driver_details_template.php';
 </div>
 
 <div class="form-group col-lg-12 col-md-6">
-    <input type="radio" name="accident_details[motor_offence]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motor_offence', '<?= $count ?>')"  value="yes">
+    <input type="radio" name="accident_details[third_party][motor_offence][option]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motor_offence', '<?= $count ?>')"  value="yes">
     <label for="motoroffenceyes" class="purpose-radio-label">
         <span class="label-text">Yes</span>
     </label>
     &nbsp;
     &nbsp;
-    <input type="radio" name="accident_details[motor_offence]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motor_offence', '<?= $count ?>')" value="no" checked>
+    <input type="radio" name="accident_details[third_party][motor_offence][option]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motor_offence', '<?= $count ?>')" value="no" checked>
     <label for="motoroffenceno" class="purpose-radio-label">
         <span class="label-text">No</span>
     </label>
 
 </div>
 
-<div class="col-lg-12 col-md-6" id="motor_offence_<?= $count ?>">
+<div class="col-lg-12" id="motor_offence_<?= $count ?>">
 
 </div>
 
