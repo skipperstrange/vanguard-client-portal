@@ -28,6 +28,8 @@ $owner_driving = $_POST['owner_driving'];
 $reported = $_POST['reported'];
 $accident_details = $_POST['accident_details'];
 $driver_details = $owner_driving['driver'];
+$casualty_damage = $_POST['casualty_damage'];
+$witnesses = $_POST['witness'];
 
 
 if($reported['option'] == $affirmative){

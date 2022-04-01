@@ -4,7 +4,7 @@
       <thead class="card-header">
           <tr>
             <td colspan="12" class="col-12 data-title">
-                <strong><?= $data_title; ?></strong>
+                <strong><?= ucfirst(str_replace('_',' ',$data_title)); ?></strong>
                 <span style="font-size: 1.5rem;" onclick="toggleDataTable('<?= $controlId ?>');" id="<?= $controlId ?>_data_control" class="data-control float-right icon-chevron-circle-up mr-2"></span>
             </td>
           </tr>

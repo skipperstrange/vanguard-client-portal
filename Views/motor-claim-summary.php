@@ -31,6 +31,20 @@ $summary_columns = null;
 
 $summary_columns['accident_details'] = $accident_details_in_depth;
 include SHARED.'_summary_columns.php';
+$summary_columns = null;
+
+
+$data_title = 'casualties_and_damages';
+$data = $casualty_damage;
+$controlId = 'casualties_table';
+include SHARED.'_summary_rows.php';
+
+
+
+$data_title = 'witnesses';
+$data = $witnesses;
+$controlId = 'witnesses_table';
+include SHARED.'_summary_rows.php';
 
 
 
