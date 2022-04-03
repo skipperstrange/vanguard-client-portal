@@ -37,14 +37,14 @@ $summary_columns = null;
 $data_title = 'casualties_and_damages';
 $data = $casualty_damage;
 $controlId = 'casualties_table';
-include SHARED.'_summary_rows.php';
+include SHARED.'_summary_table.php';
 
 
 
 $data_title = 'witnesses';
 $data = $witnesses;
 $controlId = 'witnesses_table';
-include SHARED.'_summary_rows.php';
+include SHARED.'_summary_table.php';
 
 
 

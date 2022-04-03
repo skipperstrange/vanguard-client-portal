@@ -30,7 +30,8 @@ $(function() {
                     search_by = $("#search_by").val()
                     query = $("#policy_id").val()
                    //if (motorForm.valid()) {
-                        axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
+                    axios.post('./public/data/motor-claim.json',  {search_by: search_by, query: query})
+                    //axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
                             $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{

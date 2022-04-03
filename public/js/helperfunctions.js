@@ -33,12 +33,34 @@ function defaultErrorModal(e){
 //specific functions for manipulating particular date fieldset
 function initDateInputs() {
     dob = $('#dob')
-    dob3rd = $('#dob-third-party')
+    dobClass = $('.dob')
     yp = $('.date-year')
+    date = $('.date')
     manufactureDate = $('#manufacture')
     reg = $('#registration')
     
     dob.datetimepicker({
+        "allowInputToggle": true,
+        "showClose": true,
+        "showClear": true,
+        "showTodayButton": true,
+        "format": "MM-DD-YYYY",
+        "maxDate": defaultDoB,
+        "date": null
+
+    });
+
+    date.datetimepicker({
+        "allowInputToggle": true,
+        "showClose": true,
+        "showClear": true,
+        "showTodayButton": true,
+        "format": "MM-DD-YYYY",
+        "maxDate": currentDate,
+        "date": null
+    });
+
+    dobClass.datetimepicker({
         "allowInputToggle": true,
         "showClose": true,
         "showClear": true,

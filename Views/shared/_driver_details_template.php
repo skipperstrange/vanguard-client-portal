@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
-        <input type="text" id="dob" name="<?=$driver_container;?>[dob]" placeholder="Date of Birth" title="" class="form-control input-group date" />
+        <input type="text" id="" name="<?=$driver_container;?>[dob]" placeholder="Date of Birth" title="" class="form-control input-group date" />
 </div>
 
 <div class="form-group col-lg-6 col-md-6">

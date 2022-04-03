@@ -102,9 +102,9 @@
             //title
             title:"<?= CLIENT_NAME?>",
             //Add this at top
-            prepend : "<p><?= SUPPORT_CONTACT_1?> | <?= SUPPORT_EMAIL ?></p>",
+            append : "<p><?= SUPPORT_CONTACT_1?> | <?= SUPPORT_EMAIL ?></p>",
             //Add this on bottom
-            //append : "<span></span>",
+            //prepend : "<span></span>",
             //Log to console when printing is done via a deffered callback
             deferred: $.Deferred().done(function() { console.log('Printing done', arguments); })
         });

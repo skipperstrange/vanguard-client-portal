@@ -7,7 +7,7 @@ $save = [];
 
 if(isset($_POST['policy']) && is_array($_POST['policy'])){
 
-    $printDivId = "motor-policy-wizard-p-5";
+    $printDivId = "summary";
     $printTitle  = "Motor Claim Summary";
     $letter_header_title  = $printTitle;
     

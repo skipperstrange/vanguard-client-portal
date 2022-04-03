@@ -32,15 +32,9 @@ include SHARED.'_driver_details_template.php';
     <input type="text" id="location"  name="accident_details[location]" class="form-control" placeholder="Where did the accident occur *" value="" />
 </div>
 <div class="form-group col-lg-6 col-md-6">
-    <div class="input-group date">
-        <input type="text" id="accident_detailsdate" name="accident_details[date]" placeholder="Date of Accident" title="" class="form-control"  />
-        <div class="input-group-addon input-group-append">
-            <div class="input-group-text">
-                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-            </div>
-        </div>
-    </div>
+        <input type="text" id="accident_detailsdate" name="accident_details[date]" placeholder="Date of Accident" title="" class="date form-control"  />
 </div>
+
 <!-- <div class="form-group col-lg-6">
     <input type="text" id=""  name="accident_details[cause]" class="form-control" placeholder="Cause of Accident *" value="" />
 </div> -->
