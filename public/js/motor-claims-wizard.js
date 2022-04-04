@@ -3,6 +3,7 @@ $(function() {
     var motorForm = $("#motor-claim-form")
     var motorWizard = $("#motor-claims-wizard")
     var policy_owner = {}
+    var proceed = false;
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -23,15 +24,15 @@ $(function() {
 
             onStepChanging: function(event, currentIndex, newIndex) {
                 showOverlay()
-              //  motorForm.validate().settings.ignore = ":disabled,:hidden";
+                motorForm.validate().settings.ignore = ":disabled,:hidden";
                 //console.log(motorForm.validate());
                 console.log( currentIndex, newIndex)
                 if (currentIndex === 0) {
                     search_by = $("#search_by").val()
                     query = $("#policy_id").val()
                    //if (motorForm.valid()) {
-                    axios.post('./public/data/motor-claim.json',  {search_by: search_by, query: query})
-                    //axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
+                       proceed = false
+                    axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
                             $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
@@ -114,11 +115,11 @@ $(function() {
                 } 
 
                 if (newIndex === 6) {
+                    
                    // if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-7');
                         try {
                             claim = motorForm.serializeArray()
-                            
                             $.post(summaryUrl, {policy:policy_owner}, resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
@@ -142,6 +143,99 @@ $(function() {
                     // $('.actions ul').removeClass('motor-step-last');
                 }
                 return true;
+            },
+
+            onFinishing: function(event, currentIndex, newIndex){
+              //  showOverlay()
+                $.get('?controller=_declaration', {declaration: "motor-claim"},data=>{
+                    bootbox.confirm({
+                        size: "large",
+                        className: '',
+                        title: "Declaration <i class='fa fa-spin fa-spinner'></i> ",
+                        message: data,
+                        buttons: {
+                            cancel: {
+                                label: '<i class="fa fa-times"></i> Cancel'
+                            },
+                            confirm: {
+                                label: '<i class="fa fa-check"></i> Accept'
+                            }
+                        },
+                        callback: function (result) {
+                            if(result == true){
+                                $ack = $('#dec').html()
+                                setTimeout(()=>{
+                                        try{
+                                        showOverlay()
+                                        $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
+
+                                            axios.post('http://localhost',  data.message)
+                                          //  axios.post(apiUrls.applicationServerUrl+'portal/add-motorclaim/',  data.message)
+                                            .then(data=>{
+                                                changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
+                                               
+                                                $print = createPrintButton('summary','Motor Claim Summary', 'Save')
+                                                $("#print").append($print) 
+                                                
+                                                hideOverlay()
+                                                    bootbox.dialog({
+                                                        title: '<i class="fa fa-check" style="#f35b35"></i> Submitted',
+                                                        message: " <p> Thank you for submitting. Our agents will call you shortly to proceed with the process.</p>.",
+                                                        buttons: {
+                                                            cancel: {
+                                                                label: "Return to summary",
+                                                                className: 'btn-info',
+                                                                callback: function(){
+                                                                    $(document).find("div.actions ul").children().last().css('float', 'right');
+                                                                    $(document).find("div.actions ul").children().last().remove();
+                                                                    var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
+                                                                    var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
+
+                                                                    $(document).find("div.actions ul").append(saveBtn)
+                                                                }
+                                                            },
+                                                            
+                                                            ok: {
+                                                                label: "Finish",
+                                                                className: 'btn-success',
+                                                                callback: function(){
+                                                                    showOverlay()
+                                                                    setTimeout(()=>{
+                                                                      //  redirectTo(window.location.replace($(location).attr('href')))
+                                                                    }, 1000)
+                                                                }
+                                                            }
+                                                        }
+                                                    })
+                                                    hideOverlay()
+                                                })
+                                            .catch(e=>{
+                                                defaultErrorModal()
+                                                hideOverlay()
+                                                })
+                                        })
+                                        .fail((e)=>{
+                                            defaultErrorModal()
+                                                hideOverlay()
+                                        })
+                                    }
+                                    catch(e){
+                                        defaultErrorModal()
+                                        hideOverlay()
+                                    }
+                                }, 1000)
+                            }
+
+                            if(result == false){
+                                console.log(result);
+                                hideOverlay()
+                            }
+                            
+                        }
+                    });
+
+                    $('.bootbox-accept').prop('disabled', true)
+                });
             },
             onStepChanged: function(event, currentIndex, newIndex) {
                 hideOverlay()

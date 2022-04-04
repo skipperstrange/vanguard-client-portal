@@ -3,7 +3,7 @@
         
    
     <?php 
-    include SHARED.'_motor_declaration_template.php';
+    echo $declaration;
     ?>
 
     <div class="form-group row">

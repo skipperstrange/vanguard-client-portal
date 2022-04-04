@@ -129,7 +129,7 @@ $(function() {
             
             onFinishing: function(event, currentIndex, newIndex){
                 showOverlay()
-                $.get('?controller=motor_policy_declaration', data=>{
+                $.get('?controller=_declaration', {declaration: "motor-policy"}, data=>{
                     bootbox.confirm({
                         size: "large",
                         className: '',
@@ -156,16 +156,8 @@ $(function() {
                                                
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                
-
-                                                $print = '<div class="row not-this">'
-                                                $print += '<div class="col-lg-6 col-md-6 col-sm-6 offset-sm-6  offset-md-6  offset-lg-6"> '
-                                                $print += '<span class="float-right mute printer">'
-                                                $print += '<a href="#" onclick="print(\'motor-policy-wizard-p-5\', \'Motor Policy Summary\')" class="p-3 m-0">'
-                                                $print += 'Save to device <span class="icon-print"></span>'
-                                                $print += '</a>'
-                                                $print += '</span>'
-                                                $print += '</div>'
-                                                $print += '</div>'
+                                                $print = createPrintButton('summarmotor-policy-wizard-p-5y','Motor Policy Summary', 'Save')
+                                                
                                                 $("#print").append($print) 
                                                 
                                                 hideOverlay()
