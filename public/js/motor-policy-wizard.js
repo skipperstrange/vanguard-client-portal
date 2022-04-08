@@ -156,7 +156,7 @@ $(function() {
                                                
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                
-                                                $print = createPrintButton('summarmotor-policy-wizard-p-5y','Motor Policy Summary', 'Save')
+                                                $print = createPrintButton('#summarmotor-policy-wizard-p-5y','Motor Policy Summary', 'Save')
                                                 
                                                 $("#print").append($print) 
                                                 

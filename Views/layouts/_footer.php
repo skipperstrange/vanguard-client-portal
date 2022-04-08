@@ -86,7 +86,7 @@
     }
 
     function print(divId){
-        div = '#'+divId
+        div = divId
         $(div).print({
             //Use Global styles
             globalStyles : false,

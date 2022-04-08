@@ -7,13 +7,13 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                     <?php
-                        echo form_options_generator($claim_type_options['motor_claim'], 'claim_by', "Search By",  ["class"=>"form-control" , "id"=>"search_by"]);
+                        echo form_options_generator($claim_type_options['motor_claim'], 'claim_by', "Search By",  ["class"=>"form-control" , "id"=>"search_by", 'required']);
                     ?>
                 </div>
                 </div>
             <div class="col-md-6 col-sm-12 form-group ">
                 <div class="form-group">
-                    <input type="text" id="policy_id" required name="policy_id" class="form-control" value="" placeholder="Vehicle Registration/Motor Policy ID * (P-001-1001-2020-000001)" value="" />
+                    <input type="text" id="policy_id"  name="policy_id" class="form-control" value="" placeholder="Vehicle Registration/Motor Policy ID * (P-001-1001-2020-000001)" value="" />
                 </div>
             </div>
             </section>

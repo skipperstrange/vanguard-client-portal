@@ -42,7 +42,7 @@
                         <br>
                         <a href="tel:<?= SUPPORT_CONTACT_1 ?>" class="btn btn-primary action-call">Call for enquiries</a>
                     </div>
-                    <div class="col-lg-5 col-md-6 offset-md-1">
+                    <!--div class="col-lg-5 col-md-6 offset-md-1">
                         <div class="container  form-card card shadow">
                                 <br>
                             <h4 class="title" style="text-align: center;">Sign up for a new policy</h4>
@@ -53,13 +53,13 @@
                                             <i class="fa fa-car"></i> New Proposal
                                         </a>
                                     </div>
-                                    <!--div class="form-group">
+                                    <div class="form-group">
                                         <a id="checkPolicy" href="<?= _link('fire-claim', 'fire-claim') ?>" class="btn btn-block btn-warning" >
                                             <i class="fa fa-fire"></i> Fire Claims
                                         </a>
-                                    </div-->
+                                    </div>
                                 </section>
-                        </div>
+                        </div-->
                     </div>
                     <?php 
                      $config = config();

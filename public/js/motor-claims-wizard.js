@@ -30,31 +30,31 @@ $(function() {
                 if (currentIndex === 0) {
                     search_by = $("#search_by").val()
                     query = $("#policy_id").val()
-                   //if (motorForm.valid()) {
+                   if (motorForm.valid()) {
                        proceed = false
                     axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
+                            console.log(policy_owner)
                             $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
                                 changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
-                            })                        
+                            })               
                         })
                         .catch(e=>{
                                 bootbox.alert({
                                 title: '<i class="fa fa-close" style="#f35b35"></i> Record not found',
                                 message: " <p> The policy you are looking for does not exist. Please try again. </p>.",
                                     })
-                                    changeContent('confirm-details', '' )
                                     hideOverlay()
-                                return false
+                                    changeContent('confirm-details', '' )
+                                    return false
                         })
-                        
-                            
-                 /*   }
+                        hideOverlay()
+                    }
                     else{
                         hideOverlay()
                         return false
-                    } */
+                    }
                 }
                 if (newIndex === 1) {
                      if (motorForm.valid()) {
@@ -174,7 +174,7 @@ $(function() {
                                             .then(data=>{
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                
-                                                $print = createPrintButton('summary','Motor Claim Summary', 'Save')
+                                                $print = createPrintButton('section.current','Motor Claim Summary', 'Save')
                                                 $("#print").append($print) 
                                                 
                                                 hideOverlay()

@@ -1,5 +1,3 @@
-                
-                
                 <div class="col-lg-12">
                     <label for="owner_driving">Were you the one driving at the time of the incident?</label>
                 </div>
