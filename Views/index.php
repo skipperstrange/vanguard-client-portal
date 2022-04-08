@@ -34,18 +34,18 @@
 
                     <div class="col-lg-6 col-md-4 intro">
                         <h1 class="title">
-                            Sign Up for a new policy.
+                            Proposal and Claims Portal
                         </h1>
                         <div class="info">
-                            Fill in our step by step form to begin the process.
+                            Get started. Its easy!!
                         </div>
                         <br>
                         <a href="tel:<?= SUPPORT_CONTACT_1 ?>" class="btn btn-primary action-call">Call for enquiries</a>
                     </div>
-                    <!--div class="col-lg-5 col-md-6 offset-md-1">
+                    <div class="col-lg-5 col-md-6 offset-md-1">
                         <div class="container  form-card card shadow">
                                 <br>
-                            <h4 class="title" style="text-align: center;">Sign up for a new policy</h4>
+                            <h4 class="title" style="text-align: center;">Choose an action to get started</h4>
                             <br>       
                             <section>
                                     <div class="form-group">
@@ -53,13 +53,18 @@
                                             <i class="fa fa-car"></i> New Proposal
                                         </a>
                                     </div>
-                                    <div class="form-group">
+                                     <div class="form-group">
+                                        <a id="checkPolicy" href="<?= _link('motor-claim', 'motor-claim') ?>" class="btn btn-block btn-warning" >
+                                            <i class="fa fa-car"></i> New Motor Claim
+                                        </a>
+                                    </div>
+                                    <!--div class="form-group">
                                         <a id="checkPolicy" href="<?= _link('fire-claim', 'fire-claim') ?>" class="btn btn-block btn-warning" >
                                             <i class="fa fa-fire"></i> Fire Claims
                                         </a>
-                                    </div>
+                                    </div-->
                                 </section>
-                        </div-->
+                        </div>
                     </div>
                     <?php 
                      $config = config();
