@@ -177,7 +177,7 @@ $(function() {
                                         showOverlay()
                                         $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
 
-                                            axios.post('http://localhost',  data.message)
+                                            axios.get('http://192.168.100.242/api',  data.message)
                                           //  axios.post(apiUrls.applicationServerUrl+'portal/add-motorclaim/',  data.message)
                                             .then(data=>{
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)

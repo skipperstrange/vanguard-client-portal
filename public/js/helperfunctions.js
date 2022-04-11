@@ -345,7 +345,7 @@ function createPrintButton(id, title, label){
     $print = '<div class="row not-this">'
     $print += '<div class="col-lg-6 col-md-6 col-sm-6 offset-sm-6  offset-md-6  offset-lg-6"> '
     $print += '<span class="float-right mute printer">'
-    $print += '<a href="#" onclick="print(\"'+id+'", "'+title+'")" class="p-3 m-0">'
+    $print += '<a href="#" onclick=\'print("'+id+'", "'+title+'")\' class="p-3 m-0">'
     $print += label+' <span class="icon-print"></span>'
     $print += '</a>'
     $print += '</span>'
