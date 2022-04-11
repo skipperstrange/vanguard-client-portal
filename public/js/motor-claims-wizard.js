@@ -35,21 +35,29 @@ $(function() {
                     axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
-                            console.log(policy_owner)
+                            
                             $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
+                                hideOverlay()
+                                proceed = true
                                 changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
+                                return proceed
                             })               
                         })
                         .catch(e=>{
+                        hideOverlay()
+
                                 bootbox.alert({
                                 title: '<i class="fa fa-close" style="#f35b35"></i> Record not found',
-                                message: " <p> The policy you are looking for does not exist. Please try again. </p>.",
+                                message: " <p> The policy you are looking for does not exist. Please try again. You will now be redirected to the begining</p>.",
                                     })
-                                    hideOverlay()
+                                   
                                     changeContent('confirm-details', '' )
+                                    setTimeout(()=>{
+                                       // redirectTo(window.location.replace($(location).attr('href')))
+                                    }, 5000)
+                                    hideOverlay()
                                     return false
                         })
-                        hideOverlay()
                     }
                     else{
                         hideOverlay()
@@ -127,7 +135,7 @@ $(function() {
                                     $('#summary').append(resp)
                                 })
                                 .fail(e=>{
-                                    alert('failed')
+                                    
                                 })
                             })
                         } catch (err) {
@@ -201,7 +209,7 @@ $(function() {
                                                                 callback: function(){
                                                                     showOverlay()
                                                                     setTimeout(()=>{
-                                                                      //  redirectTo(window.location.replace($(location).attr('href')))
+                                                                        redirectTo(window.location.replace($(location).attr('href')))
                                                                     }, 1000)
                                                                 }
                                                             }

@@ -774,9 +774,12 @@ div.form-group .opt {
 }
 
 footer {
-    padding-top: 2rem;
+    padding-top: 1rem;
     background: var(--grey5);
     color: var(--white);
+    position: static;
+    bottom: 0px;
+    width: 100%;
 }
 
 footer h4 {
@@ -832,8 +835,18 @@ footer .site-logo img{
         font-size: 16px;
         line-height: 18px;
     }
+
+    footer{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
     footer .copy {
         text-align: center;
+        padding: 1rem 0px;
+    }
+
+    footer .site-logo img{
+        width: 100px;
     }
 }
 
