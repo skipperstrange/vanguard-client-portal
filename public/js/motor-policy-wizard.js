@@ -24,6 +24,9 @@ $(function() {
             onStepChanging: function(event, currentIndex, newIndex) {
                 showOverlay();
                 motorForm.validate().settings.ignore = ":disabled,:hidden";
+                if (currentIndex > newIndex) {
+                    return true;
+                }
                 
                 if (newIndex === 0) {
                     hideOverlay()
@@ -156,8 +159,7 @@ $(function() {
                                                
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                
-                                                $print = createPrintButton('#summarmotor-policy-wizard-p-5y','Motor Policy Summary', 'Save')
-                                                
+                                                $print = createPrintButton('section.current','Motor Policy Summary', 'Save to device')
                                                 $("#print").append($print) 
                                                 
                                                 hideOverlay()

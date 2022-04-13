@@ -21,7 +21,7 @@ foreach($data as $key => $value){
     $info['owner_details']['client_other_name'] = $data['client_other_name'];
     $info['owner_details']['occupation'] = $data['client_occupation'];
     $info['owner_details']['client_contact'] = $data['client_contact'];
-    $info['owner_details']['postal_address'];
+    $info['owner_details']['postal_address'] =  $data['postal_address'];
     $info['owner_details']['residential_address'] = $data['residential_address'];
 
     $info['motor_details']['chassis_number'] = $data['chassis_number'] ;

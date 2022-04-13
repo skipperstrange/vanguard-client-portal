@@ -1,5 +1,9 @@
 <?php 
 //set driver_container variable in parent to make fields unique
+if(!$driver_container){
+    $driver_container = 'driver';
+}
+
 ?>
 <div class="form-group col-lg-6  col-md-6">
     <input type="text" id="fullname" name="<?=$driver_container;?>[fullname]" class="form-control" placeholder="Name of driver *" value="" />
@@ -10,7 +14,7 @@
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
-        <input type="text" id="" name="<?=$driver_container;?>[dob]" placeholder="Date of Birth" title="" class="form-control input-group date" />
+        <input type="text" id="" name="<?=$driver_container;?>[dob]" placeholder="Date of Birth" title="" class="form-control input-group dob" />
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
@@ -31,6 +35,8 @@
 
 <div class="form-group col-lg-6 col-md-6">
 <?php
-echo form_options_generator($licence_groups, $driver_container.'[licence_group]', "Licence Group",  ["class"=>"form-control ", "title"=>"Licence group of the other driver." , "id"=>"licence_group"]);
+if($show_license_group == true){
+    echo form_options_generator($licence_groups, $driver_container.'[licence_group]', "Licence Group",  ["class"=>"form-control ", "title"=>"Licence group of the other driver." , "id"=>"licence_group"]);
+}
 ?>
 </div>

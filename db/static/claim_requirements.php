@@ -6,13 +6,14 @@ $claim_requirements = [
             "required" => true
         ],
         "police report" => [],
-        "photo of vehicle (front)" =>[
+        "photo of vehicle (front with registeration)" =>[
             "required" => true
         ],
-        "photo of vehicle (rear)" =>[
+        "photo of vehicle (rear with registeration)" =>[
             "required" => true
         ],
-        "estimates of repairer" => [],
-        "other documents" => []
+        "estimates of repair" => [],
+        "medical reports" => [],
+        ""=>[]
     ]
 ];

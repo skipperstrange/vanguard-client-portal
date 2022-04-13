@@ -43,7 +43,7 @@
             <!-- SECTION 3 -->
             <h4></h4>
             <section class="row" id="accident_details">
-                <?php include SHARED . 'motor_claim_third_party_details.php'; ?>
+                <?php include SHARED . 'accident_details.php'; ?>
             </section>
 
             <!-- SECTION 4 -->

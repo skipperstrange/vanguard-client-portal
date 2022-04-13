@@ -22,8 +22,6 @@ $declarations = [
     incorporated in the contract between me/us and VANGUARD ASSURANCE. I/We further agree to accept the insurance Policy on the terms and conditions set forth in
     the relevant Policy document and to pay the premiums charged. I/We undertake that the vehicles/motor cycles to be insured shall not be driven/ridden by any
     person who, to my/our knowledge; has been refused any motor vehicle/cycle insurance or continuance thereof.
-
-
     </div>
     <div class="declaration">
         <strong>

@@ -1,4 +1,4 @@
-<?php if(count($data) > 0): 
+<?php if($data && count($data) > 0): 
 $titles = [];
 foreach($data[1] as $title => $detail){
 $titles[] = $title;

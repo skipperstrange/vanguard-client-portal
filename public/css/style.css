@@ -1102,7 +1102,7 @@ select option[value=""][disabled] {
 }
 
 .steps ul.motor-claim-step-4:after {
-    content: "Third Party Driver";
+    content: "Incident Details";
 }
 
 .steps ul.motor-claim-step-5:after {

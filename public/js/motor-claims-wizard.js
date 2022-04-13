@@ -1,9 +1,8 @@
 $(function() {
-    var summaryUrl = "?controller=motor-claim-summary"
     var motorForm = $("#motor-claim-form")
     var motorWizard = $("#motor-claims-wizard")
     var policy_owner = {}
-    var proceed = false;
+    var is_async_step;
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -26,37 +25,37 @@ $(function() {
                 showOverlay()
                 motorForm.validate().settings.ignore = ":disabled,:hidden";
                 //console.log(motorForm.validate());
+                if (currentIndex > newIndex) {
+                    return true;
+                }
+
+               
                 console.log( currentIndex, newIndex)
                 if (currentIndex === 0) {
                     search_by = $("#search_by").val()
                     query = $("#policy_id").val()
+                    is_async_step = false
                    if (motorForm.valid()) {
-                       proceed = false
-                    axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
+                     axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
-                            
-                            $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
-                                hideOverlay()
-                                proceed = true
-                                changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
-                                return proceed
-                            })               
+                            is_async_step = true
+                            changeContent('confirm-details', '')
+                                $('.steps ul').addClass('motor-claim-step-2');
+                                $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
+                                    changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
+                                })  
+                            hideOverlay()
                         })
                         .catch(e=>{
-                        hideOverlay()
-
+                            changeContent('confirm-details', '<h4>You may not be able to continue.</h4>' )
+                            is_async_step = false
+                            $('.steps ul').removeClass('motor-claim-step-2');
                                 bootbox.alert({
                                 title: '<i class="fa fa-close" style="#f35b35"></i> Record not found',
-                                message: " <p> The policy you are looking for does not exist. Please try again. You will now be redirected to the begining</p>.",
-                                    })
-                                   
-                                    changeContent('confirm-details', '' )
-                                    setTimeout(()=>{
-                                       // redirectTo(window.location.replace($(location).attr('href')))
-                                    }, 5000)
-                                    hideOverlay()
-                                    return false
+                                message: " <p>The policy you are looking for does not exist or your policy has expired. Please try again. <br />If problem persists, please contact customer care</p>",
+                                })
+                            hideOverlay()
                         })
                     }
                     else{
@@ -66,7 +65,8 @@ $(function() {
                 }
                 if (newIndex === 1) {
                      if (motorForm.valid()) {
-                        $('.steps ul').addClass('motor-claim-step-2');
+                       
+                        
                     } else {
                         return false
                     }
@@ -131,7 +131,7 @@ $(function() {
                             $.post(summaryUrl, {policy:policy_owner}, resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
-                                $.post(summaryUrl, motorForm.serialize(), resp => {
+                                $.post(apiUrls.motorClaimSummaryUrl, motorForm.serialize(), resp => {
                                     $('#summary').append(resp)
                                 })
                                 .fail(e=>{
@@ -177,7 +177,7 @@ $(function() {
                                         showOverlay()
                                         $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
 
-                                            axios.get('http://192.168.100.242/api',  data.message)
+                                            axios.get('http://192.168.100.242:8000/api',  data.message)
                                           //  axios.post(apiUrls.applicationServerUrl+'portal/add-motorclaim/',  data.message)
                                             .then(data=>{
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)

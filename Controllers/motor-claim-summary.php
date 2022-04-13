@@ -1,6 +1,5 @@
 <?php
 $policy = $_POST['policy'];
-$claim_raw = $_POST['claim'];
 
 $affirmative = 'yes';
 $save = [];
@@ -20,7 +19,6 @@ if(isset($_POST['policy']) && is_array($_POST['policy'])){
 }
 
 else{
-$driver_has_own_vehicle = false;
 $third_party_driver_offence = false;
 
 $loan_or_hire = $_POST['loan_or_hire'];
@@ -45,13 +43,12 @@ $save['reported'] = $back_check;
 if($loan_or_hire['option'] == $affirmative){
     $loan_or_hire_status['status'] = $affirmative;   
     $loan_or_hire_status['unit'] = $loan_or_hire['name_of_company'];  
-    $loan_or_hire_status['owner_consent'] = $owner_driving['vehicle_consent']['vehicle_consent'];  //Was vehicle use consented 
+    $loan_or_hire_status['owner_consent'] = $owner_driving['vehicle_consent']['option'];  //Was vehicle use consented 
 }
 else{
     $loan_or_hire_status['loan_or_hire'] = $loan_or_hire['option'];
 }
-
-$vehicle['purpose'] = $owner_driving['owner_driving'];
+$vehicle['purpose'] = $owner_driving['purpose_of_vehicle'];
 
 
 if($owner_driving['option'] !== $affirmative){
@@ -61,23 +58,26 @@ if($owner_driving['option'] !== $affirmative){
     $driver['date_of_issue'] = $driver_details['date_of_license_issue'];
     $driver['occupation'] = $driver_details['driver_occupation'];
     $driver['relationship'] = $driver_details['driver_owner_relationship'];
-    if($driver_details['driver_has_own_vehicle']){
-        $driver_has_own_vehicle = true;
+   
         $driver_insurance['insurance_company'] = $driver_details['insurance_company'];
         $driver_insurance['policy_id'] = $driver_details['policy_id'];
         $save['driver_insurance'] = $driver_insurance;
-    }
 }else{
     $driver['owner_driving'] = 'yes';
 }
 
+
     foreach($accident_details['third_party'] as $third_party => $detail){
         if($third_party == 'motor_offence_details' || $third_party == 'motor_offence'){
         }else{
-            $third_party_driver[$third_party] = $detail;
+            if($third_party == 'insurance_company' || $third_party == 'policy_id'){
+                $third_party_insurance[$third_party] = $detail;
+            }else{
+                $third_party_driver[$third_party] = $detail;
+            }
         }
     }
-
+    
     $tp_motor_offence['driver_commited_offence'] = $accident_details['third_party']['motor_offence']['option'];
 
     if($tp_motor_offence['driver_commited_offence']== $affirmative){
