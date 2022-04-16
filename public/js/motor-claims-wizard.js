@@ -1,8 +1,10 @@
 $(function() {
     var motorForm = $("#motor-claim-form")
     var motorWizard = $("#motor-claims-wizard")
-    var policy_owner = {}
+    var policy_owner = null
     var is_async_step;
+
+
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },
@@ -13,6 +15,9 @@ $(function() {
                 policy_id: "Please provide a policy id to proceed"
             }
         });
+
+        errorMsg = "Check the highlighted fields and try again"
+        errorTitle = "Please check errors"
 
         motorWizard.steps({
             headerTag: "h4",
@@ -32,6 +37,7 @@ $(function() {
                
                 console.log( currentIndex, newIndex)
                 if (currentIndex === 0) {
+                    policy_owner = null
                     search_by = $("#search_by").val()
                     query = $("#policy_id").val()
                     is_async_step = false
@@ -49,7 +55,6 @@ $(function() {
                         })
                         .catch(e=>{
                             changeContent('confirm-details', '<h4>You may not be able to continue.</h4>' )
-                            is_async_step = false
                             $('.steps ul').removeClass('motor-claim-step-2');
                                 bootbox.alert({
                                 title: '<i class="fa fa-close" style="#f35b35"></i> Record not found',
@@ -60,6 +65,7 @@ $(function() {
                     }
                     else{
                         hideOverlay()
+                        defaultErrorModal(errorTitle, errorMsg)
                         return false
                     }
                 }
@@ -68,17 +74,22 @@ $(function() {
                        
                         
                     } else {
+                        hideOverlay()
+                        defaultErrorModal(errorTitle, errorMsg)
                         return false
                     }
                 }
                 else {
                     $('.steps ul').removeClass('motor-claim-step-2');
+                    hideOverlay()
                 }
 
                 if (newIndex === 2) {
                    if (motorForm.valid()) {
                     $('.steps ul').addClass('motor-claim-step-3');
                     } else {
+                        hideOverlay()
+                        defaultErrorModal(errorTitle, errorMsg)
                         return false
                     }
                 } else {
@@ -86,35 +97,41 @@ $(function() {
                 }
 
                 if (newIndex === 3) {
-                   // if (motorForm.valid()) {
+                    if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-4');
-                    //} else {
-                      //  return false
-                    //}
+                    } else {
+                        hideOverlay()
+                        defaultErrorModal(errorTitle, errorMsg)
+                      return false
+                    }
                 } else {
                     $('.steps ul').removeClass('motor-claim-step-4');
                 }
 
                 if (newIndex === 4) {
-                  //  if (motorForm.valid()) {
+                   if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-5');
-                        //  $('.actions ul').addClass('motor-step-last');
-                  //  } else {
-                      //  return false
-                //    }
+                         $('.actions ul').addClass('motor-step-last');
+                    } else {
+                        hideOverlay()
+                        defaultErrorModal(errorTitle, errorMsg)
+                       return false
+                   }
                 } else {
                     $('.steps ul').removeClass('motor-claim-step-5');
-                    //  $('.actions ul').removeClass('motor-step-last');
+                      $('.actions ul').removeClass('motor-step-last');
                 }
 
                 if (newIndex === 5) {
-                   // if (motorForm.valid()) {
+                    if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-6');
                         
-                        // $('.actions ul').addClass('motor-step-last');
-                   // } else {
-                     //   return false
-                   // }
+                         $('.actions ul').addClass('motor-step-last');
+                    } else {
+                        hideOverlay()
+                        defaultErrorModal(errorTitle, errorMsg)
+                        return false
+                    }
                 } else {
                     $('.steps ul').removeClass('motor-claim-step-6');
                     // $('.actions ul').removeClass('motor-step-last');
@@ -124,11 +141,11 @@ $(function() {
 
                 if (newIndex === 6) {
                     
-                   // if (motorForm.valid()) {
+                    if (motorForm.valid()) {
                         $('.steps ul').addClass('motor-claim-step-7');
                         try {
                             claim = motorForm.serializeArray()
-                            $.post(summaryUrl, {policy:policy_owner}, resp => {
+                            $.post(apiUrls.motorClaimSummaryUrl, {policy:policy_owner}, resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
                                 $.post(apiUrls.motorClaimSummaryUrl, motorForm.serialize(), resp => {
@@ -143,9 +160,11 @@ $(function() {
                         }
 
                          $('.actions ul').addClass('motor-step-last');
-                   // } else {
-                     //   return false
-                    //}
+                    } else {
+                        hideOverlay()
+                        defaultErrorModal(errorTitle, errorMsg)
+                        return false
+                    }
                 } else {
                     $('.steps ul').removeClass('motor-claim-step-7');
                     // $('.actions ul').removeClass('motor-step-last');
@@ -171,67 +190,68 @@ $(function() {
                         },
                         callback: function (result) {
                             if(result == true){
-                                $ack = $('#dec').html()
-                                setTimeout(()=>{
-                                        try{
-                                        showOverlay()
-                                        $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
-
-                                            axios.get('http://192.168.100.242:8000/api',  data.message)
-                                          //  axios.post(apiUrls.applicationServerUrl+'portal/add-motorclaim/',  data.message)
-                                            .then(data=>{
-                                                changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
-                                               
-                                                $print = createPrintButton('section.current','Motor Claim Summary', 'Save')
-                                                $("#print").append($print) 
+                                if(policy_owner === null){}
+                                else{
+                                    $ack = $('#dec').html()
+                                    setTimeout(()=>{
+                                            try{
+                                            showOverlay()
+                                            $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
+                                                console.log(data)
+                                                axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim/',  data.message)
+                                                .then(data=>{
+                                                    changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                 
-                                                hideOverlay()
-                                                    bootbox.dialog({
-                                                        title: '<i class="fa fa-check" style="#f35b35"></i> Submitted',
-                                                        message: " <p> Thank you for submitting. Our agents will call you shortly to proceed with the process.</p>.",
-                                                        buttons: {
-                                                            cancel: {
-                                                                label: "Return to summary",
-                                                                className: 'btn-info',
-                                                                callback: function(){
-                                                                    $(document).find("div.actions ul").children().last().css('float', 'right');
-                                                                    $(document).find("div.actions ul").children().last().remove();
-                                                                    var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
-                                                                    var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
-
-                                                                    $(document).find("div.actions ul").append(saveBtn)
-                                                                }
-                                                            },
-                                                            
-                                                            ok: {
-                                                                label: "Finish",
-                                                                className: 'btn-success',
-                                                                callback: function(){
-                                                                    showOverlay()
-                                                                    setTimeout(()=>{
-                                                                        redirectTo(window.location.replace($(location).attr('href')))
-                                                                    }, 1000)
+                                                    $print = createPrintButton('section.current','Motor Claim Summary', 'Save')
+                                                    $("#print").append($print) 
+                                                    
+                                                    hideOverlay()
+                                                        bootbox.dialog({
+                                                            title: '<i class="fa fa-check" style="#f35b35"></i> Submitted',
+                                                            message: " <p> Thank you for submitting. Our agents will call you shortly to confirm.</p>.",
+                                                            buttons: {
+                                                                cancel: {
+                                                                    label: "Return to summary",
+                                                                    className: 'btn-info',
+                                                                    /*callback: function(){
+                                                                        $(document).find("div.actions ul").children().last().css('float', 'right');
+                                                                        $(document).find("div.actions ul").children().last().remove();
+                                                                        var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
+                                                                        var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
+                                                                        $(document).find("div.actions ul").append(saveBtn)
+                                                                    }*/
+                                                                },
+                                                                
+                                                                ok: {
+                                                                    label: "Finish",
+                                                                    className: 'btn-success',
+                                                                    callback: function(){
+                                                                        showOverlay()
+                                                                        setTimeout(()=>{
+                                                                            redirectTo(window.location.replace($(location).attr('href')))
+                                                                        }, 1000)
+                                                                    }
                                                                 }
                                                             }
-                                                        }
+                                                        })
+                                                        hideOverlay()
                                                     })
+                                                .catch(e=>{
+                                                    defaultErrorModal()
                                                     hideOverlay()
-                                                })
-                                            .catch(e=>{
+                                                    })
+                                            })
+                                            .fail((e)=>{
                                                 defaultErrorModal()
-                                                hideOverlay()
-                                                })
-                                        })
-                                        .fail((e)=>{
+                                                    hideOverlay()
+                                            })
+                                        }
+                                        catch(e){
                                             defaultErrorModal()
-                                                hideOverlay()
-                                        })
-                                    }
-                                    catch(e){
-                                        defaultErrorModal()
-                                        hideOverlay()
-                                    }
-                                }, 1000)
+                                            hideOverlay()
+                                        }
+                                    }, 1000)
+                                }
                             }
 
                             if(result == false){
@@ -279,4 +299,12 @@ $(function() {
         $('.checkbox-circle label').removeClass('active');
         $(this).addClass('active');
     })
+})
+
+$(function() {
+    $('.steps ul').addClass('step-1');
+    $('#consent-choices').hide(0)
+    $('#tpdriver').hide(0)
+    $("#loan_or_hire_").hide(0)
+    disableRequiredFields()
 })

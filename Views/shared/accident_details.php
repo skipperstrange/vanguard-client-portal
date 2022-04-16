@@ -2,10 +2,10 @@
 
 <!-- remember to put back required in the last 4 -->
 <div class="form-group col-lg-6 col-md-6">
-    <input type="text" id="location"  name="accident_details[location]" class="form-control" placeholder="Where did the accident occur *" value="" />
+    <input type="text" id="location" required name="accident_details[location]" class="form-control" placeholder="Where did the accident occur *" value="" />
 </div>
 <div class="form-group col-lg-6 col-md-6">
-        <input type="text" id="accident_detailsdate" name="accident_details[date]" placeholder="Date of Accident" title="" class="date form-control"  />
+        <input type="text" id="accident_detailsdate" required name="accident_details[date]" required placeholder="Date of Accident" title="" class="date form-control"  />
 </div>
 
 <!-- <div class="form-group col-lg-6">
@@ -19,19 +19,19 @@
 </div-->
 
 <div class="form-group col-md-12">
-    <textarea textarea name="accident_details[accident_description]" title="What happened?" class="form-control" placeholder="Give full description of the accident, number of persons involved, speed etc *" style="width: 100%; height: 150px;"></textarea>
+    <textarea textarea name="accident_details[accident_description]" required title="What happened?" class="form-control" placeholder="Give full description of the accident, number of persons involved, speed etc *" style="width: 100%; height: 150px;"></textarea>
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id=""  name="accident_details[who_caused_it]" class="form-control" placeholder="In your opinion, who caused the accident*" value="" />
+    <input type="text" id=""  name="accident_details[who_caused_it]" required class="form-control" placeholder="In your opinion, who caused the accident*" value="" />
 </div>
 
 <div class="form-group col-md-12">
-    <textarea textarea name="accident_details[damage]" title="Damage to vehicle?" class="form-control" placeholder="State the damage to the vehicle *" style="width: 100%; height: 150px;"></textarea>
+    <textarea textarea name="accident_details[damage]" required title="Damage to vehicle?" class="form-control" placeholder="State the damage to the vehicle *" style="width: 100%; height: 150px;"></textarea>
 </div>
 
 <div class="form-group col-lg-6">
-    <input type="text" id="current_location_of_vehicle"  name="accident_details[current_location_of_vehicle]" class="form-control" placeholder="Where can the vehicle be seen * (Location/ Address)" value="" />
+    <input type="text" id="current_location_of_vehicle" required name="accident_details[current_location_of_vehicle]" class="form-control" placeholder="Where can the vehicle be seen * (Location/ Address)" value="" />
 </div>
 
 <!--div class="form-group col-lg-6">
@@ -46,7 +46,7 @@
 </div>
 
 <div class="form-group col-lg-12">
-    <input type="radio" name="tpinvolvment[option]" id="tpinvolvmentyes" class="purpose-radio-input accident_reported" 
+    <input type="radio" name="third_party[option]" id="tpinvolvmentyes" class="purpose-radio-input accident_reported" 
     onchange="ToggleRadioButtonViewControl('tpinvolvmentyes', 'yes', 'tpdriver')"
     value="yes">
     <label for="tpinvolvmentyes" class="purpose-radio-label">
@@ -54,7 +54,7 @@
     </label>
     &nbsp;
     &nbsp;
-    <input type="radio" name="tpinvolvment[option]" id="tpinvolvmentno" class="purpose-radio-input accident_reported" 
+    <input type="radio" name="third_party[option]" id="tpinvolvmentno" class="purpose-radio-input accident_reported" 
     onchange="ToggleRadioButtonViewControl('tpinvolvmentno', 'yes', 'tpdriver')" 
     value="no" checked>
     <label for="tpinvolvmentno" class="purpose-radio-label">
@@ -64,16 +64,16 @@
 <span id="tpdriver" class="container">
     <div class="row">
 <?php
-$driver_container = 'accident_details[third_party]';
+$driver_container = 'third_party';
 $show_license_group = true;
 include SHARED.'_driver_details_template.php';
 ?>
 
 <div class="form-group col-lg-6 col-md-6">
-    <input type="text" id="driver-owner-relationship" name="accident_details[third_party][insurance_company]" class="form-control" placeholder="Driver Insurance Company" value="" />
+    <input type="text" id="driver-owner-relationship" name="third_party[insurance_company]" class="form-control" placeholder="Driver Insurance Company" value="" />
 </div>
 <div class="form-group col-lg-6 col-md-6">
-    <input type="text" id="driver-owner-relationship" name="accident_details[third_party][policy_id]" class="form-control" placeholder="Driver Policy Number" value="" />
+    <input type="text" id="driver-owner-relationship" name="third_party[policy_id]" class="form-control" placeholder="Driver Policy Number" value="" />
 </div>
 <!-- motor offence query -->
 <div class="col-lg-12">
@@ -81,13 +81,13 @@ include SHARED.'_driver_details_template.php';
 </div>
 
 <div class="form-group col-lg-12 col-md-6">
-    <input type="radio" name="accident_details[third_party][motor_offence][option]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motor_offence', '<?= $count ?>')"  value="yes">
+    <input type="radio" name="third_party[motor_offence][option]" id="motoroffenceyes_<?= $count ?>" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceyes_<?= $count ?>','yes', 'motor_offence', '<?= $count ?>')"  value="yes">
     <label for="motoroffenceyes" class="purpose-radio-label">
         <span class="label-text">Yes</span>
     </label>
     &nbsp;
     &nbsp;
-    <input type="radio" name="accident_details[third_party][motor_offence][option]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motor_offence', '<?= $count ?>')" value="no" checked>
+    <input type="radio" name="third_party[motor_offence][option]" id="motoroffenceno" class="purpose-radio-input motor-offence" onchange="appear('motoroffenceno','yes', 'motor_offence', '<?= $count ?>')" value="no" checked>
     <label for="motoroffenceno" class="purpose-radio-label">
         <span class="label-text">No</span>
     </label>
@@ -99,6 +99,3 @@ include SHARED.'_driver_details_template.php';
 </div>
 </div>
 </span>
-<script>
-    $('#tpdriver').hide(0)
-</script>

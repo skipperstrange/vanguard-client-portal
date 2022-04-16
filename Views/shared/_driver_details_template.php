@@ -6,23 +6,23 @@ if(!$driver_container){
 
 ?>
 <div class="form-group col-lg-6  col-md-6">
-    <input type="text" id="fullname" name="<?=$driver_container;?>[fullname]" class="form-control" placeholder="Name of driver *" value="" />
+    <input type="text" id="fullname" name="<?=$driver_container;?>[fullname]" required class="form-control" placeholder="Name of driver *" value="" />
 </div>
 
 <div class="form-group col-lg-6  col-md-6" >
-    <input type="text" id="postalAddress" name="<?=$driver_container;?>[postal_address]" class="form-control" placeholder="Postal Address" value="" />
+    <input type="text" id="postalAddress" name="<?=$driver_container;?>[postal_address]" class="form-control" placeholder="Postal/Residential Address" value="" />
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
-        <input type="text" id="" name="<?=$driver_container;?>[dob]" placeholder="Date of Birth" title="" class="form-control input-group dob" />
+        <input type="text" id="" name="<?=$driver_container;?>[dob]" required placeholder="Date of Birth" title="" class="form-control input-group dob" />
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
-    <input type="text" id="occupation" name="<?=$driver_container;?>[driver_occupation]" class="form-control" placeholder="Driver Occupation *" value="" />
+    <input type="text" id="occupation" name="<?=$driver_container;?>[driver_occupation]" class="form-control" placeholder="Driver Occupation " value="" />
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
-    <input type="tel" id="contact" name="<?=$driver_container;?>[contact]" class="form-control" placeholder="Contact *" value="" />
+    <input type="tel" id="contact" name="<?=$driver_container;?>[contact]" required class="form-control" placeholder="Contact *" value="" />
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
@@ -30,13 +30,13 @@ if(!$driver_container){
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
-        <input type="text" id="manufacture" name="<?=$driver_container;?>[date_of_license_issue]" placeholder="Date of Issue" title="" class="form-control input-group date" />
+        <input type="text" name="<?=$driver_container;?>[date_of_license_issue]" required placeholder="Date of Issue" title="" class="form-control input-group date" />
 </div>
 
 <div class="form-group col-lg-6 col-md-6">
 <?php
 if($show_license_group == true){
-    echo form_options_generator($licence_groups, $driver_container.'[licence_group]', "Licence Group",  ["class"=>"form-control ", "title"=>"Licence group of the other driver." , "id"=>"licence_group"]);
+    echo form_options_generator($licence_groups, $driver_container.'[licence_group]', "Licence Group",  ["class"=>"form-control ", "required", "title"=>"Licence group of the other driver." , "id"=>"licence_group"]);
 }
 ?>
 </div>

@@ -28,6 +28,7 @@ $accident_details = $_POST['accident_details'];
 $driver_details = $owner_driving['driver'];
 $casualty_damage = $_POST['casualty_damage'];
 $witnesses = $_POST['witness'];
+$third_party = $_POST['third_party'];
 
 
 if($reported['option'] == $affirmative){
@@ -43,7 +44,6 @@ $save['reported'] = $back_check;
 if($loan_or_hire['option'] == $affirmative){
     $loan_or_hire_status['status'] = $affirmative;   
     $loan_or_hire_status['unit'] = $loan_or_hire['name_of_company'];  
-    $loan_or_hire_status['owner_consent'] = $owner_driving['vehicle_consent']['option'];  //Was vehicle use consented 
 }
 else{
     $loan_or_hire_status['loan_or_hire'] = $loan_or_hire['option'];
@@ -58,31 +58,39 @@ if($owner_driving['option'] !== $affirmative){
     $driver['date_of_issue'] = $driver_details['date_of_license_issue'];
     $driver['occupation'] = $driver_details['driver_occupation'];
     $driver['relationship'] = $driver_details['driver_owner_relationship'];
+    $driver['owner_consent'] = $owner_driving['driver']['vehicle_consent']['option'];  //Was vehicle use consented 
    
         $driver_insurance['insurance_company'] = $driver_details['insurance_company'];
         $driver_insurance['policy_id'] = $driver_details['policy_id'];
-        $save['driver_insurance'] = $driver_insurance;
 }else{
     $driver['owner_driving'] = 'yes';
 }
 
-
-    foreach($accident_details['third_party'] as $third_party => $detail){
-        if($third_party == 'motor_offence_details' || $third_party == 'motor_offence'){
+if($third_party['option'] == $affirmative){
+    foreach($third_party as $third_part => $detail){
+        if($third_part == 'motor_offence_details' || $third_part == 'motor_offence'){
         }else{
-            if($third_party == 'insurance_company' || $third_party == 'policy_id'){
-                $third_party_insurance[$third_party] = $detail;
+            if($third_part == 'insurance_company' || $third_part == 'policy_id'){
+                $third_party_insurance[$third_part] = $detail;
             }else{
-                $third_party_driver[$third_party] = $detail;
+                $third_party_driver[$third_part] = $detail;
             }
         }
     }
     
-    $tp_motor_offence['driver_commited_offence'] = $accident_details['third_party']['motor_offence']['option'];
+    $tp_motor_offence['driver_commited_offence'] = $third_party['motor_offence']['option'];
 
     if($tp_motor_offence['driver_commited_offence']== $affirmative){
-        $tp_motor_offence['motor_offence_details'] = $accident_details['third_party']['motor_offence_details'];
+        $tp_motor_offence['motor_offence_details'] = $third_party['motor_offence']['details'];
     }
+}else{
+    $third_party_driver['third_party'] = 'no';
+    $third_party['motor_offence_details'] = 'N/A';
+    $third_party['motor_offence'] = 'N/A';
+    $tp_motor_offence['motor_offence_details'] = 'N/A';
+    $third_party_insurance['policy_id'] = 'N/A';
+    $third_party_insurance['insurance_company'] = 'N/A';
+}
 
     $accident_details_in_depth['accident_location'] = $accident_details['location'];
     $accident_details_in_depth['date'] = $accident_details['date'];

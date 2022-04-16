@@ -21,10 +21,10 @@ var currentDate = new Date(year, month, day);
 var defaultDoB  = new Date(year - 18, month, day);
 
 //Geneic functions
-function defaultErrorModal(e){
+function defaultErrorModal(title = " Something went wrong !!",msg = ''){
     hideOverlay()
     bootbox.alert({
-    title: '<i class="fa fa-close" style="#f35b35"></i> Something went wrong !!',
+    title: '<i class="fa fa-close" style="#f35b35"></i>'+title,
     message: " <p> Please try again later </p>.",
         })
    }
@@ -353,4 +353,10 @@ function createPrintButton(id, title, label){
     $print += '</div>'
 
     return $print
+}
+
+function disableRequiredFields(){
+    $('input').attr('required', false); 
+    $('textarea').attr('required', false); 
+    $('select').attr('required', false); 
 }

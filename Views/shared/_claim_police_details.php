@@ -20,10 +20,10 @@
         </div>
        
             <div class="form-group col-lg-6 col-md-6 police-details">
-                <input type="text" name="reported[officer_name]" class="form-control officer_name" placeholder="Name Of Officer*" value="" />
+                <input type="text" name="reported[officer_name]" required class="form-control officer_name" placeholder="Name Of Officer*" value="" />
             </div>
             <div class="form-group col-lg-6 col-md-6 police-details">
-                <input type="text" name="reported[officer_station]" class="form-control officer_station" placeholder="Station Of Officer *" value="" />
+                <input type="text" name="reported[officer_station]" required class="form-control officer_station" placeholder="Station Of Officer *" value="" />
             </div>
 
         <script>

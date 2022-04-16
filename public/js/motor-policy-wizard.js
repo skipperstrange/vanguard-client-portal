@@ -152,9 +152,9 @@ $(function() {
                                 setTimeout(()=>{
                                         try{
                                         showOverlay()
-                                        $.post('?controller=process-motor-policy', motorForm.serialize()+'&agreeDeclare=agree',data=>{
+                                        $.post(apiUrls.motorProposalProcessUrl, motorForm.serialize()+'&agreeDeclare=agree',data=>{
 
-                                        axios.post(apiUrls.applicationServerUrl+'portal/add-motorpolicy/',  data.message)
+                                        axios.post(apiUrls.applicationServerUrl+'portal/add-motor-policy/',  data.message)
                                             .then(data=>{
                                                
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)

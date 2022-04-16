@@ -20,11 +20,8 @@
                 <span class="container">
                     <div class="row">
                     <div class="form-group col-lg-12 "  id="loan_or_hire_">
-                        <input type="text" name="loan_or_hire[name_of_company]" class="form-control" placeholder="If so state the name of finance company or lending organisation?" value="" />
+                        <input type="text" required name="loan_or_hire[name_of_company]" class="form-control" placeholder="If so state the name of finance company or lending organisation?" value="" />
                     </div>
                     </div>
                 </span>
                 
-                <script>
-                    $("#loan_or_hire_").hide(0)
-                </script>

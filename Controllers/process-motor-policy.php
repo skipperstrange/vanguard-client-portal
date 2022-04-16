@@ -46,7 +46,7 @@ if(check_post_get('p','agreeDeclare', 'agree')){
     //Send emails out
         
             //if($mail->send()){
-                echo json_response($data);
+                echo json_response($data, 200);
             //}
 
 }else{

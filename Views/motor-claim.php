@@ -92,8 +92,3 @@
 </div>
 <?php include SHARED.'_form_wizard_scripts.php'; ?>
 <script src="<?= JS_PATH ?>motor-claims-wizard.js"></script>
-<script>
-    $(function() {
-        $('.steps ul').addClass('step-1');
-    })
-</script>
