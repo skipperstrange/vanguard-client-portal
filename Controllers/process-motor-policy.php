@@ -44,7 +44,6 @@ if(check_post_get('p','agreeDeclare', 'agree')){
     $data['insurance_history'] = $insurance_history;
 
     //Send emails out
-        
             //if($mail->send()){
                 echo json_response($data, 200);
             //}

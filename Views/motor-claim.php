@@ -44,6 +44,7 @@
             <h4></h4>
             <section class="row" id="accident_details">
                 <?php include SHARED . 'accident_details.php'; ?>
+                <?php include SHARED.'_requirements_upload.php'; ?>
             </section>
 
             <!-- SECTION 4 -->
