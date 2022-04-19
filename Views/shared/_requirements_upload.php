@@ -8,6 +8,8 @@
 <script src="<?=JS_PATH?>filepond.jquery.js"></script>
 <?php 
 include STATIC_DATA."upload_requirements.php";
+
+$files_upload = $upload_requirements[$upload_type][$upload_sub_type];
 ?>
 
 <script>
@@ -22,19 +24,44 @@ include STATIC_DATA."upload_requirements.php";
 if (p.supported) return;
 document.write('<script src="' + p.fill + '"><\/script>');
 });
-</script>
-<script>
-// First register any plugins
+
+// First register any plugins for filepond
 $.fn.filepond.registerPlugin(
     FilePondPluginImagePreview,
     FilePondPluginFileValidateSize,
     FilePondPluginFileValidateType
     );
+</script>
 
-$('.file-upload').filepond({
-    labelIdle: `Drag & Drop your picture or <span class="filepond--label-action">Browse</span>`,
-    minFileSize:"120KB",
-    maxFileSize:"16MB",
+
+<?php
+foreach($files_upload as $file_upload => $requirement){
+    $required = "";
+    $maxSize = "16MB";
+    $minSize = "16kb";
+    $allowMultiple = false;
+    if($requirement['required'] && $requirement['required'] == true){
+        $required = "required";
+    }
+
+    if($requirement['allowMultiple'] && $requirement['allowMultiple'] == true){
+        $allowMultiple = "true";
+    }
+
+    if($requirement['minSize'] ){
+        $minSize = $requirement['minSize'];
+    }
+
+    if($requirement['maxSize'] ){
+        $maxSize = $requirement['maxSize'];
+    }
+?>
+<script>
+$('#<?=$file_upload?>').filepond({
+    labelIdle: `<div style="font-size:90%;" title="<?= format_string($requirement['desc'], 1) ?>"><?= format_string($file_upload, 2) ?> <br/><div class="filepond--label-action">Browse</div></div>`,
+    minFileSize:"<?= $minSize ?>",
+    maxFileSize:"<?= $maxSize ?>",
+    imagePreviewHeight: 130,
     styleLoadIndicatorPosition: 'center bottom',
     styleProgressIndicatorPosition: 'right bottom',
     styleButtonRemoveItemPosition: 'left bottom',
@@ -42,14 +69,14 @@ $('.file-upload').filepond({
   })
 </script>
 
-<div class="col-lg-12">
-    <h4 class="title">Uploads</h4>
-</div>
-<div class="col-lg-12">
-<input class="file-upload" type="file" 
-    class="filepond"
-    name="filepond"
-    accept="image/png, image/jpeg, image/gif" />
 
+<div class="col-lg-4 col-md-6 col-sm-12">
+<input class="file-upload" id="<?=$file_upload?>" <?= $required ?> type="file" 
+    class="filepond"
+    name="upload[<?= $file_upload ?>]"
+    accept="image/png, image/jpeg, image/gif, application/pdf" />
 </div>
+<?php
+}
+?>
 

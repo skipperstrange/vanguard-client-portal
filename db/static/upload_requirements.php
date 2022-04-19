@@ -3,37 +3,43 @@
 $upload_requirements =[
     'claims' => [
         "motor-claim"=>[
-            "drivers licence" => [
-                "required" => true,
-                'description'=>'',
-                'maxSize'=>'16MB'
-            ],
-            "police report" => [
-                'description'=>'',
-                'maxSize'=>'16MB',
-                'allowMultiple'=>true
-            ],
-            "photo of vehicle (front with registeration)" =>[
+            "drivers_licence" => [
                 "required" => true,
                 'description'=>'',
                 'maxSize'=>'16MB',
-                'allowMultiple'=>false
+                'desc' => 'drivers licence'
             ],
-            "photo of vehicle (rear with registeration)" =>[
+            "police_report" => [
+                'description'=>'',
+                'maxSize'=>'16MB',
+                'allowMultiple'=>true,
+                'desc' => 'police report'
+            ],
+            "vehicle_front" =>[
                 "required" => true,
                 'description'=>'',
                 'maxSize'=>'16MB',
-                'allowMultiple'=>false
+                'allowMultiple'=>false,
+                'desc' => 'photo of vehicle (front with registeration)'
             ],
-            "estimates of repair" => [
+            "vehicle_rear" =>[
+                "required" => true,
                 'description'=>'',
                 'maxSize'=>'16MB',
-                'allowMultiple'=>true
+                'allowMultiple'=>false,
+                'desc' => 'photo of vehicle (rear with registeration)'
             ],
-            "medical reports" => [
+            "estimates_of_repair" => [
                 'description'=>'',
                 'maxSize'=>'16MB',
-                'allowMultiple'=>true
+                'allowMultiple'=>true,
+                'total estimates of repair'
+            ],
+            "medical_reports" => [
+                'description'=>'',
+                'maxSize'=>'16MB',
+                'allowMultiple'=>true,
+                'desc' => 'medical reports'
             ],
         ]
     ]

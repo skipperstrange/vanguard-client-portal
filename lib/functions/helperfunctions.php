@@ -1,4 +1,5 @@
 <?php
+
 function _title(String $title = ''){
     if(trim($title) == ''){
         return APP_NAME;
@@ -387,6 +388,18 @@ function toAsciiMin($str)
 
 /********************************************************************************
 ********************************************************************************/
+
+
+function format_string($str, $mode = 1){
+    $str = toAscii($str, ['_'], ' ');
+    $str = ucfirst(strtolower($str));
+
+    if($mode == 2){
+        $str = ucwords(strtolower($str));
+    }
+
+    return $str;
+}
 
 
 

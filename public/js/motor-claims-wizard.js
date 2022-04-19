@@ -25,7 +25,6 @@ $(function() {
             transitionEffect: "fade",
             enableAllSteps: true,
             transitionEffectSpeed: 500,
-
             onStepChanging: function(event, currentIndex, newIndex) {
                 showOverlay()
                 motorForm.validate().settings.ignore = ":disabled,:hidden";
@@ -34,7 +33,6 @@ $(function() {
                     return true;
                 }
 
-               
                 console.log( currentIndex, newIndex)
                 if (currentIndex === 0) {
                     policy_owner = null
@@ -42,7 +40,8 @@ $(function() {
                     query = $("#policy_id").val()
                     is_async_step = false
                    if (motorForm.valid()) {
-                     axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
+                    axios.post('public/data/motor-claim.json')
+                    //axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
                             is_async_step = true
