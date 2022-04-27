@@ -259,4 +259,14 @@ $(function() {
         $('.checkbox-circle label').removeClass('active');
         $(this).addClass('active');
     })
+
+    $('.motor_cover_type').on('change', function(){
+        if($(this).val() == 'TP'){
+            $('#vehicle_value')
+            $('#vehicle_value').prop('disabled', true)
+        }else{
+            $('#vehicle_value').prop('disabled', false)
+        }
+    })
 })
+

@@ -40,8 +40,8 @@ $(function() {
                     query = $("#policy_id").val()
                     is_async_step = false
                    if (motorForm.valid()) {
-                    axios.post('public/data/motor-claim.json')
-                    //axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
+                    //axios.post('public/data/motor-claim.json')
+                    axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
                             is_async_step = true
@@ -298,9 +298,7 @@ $(function() {
         $('.checkbox-circle label').removeClass('active');
         $(this).addClass('active');
     })
-})
 
-$(function() {
     $('.steps ul').addClass('step-1');
     $('#consent-choices').hide(0)
     $('#tpdriver').hide(0)

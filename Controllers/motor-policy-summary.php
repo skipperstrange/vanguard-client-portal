@@ -65,6 +65,7 @@ $letter_header_title  = $printTitle;
     $proposer_policy_options_left['branch'] = $policy['branch'];
     $proposer_policy_options_left['currency'] = $policy['currency']." ($policy[currency_symbol])";
     $proposer_policy_options_left['third_party_property_damage'] = $policy["tppd"];
+    $proposer_policy_options_right['vehicle_value'] = $policy['vehicle_value'];
     $proposer_policy_options_right['policy_duration'] = $policy['policy_duration']." Months";
     $proposer_policy_options_right['start'] = $policy['start'];
 
