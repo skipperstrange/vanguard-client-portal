@@ -2,7 +2,6 @@
 $policy = $_POST['policy'];
 
 $affirmative = 'yes';
-$save = [];
 
 if(isset($_POST['policy']) && is_array($_POST['policy'])){
 

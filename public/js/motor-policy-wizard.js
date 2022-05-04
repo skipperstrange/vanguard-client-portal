@@ -154,7 +154,7 @@ $(function() {
                                         showOverlay()
                                         $.post(apiUrls.motorProposalProcessUrl, motorForm.serialize()+'&agreeDeclare=agree',data=>{
 
-                                        axios.post(apiUrls.applicationServerUrl+'portal/add-motor-policy/',  data.message)
+                                        axios.post(apiUrls.applicationServerUrl+'portal/add-motor-policy',  data.message)
                                             .then(data=>{
                                                
                                                 changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)

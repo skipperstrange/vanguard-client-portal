@@ -41,7 +41,7 @@ $(function() {
                     is_async_step = false
                    if (motorForm.valid()) {
                     //axios.post('public/data/motor-claim.json')
-                    axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy/',  {search_by: search_by, query: query})
+                    axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
                             is_async_step = true
@@ -189,16 +189,21 @@ $(function() {
                         },
                         callback: function (result) {
                             if(result == true){
-                                if(policy_owner === null){}
+                                if(policy_owner === null){
+                                   
+                                   defaultErrorModal(title = " Something went wrong !!",msg = 'There is no Policy attached to clyour claim. Please try again.')
+
+                                }
                                 else{
                                     $ack = $('#dec').html()
                                     setTimeout(()=>{
                                             try{
+                                               
                                             showOverlay()
                                             $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
-                                                console.log(data)
-                                                axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim/',  data.message)
+                                                axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim',  data.message)
                                                 .then(data=>{
+                                                    console.log(data, motorForm)
                                                     changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                 
                                                     $print = createPrintButton('section.current','Motor Claim Summary', 'Save')
@@ -212,13 +217,13 @@ $(function() {
                                                                 cancel: {
                                                                     label: "Return to summary",
                                                                     className: 'btn-info',
-                                                                    /*callback: function(){
+                                                                    callback: function(){
                                                                         $(document).find("div.actions ul").children().last().css('float', 'right');
                                                                         $(document).find("div.actions ul").children().last().remove();
                                                                         var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
                                                                         var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
                                                                         $(document).find("div.actions ul").append(saveBtn)
-                                                                    }*/
+                                                                    }
                                                                 },
                                                                 
                                                                 ok: {
@@ -303,5 +308,7 @@ $(function() {
     $('#consent-choices').hide(0)
     $('#tpdriver').hide(0)
     $("#loan_or_hire_").hide(0)
-    disableRequiredFields()
+    //disableRequiredFields()
+
+    loadUploadRequiments('claims','motor-claim')
 })

@@ -13,8 +13,8 @@ $files_upload = $upload_requirements[$upload_type][$upload_sub_type];
 ?>
 
 <script>
-    // prettier-ignore
-    [
+// prettier-ignore
+[
 {supported: 'Symbol' in window, fill: 'https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js'},
 {supported: 'Promise' in window, fill: 'https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js'},
 {supported: 'fetch' in window, fill: 'https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js'},
@@ -45,7 +45,10 @@ foreach($files_upload as $file_upload => $requirement){
     }
 
     if($requirement['allowMultiple'] && $requirement['allowMultiple'] == true){
-        $allowMultiple = "true";
+        $multiple = "multiple";
+        $allowMultiple = true;
+    }else{
+        $multiple = "";
     }
 
     if($requirement['minSize'] ){
@@ -66,14 +69,17 @@ $('#<?=$file_upload?>').filepond({
     styleProgressIndicatorPosition: 'right bottom',
     styleButtonRemoveItemPosition: 'left bottom',
     styleButtonProcessItemPosition: 'right bottom',
+    server: {
+        url: apiUrls.applicationServerUrl+'portal/tmp-uploads'
+    }
   })
 </script>
 
 
 <div class="col-lg-4 col-md-6 col-sm-12">
-<input class="file-upload" id="<?=$file_upload?>" <?= $required ?> type="file" 
-    class="filepond"
-    name="upload[<?= $file_upload ?>]"
+<input class="file-upload" id="<?=$file_upload?>" <?= $multiple ?> <?= $required ?> type="file" 
+    class="filepond files"
+    name="upload[<?= $file_upload ?>]<?php if($allowMultiple == true): echo "[]"; endif ?>"
     accept="image/png, image/jpeg, image/gif, application/pdf" />
 </div>
 <?php

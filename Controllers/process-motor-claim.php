@@ -7,6 +7,7 @@ if(check_post_get('p','agreeDeclare', 'agree')){
    $claim = [];
    $tmp_details = [];
    $raw_claim = $_POST;
+   $policy_info = $raw_claim['policy_info'];
    
    foreach($raw_claim as $c => $details){
         if($c !== 'agreeDeclare'){

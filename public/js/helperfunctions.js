@@ -176,6 +176,31 @@ function initColorPicker() {
     $('.body_color').colorpicker();
 }
 
+function loadUploadRequiments(type, subtype){
+
+    let url = '?controller=_get-requirment&type='+type+'&subtype='+subtype
+    showOverlay()
+    content = $.post(url, function(data){
+        setTimeout(function(){
+            hideOverlay()
+            bootbox.dialog({
+                title: "Required document uploads for this form",
+                message: data,
+                size: 'large',
+                buttons: {
+                    confirm: {
+                        label: '<i class="fa fa-check"></i> Proceed',
+                        className: "btn-proceed"
+                    }
+                },
+                callback: function (result) {
+                    console.log(result);
+                }
+            });
+        }, 2500)
+    })
+}
+
 /*
 //item type can be one of these
 function addItem(itemType ='', url = '') {
