@@ -41,7 +41,7 @@ foreach($data as $key => $value){
     include SHARED.'motor-claim-owner-details.php';
     ?>
 
-    <input type="hidden" name="policy_info[owner][name]" value="<?= $data['client_first_name'].' '.$data['client_other_name'].' '.$data['client_last_name']?>" />
+    <input type="hidden" name="policy_info[owner][name]" id="fullname" value="<?= $data['client_first_name'].' '.$data['client_other_name'].' '.$data['client_last_name']?>" />
     <input type="hidden" name="policy_info[owner][contact]" value="<?= $data['client_contact']?>" />
     <input type="hidden" name="policy_info[owner][postal_address]" value="<?= $data['postal_address']?>" />
     <input type="hidden" name="policy_info[owner][email]" value="<?= $data['email']?>" />

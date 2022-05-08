@@ -28,7 +28,14 @@ $driver_details = $owner_driving['driver'];
 $casualty_damage = $_POST['casualty_damage'];
 $witnesses = $_POST['witness'];
 $third_party = $_POST['third_party'];
+$uploads = $_POST['upload'];
 
+
+foreach($uploads as $upload => $files){
+    $uploaded[] = format_string($upload)." (".count($files).")";
+}
+
+// = (implode(', ',$up));
 
 if($reported['option'] == $affirmative){
     $back_check['reported'] = $affirmative;   
@@ -98,7 +105,6 @@ if($third_party['option'] == $affirmative){
     $accident_details_in_depth['vehicle_damage'] = $accident_details['damage'];
 
 
-$save['loan_or_hire'] = $loan_or_hire_status;
 
 
 //get driver detailsif driver is no the owner

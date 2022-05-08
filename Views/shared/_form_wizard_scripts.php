@@ -5,7 +5,6 @@
     <script src="<?= JS_PATH ?>bootstrap-datetimepicker.min.js"></script>
     <script src="<?= JS_PATH ?>jQuery.print.min.js"></script>
     <script src="<?= JS_PATH ?>bootstrap-colorpicker.js"></script>
-    <script src="<?= JS_PATH ?>urls.js"></script>
 
     <script>
     $(function() {

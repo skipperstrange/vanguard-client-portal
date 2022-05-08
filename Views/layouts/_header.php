@@ -33,6 +33,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+    <script src="<?= JS_PATH ?>urls.js"></script>
+
 
     <title><?= _title($pageTitle) ?></title>
     <style>

@@ -187,17 +187,20 @@ function loadUploadRequiments(type, subtype){
                 title: "Required document uploads for this form",
                 message: data,
                 size: 'large',
+                onEscape: false,
+                closeButton: false,
                 buttons: {
                     confirm: {
                         label: '<i class="fa fa-check"></i> Proceed',
-                        className: "btn-proceed"
+                        //className: "btn-proceed\" disabled ",
+                        //className: "btn-proceed",
+                        className: "btn-primary btn-proceed\" id=\"btn-proceed\"",
+                        //className: "btn-primary btn-proceed\" id=\"btn-proc\" disabled "
                     }
                 },
-                callback: function (result) {
-                    console.log(result);
-                }
+                
             });
-        }, 2500)
+        }, 800)
     })
 }
 

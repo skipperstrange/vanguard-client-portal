@@ -49,4 +49,11 @@ include SHARED.'_summary_table.php';
 
 
 
+    $summary_columns = null;
+    $column_keys = false;
+    $summary_columns['uploaded_documents'] = $uploaded;
+    include SHARED.'_summary_columns.php';
+
+
+
 
