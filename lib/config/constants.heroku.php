@@ -30,7 +30,7 @@ define('VERSION', '1.0');
 define('SERVER_PATH', $_SERVER['DOCUMENT_ROOT'] . DS);
 define('APP', basename(dirname(dirname(dirname(__FILE__)))));
 
-if ($_SERVER['SERVER_PORT'] !== 80) {
+if ($_SERVER['SERVER_PORT'] !== 80 || $_SERVER['SERVER_PORT'] !== 443) {
 	define('PORT', ':'.$_SERVER['SERVER_PORT']);
 } else {
 	define('PORT', '');

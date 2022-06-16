@@ -20,7 +20,7 @@ $letter_header_title  = $printTitle;
 
     $insurance_history = post_get('p','insurance_history');
 
-    $proposer['occupation'] =  (empty($proposer['occupation'])) ? "N/A" : $proposer['occupation'];
+    $proposer['occupation'] =  (empty($proposer['occupation'])) ? "" : $proposer['occupation'];
 
     $policy['currency_'] = $policy['currency'];
     $policy['currency'] = $currencies[$policy['currency_']]['name'];
@@ -53,7 +53,6 @@ $letter_header_title  = $printTitle;
     $insurer_details["$proposer[id_type]"] = $proposer['id_number'];
     $insurer_details['occupation'] = $proposer['occupation'];
     $insurer_details['proposer_type'] = $policy['proposer_type'];
-    
     
     $proposer_contacts['address']= $proposer['postal_address'];
     $proposer_contacts['contact']= $proposer['contact'];

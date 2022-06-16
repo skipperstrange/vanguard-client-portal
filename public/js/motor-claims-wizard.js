@@ -40,7 +40,6 @@ $(function() {
                     query = $("#policy_id").val()
                     is_async_step = false
                    if (motorForm.valid()) {
-                    //axios.post('public/data/motor-claim.json')
                     axios.post(apiUrls.applicationServerUrl+'vanguard/searchpolicy',  {search_by: search_by, query: query})
                         .then(response=>{
                             policy_owner = response.data
@@ -49,8 +48,9 @@ $(function() {
                                 $('.steps ul').addClass('motor-claim-step-2');
                                 $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
                                     changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
+                                    hideOverlay()
                                 })  
-                            hideOverlay()
+                            
                         })
                         .catch(e=>{
                             changeContent('confirm-details', '<h4>You may not be able to continue.</h4>' )
@@ -308,7 +308,6 @@ $(function() {
     $('#consent-choices').hide(0)
     $('#tpdriver').hide(0)
     $("#loan_or_hire_").hide(0)
-    //disableRequiredFields()
+    disableRequiredFields()
 
-    loadUploadRequiments('claims','motor-claim')
 })

@@ -32,9 +32,7 @@
           <div class="form-group col-lg-6 col-md-6">
             <input type="text" id="body_type"  name="vehicle[body_type]" class="form-control" placeholder="Body Type *" value="" />
           </div>
-          <div class="form-group col-lg-6 col-md-6">
-                <!-- Vehicle Body type icon to be displayed here -->
-          </div>
+         
           <div class="form-group col-lg-6 col-md-6">
               <div id="body_color" class="input-group  colorpicker-component body_color">
                   <input type="text" name="vehicle[color]" value="" placeholder="Vehicle Color" class="form-control"/>
@@ -46,5 +44,14 @@
                     </div>
               </div>
           </div>
+
+          <div class="col-lg-12">
+                <b>Please provide images of the vehicle</b>
+            </div>
+          <?php 
+                $upload_type = 'proposals';
+                $upload_sub_type = 'motor';
+                include SHARED.'_requirements_upload.php' 
+          ?>
             
             

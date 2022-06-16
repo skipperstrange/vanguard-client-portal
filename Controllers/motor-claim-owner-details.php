@@ -12,7 +12,7 @@ if($_POST['policy']){
 
 foreach($data as $key => $value){
     if($value == ''){
-        $data[$key] = "N/A";
+        $data[$key] = " ";
     }
 }
 
