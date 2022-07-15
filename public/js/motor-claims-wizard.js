@@ -212,7 +212,7 @@ $(function() {
                                                     hideOverlay()
                                                         bootbox.dialog({
                                                             title: '<i class="fa fa-check" style="#f35b35"></i> Submitted',
-                                                            message: " <p> Thank you for submitting. Our agents will call you shortly to confirm.</p>.",
+                                                            message: " <p> Thank you for submitting. Our agents will contact you shortly.</p>.",
                                                             buttons: {
                                                                 cancel: {
                                                                     label: "Return to summary",
@@ -232,7 +232,8 @@ $(function() {
                                                                     callback: function(){
                                                                         showOverlay()
                                                                         setTimeout(()=>{
-                                                                            redirectTo(window.location.replace($(location).attr('href')))
+                                                                           redirectTo(window.location.replace($(location).attr('href')))
+                                                                          hideOverlay()
                                                                         }, 1000)
                                                                     }
                                                                 }
@@ -308,6 +309,6 @@ $(function() {
     $('#consent-choices').hide(0)
     $('#tpdriver').hide(0)
     $("#loan_or_hire_").hide(0)
-    disableRequiredFields()
+    //disableRequiredFields()
 
 })

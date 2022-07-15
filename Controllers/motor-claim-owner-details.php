@@ -50,3 +50,7 @@ foreach($data as $key => $value){
     <input type="hidden" name="policy_info[policy_number]" value="<?= $data['policy_number']?>" />
     <input type="hidden" name="policy_info[vehicle][inception_date]" value="<?= $data['inception_date']?>" />
     <input type="hidden" name="policy_info[vehicle][expiry_date]" value="<?= $data['expiry_date']?>" />
+
+    <input type="hidden" name="policy_info[owner][branch]" value="<?= $branches[$data['branch_code']]['BRANCH_DESC']?>" />
+    <input type="hidden" name="policy_info[owner][branch_code]" value="<?= $data['branch_code']?>" />
+

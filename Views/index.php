@@ -48,11 +48,11 @@
                             <h4 class="title" style="text-align: center;">Choose an action to get started</h4>
                             <br>       
                             <section>
-                                    <div class="form-group">
+                                    <!--div class="form-group">
                                     <a id="checkPolicy" href="<?= _link('motor-policy','motor-policy') ?>" class="btn btn-block btn-primary " >
                                             <i class="fa fa-car"></i> New Proposal
                                         </a>
-                                    </div>
+                                    </div-->
                                      <div class="form-group">
                                         <a id="checkPolicy" href="<?= _link('motor-claim', 'motor-claim') ?>" class="btn btn-block btn-warning" >
                                             <i class="fa fa-car"></i> New Motor Claim

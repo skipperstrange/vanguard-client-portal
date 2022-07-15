@@ -59,7 +59,6 @@ $letter_header_title  = $printTitle;
     $proposer_contacts['digital_address']= $proposer['digital_address'];
     $proposer_contacts['email']= $proposer['email'];
     
-    
     $proposer_policy_options_left['cover_type'] = $policy['cover_type_desc'];
     $proposer_policy_options_left['branch'] = $policy['branch'];
     $proposer_policy_options_left['currency'] = $policy['currency']." ($policy[currency_symbol])";
