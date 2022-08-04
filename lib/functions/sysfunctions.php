@@ -3,7 +3,7 @@
 /**
  * This file contains system functions 
  */
-include_once 'constants.php';
+//include_once 'constants.php';
 
 //get a cofiguration value
 function get_config($config, string $key){
