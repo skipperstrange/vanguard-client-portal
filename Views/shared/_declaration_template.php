@@ -24,6 +24,5 @@
 </div>
 <script>
     $('span#signed').html('')
-    console.log($('#fullname').val())
     $('span#signed').append($('#fullname').val())
 </script>

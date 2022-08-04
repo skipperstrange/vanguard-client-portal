@@ -12,7 +12,7 @@ $(function() {
                 policy_id: "required"
             },
             messages: {
-                policy_id: "Please provide a policy id to proceed"
+                policy_id: "Please provide a policy id or vehicle registration to proceed"
             }
         });
 
@@ -203,7 +203,7 @@ $(function() {
                                             $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
                                                 axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim',  data.message)
                                                 .then(data=>{
-                                                    console.log(data, motorForm)
+                                                    
                                                     changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                 
                                                     $print = createPrintButton('section.current','Motor Claim Summary', 'Save')
@@ -218,11 +218,11 @@ $(function() {
                                                                     label: "Return to summary",
                                                                     className: 'btn-info',
                                                                     callback: function(){
-                                                                        $(document).find("div.actions ul").children().last().css('float', 'right');
-                                                                        $(document).find("div.actions ul").children().last().remove();
-                                                                        var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
-                                                                        var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
-                                                                        $(document).find("div.actions ul").append(saveBtn)
+                                                                       // $(document).find("div.actions ul").children().last().css('float', 'right');
+                                                                        //$(document).find("div.actions ul").children().last().remove();
+                                                                        //var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
+                                                                        //var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
+                                                                        //$(document).find("div.actions ul").append(saveBtn)
                                                                     }
                                                                 },
                                                                 
@@ -260,7 +260,7 @@ $(function() {
                             }
 
                             if(result == false){
-                                console.log(result);
+                                
                                 hideOverlay()
                             }
                             

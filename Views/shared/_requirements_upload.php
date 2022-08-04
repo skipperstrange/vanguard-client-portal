@@ -7,7 +7,6 @@
 <script src="<?=JS_PATH?>filepond-plugin-image-exif-orientation.js"></script>
 <script src="<?=JS_PATH?>filepond.jquery.js"></script>
 <?php 
-include STATIC_DATA."upload_requirements.php";
 
 $files_upload = $upload_requirements[$upload_type][$upload_sub_type];
 ?>

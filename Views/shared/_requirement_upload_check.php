@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12">
             <p>
-                Please make sure you have the following documents ready for upload. Documents accepted are: jpg, png, pdf
+                Please make sure you have the following documents ready for upload. Documents accepted are of the format: jpg, png, pdf
             </p>
         </div>
     </div>
@@ -49,7 +49,6 @@ foreach($files_upload as $file_upload => $requirements){
                     }
 
                 if(currentChecked === totalRequired){
-                    console.log(proceed)
                     proceed.attr('disabled', false)
                 }
                 else{

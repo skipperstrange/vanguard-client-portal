@@ -3,7 +3,7 @@ const appPath = $(location).attr ("pathname")
 let domain = (new URL(url));
 
 const apiUrls = {
-    applicationServerUrl: "http://192.168.100.212:8000/api/",
+    applicationServerUrl: "http://localhost:8000/api/",
     motorProposalUrl:  "?controller=motor-policy&view=blank",
     motorProposalProcessUrl:  '?controller=process-motor-policy',
     motorProposalSummaryUrl : "?controller=motor-policy-summary",

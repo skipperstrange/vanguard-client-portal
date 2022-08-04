@@ -16,6 +16,36 @@
                     <input type="text" id="policy_id"  name="policy_id" class="form-control" value="" placeholder="Vehicle Registration/Motor Policy ID * (P-001-1001-2020-000001)" value="" />
                 </div>
             </div>
+            
+            <div class="col-md-6 col-sm-12">
+                <span class="scanned-form">
+                    Please provide vehicle registration number with uploaded form in the above field
+                </span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <span class="scanned-form">
+                    <input class="file-upload" id="claim_upload_form" required type="file" 
+                    class="filepond files"
+                    name="claim_form_upload"
+                    accept="image/png, image/jpeg, image/gif, application/pdf" />
+                </span>
+            <?php include_once SHARED.'_upload_scripts.php'; ?>
+                <script>
+                    $('#claim_upload_form').filepond({
+                        labelIdle: `<div style="font-size:90%;" title="Please select claim form to be uploaded">Drop claim form here<br/><div class="filepond--label-action">Browse</div></div>`,
+                        minFileSize:"16KB",
+                        maxFileSize:"166MB",
+                        imagePreviewHeight: 130,
+                        styleLoadIndicatorPosition: 'center bottom',
+                        styleProgressIndicatorPosition: 'right bottom',
+                        styleButtonRemoveItemPosition: 'left bottom',
+                        styleButtonProcessItemPosition: 'right bottom',
+                        server: {
+                            url: apiUrls.applicationServerUrl+'portal/tmp-uploads'
+                        }
+                    })
+                    </script>
+            </div>
             </section>
             <!-- SECTION 2 -->
             <h4></h4>
@@ -51,6 +81,9 @@
                 <?php 
                 $upload_type = 'claims';
                 $upload_sub_type = 'motor-claim';
+                
+                include STATIC_DATA."upload_requirements.php";
+
                 include SHARED.'_requirements_upload.php'; 
                 ?>
             </section>
