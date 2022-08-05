@@ -1,6 +1,6 @@
 <?php
 //determines if requests are async or javascript triggered
-if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+if(@isset($_SERVER['HTTP_X_REQUESTED_WITH']) || @strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     define('IS_AJAX', true);
 }else{
     define('IS_AJAX', false);
@@ -50,8 +50,8 @@ if(MODE == 'development'):
     define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
     define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
 else:
-    define('BASE_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
-    define('WEB_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
+    @define('BASE_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
+    @define('WEB_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
 endif;
 
 define('LIB', 'lib' . DS);
