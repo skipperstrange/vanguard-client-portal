@@ -13,6 +13,8 @@
                 <script>
 
                      $('#search_by').on('click',function(){
+                        $me = $(this)
+                          console.log($me.val())
                           if($me.val() === 'by_upload'){
                             $('.not-scanned-form').hide(0);
                             $('.scanned-form').show('fast');
