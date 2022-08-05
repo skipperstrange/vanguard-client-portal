@@ -8,9 +8,10 @@ $navLinks = ['home'=>['href'=>  CLIENT_WEBSITE],
             'FAQ' => ['href'=> '#']
         ],
     ],
-    'proposals' =>['href' => [ 
+  /*  'proposals' =>['href' => [ 
             'new motor policy' => ['href' => _link('motor-policy','motor-policy')],
             'FAQ' => ['href'=> '#']
         ],
     ]
+    */
 ];

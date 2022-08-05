@@ -15,7 +15,7 @@ endif;
     <?php
         foreach($column as $title => $detail){
 ?>
-        <?php if($column_keys !== false): ?><strong><?= ucfirst(str_replace('_',' ',$title)) ?>: </strong> <?php endif;?><?= $detail ?><br />
+        <?php if(@$column_keys !== false): ?><strong><?= ucfirst(str_replace('_',' ',$title)) ?>: </strong> <?php endif;?><?= $detail ?><br />
 <?php
         }
     ?>

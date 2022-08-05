@@ -19,5 +19,9 @@
                 $('#' + target).hide('slow');
             }
         })
+
+        $('.scanned-form').hide(0);
+        $('.not-scanned-form').show(0);
+        
     });
     </script>

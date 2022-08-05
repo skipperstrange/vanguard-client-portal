@@ -5,24 +5,24 @@ $upload_requirements =[
             "motor-claim"=>[
                 "drivers_licence_front" => [
                     "required" => true,
-                    'description'=>'',
+                    'description'=>'Picture of the front of drivers licence.',
                     'maxSize'=>'16MB',
-                    'title' => 'front picture of drivers licence (front with clear details)',
+                    'title' => 'Picture of the front of drivers licence (front with clear details)',
                     'block'=>false
                 ],
                 "drivers_licence_rear" => [
                     "required" => true,
-                    'description'=>'',
+                    'description'=>'Picture of the back of drivers licence',
                     'maxSize'=>'16MB',
-                    'title' => 'back picture of drivers licence (back with clear details)',
+                    'title' => 'Picture of the back of drivers licence (back with clear details)',
                     'block'=>false
                 ],
                 "vehicle" =>[
                     "required" => true,
-                    'description'=>'',
+                    'description'=>'Pictures of damaged vehicle ',
                     'maxSize'=>'16MB',
                     'allowMultiple'=>true,
-                    'title' => 'pictures of damaged vehicle (with registeration)',
+                    'title' => 'Pictures of damaged vehicle',
                     'block'=>false
                 ],
 
@@ -49,9 +49,15 @@ $upload_requirements =[
                 "medical_reports" => [
                     'description'=>'',
                     'maxSize'=>'16MB',
-                    'allowMultiple'=>false,
+                    'allowMultiple'=>true,
                     'title' => 'medical reports',
-                    'block'=>false
+                    'block'=>false,
+                    'requirments'=>[
+                        'status',
+                        'div-check',
+                        'name' => 'injury-theft',
+                        'label' => "Inury or Theft"
+                    ]
                 ],
             ]
         ],

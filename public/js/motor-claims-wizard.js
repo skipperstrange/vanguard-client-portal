@@ -172,7 +172,7 @@ $(function() {
             },
 
             onFinishing: function(event, currentIndex, newIndex){
-              //  showOverlay()
+                showOverlay()
                 $.get('?controller=_declaration', {declaration: "motor-claim"},data=>{
                     bootbox.confirm({
                         size: "large",
@@ -218,11 +218,11 @@ $(function() {
                                                                     label: "Return to summary",
                                                                     className: 'btn-info',
                                                                     callback: function(){
-                                                                       // $(document).find("div.actions ul").children().last().css('float', 'right');
-                                                                        //$(document).find("div.actions ul").children().last().remove();
-                                                                        //var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
-                                                                        //var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
-                                                                        //$(document).find("div.actions ul").append(saveBtn)
+                                                                        $(document).find("div.actions ul").children().last().css('float', 'right');
+                                                                        $(document).find("div.actions ul").children().last().remove();
+                                                                        var saveA = $("<a>").attr("href","#").attr("id","finished").attr("onclick","redirectTo(window.location.origin+window.location.pathname)").addClass("saveBtn").text("Finish");
+                                                                        var saveBtn = $("<li>").attr("aria-disabled",false).append(saveA);
+                                                                        $(document).find("div.actions ul").append(saveBtn)
                                                                     }
                                                                 },
                                                                 

@@ -1,7 +1,11 @@
-                <div class="col-lg-12">
+                <div class="scanned-form default">
+                     <b>Click next to proceed.</b>
+                </div>
+                
+                <div class="col-lg-12 not-scanned-form">
                     <label for="owner_driving">Were you the one driving at the time of the incident?</label>
                 </div>
-                <div class="form-group col-lg-6 col-md-6">
+                <div class="form-group col-lg-6 col-md-6 not-scanned-form">
                     <input type="radio" name="owner_driving[option]" id="ownerdrivingyes" 
                             class="purpose-radio-input owner-driving" value="yes"
                             checked
@@ -21,7 +25,7 @@
                     </label>
                 </div>
 
-                <span id="consent-choices" class="container">
+                <span id="consent-choices" class="container not-scanned-form">
                     <div class="row">
                     <?php
                         $driver_container = 'owner_driving[driver]';
@@ -53,6 +57,6 @@
                 </span>
                
 
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12 not-scanned-form">
                     <textarea textarea name="owner_driving[purpose_of_vehicle]" required title="purpose of vehicle?" class="form-control" placeholder="State fully the purpose of which the vehicle is being used." style="width: 100%; height: 100px;"></textarea>
                 </div>

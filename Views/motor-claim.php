@@ -10,6 +10,18 @@
                         echo form_options_generator($claim_type_options['motor_claim'], 'claim_by', "Search By",  ["class"=>"form-control" , "id"=>"search_by", 'required']);
                     ?>
                 </div>
+                <script>
+
+                     $('#search_by').on('click',function(){
+                          if($me.val() === 'by_upload'){
+                            $('.not-scanned-form').hide(0);
+                            $('.scanned-form').show('fast');
+                          }else{
+                            $('.scanned-form').hide('fast');
+                            $('.not-scanned-form').show(0);
+                          }
+                     })
+                </script>
                 </div>
             <div class="col-md-6 col-sm-12 form-group ">
                 <div class="form-group">
@@ -54,6 +66,14 @@
                     <div id="confirm-details">
                     </div>
                 </div>
+
+                <div class="col-lg-6">
+    <div class="row">
+        <div class="form-group col-lg-12 ">
+          <input required type="text" id="vehicle_reg"  name="policy_info[owner][contact]"  class="form-control"  title="Vehicle owner contact" placeholder="Contact" />
+        </div>
+    </div>
+</div>
                 
                 <?php 
                     include SHARED.'_extra_vehicle_owner_claim_details.php';
@@ -132,5 +152,5 @@
         </div>
     </form>
 </div>
-<?php include SHARED.'_form_wizard_scripts.php'; ?>
+<?php include SHARED.'_motor_claim_form_wizard_scripts.php'; ?>
 <script src="<?= JS_PATH ?>motor-claims-wizard.js"></script>
