@@ -1005,6 +1005,7 @@ select option[value=""][disabled] {
 #fire-wizard,
 #motor-wizard,
 #motor-claims-wizard,
+#motor-claims-wizard-alt,
 #motor-policy-wizard {
     background: #fff;
     min-height: unset;
@@ -1092,7 +1093,7 @@ select option[value=""][disabled] {
     content: "Summary";
 }
 
-
+/*-----------------------------------------------*/
 .steps ul.motor-claim-step-2:after {
     content: "Confirm Details";
 }
@@ -1117,6 +1118,18 @@ select option[value=""][disabled] {
     content: "Summary";
 }
 
+/*-----------------------------------------------*/
+
+.steps ul.motor-claim-alt-step-2:after {
+    content: "Confirm Details";
+}
+
+.steps ul.motor-claim-step-alt-3:after {
+    content: "Summary";
+}
+
+
+/*-----------------------------------------------*/
 
 .steps ul.motor-policy-step-0:after {
     content: "Proposer Details";

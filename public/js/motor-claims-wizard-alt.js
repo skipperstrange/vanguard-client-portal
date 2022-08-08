@@ -1,6 +1,6 @@
 $(function() {
     var motorForm = $("#motor-claim-form")
-    var motorWizard = $("#motor-claims-wizard")
+    var motorWizard = $("#motor-claims-wizard-alt")
     var policy_owner = null
     var is_async_step;
 
@@ -50,8 +50,9 @@ $(function() {
                             policy_owner = response.data
                             is_async_step = true
                             changeContent('confirm-details', '')
-                                $('.steps ul').addClass('motor-claim-step-2');
+                                $('.steps ul').addClass('motor-claim-alt-step-2');
                                 $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
+                                   
                                     changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
                                     hideOverlay()
                                 })  
@@ -59,7 +60,7 @@ $(function() {
                         })
                         .catch(e=>{
                             changeContent('confirm-details', '<h4>You may not be able to continue.</h4>' )
-                            $('.steps ul').removeClass('motor-claim-step-2');
+                            $('.steps ul').removeClass('motor-claim-alt-step-2');
                                 bootbox.alert({
                                 title: '<i class="fa fa-close" style="#f35b35"></i> Record not found',
                                 message: " <p>The policy you are looking for does not exist or your policy has expired. Please try again. <br />If problem persists, please contact customer care</p>",
@@ -74,8 +75,8 @@ $(function() {
                     }
                 }
                 if (newIndex === 1) {
+                    $('.steps ul').addClass('motor-claim-alt-step-1');
                      if (motorForm.valid()) {
-                       
                         
                     } else {
                         hideOverlay()
@@ -84,13 +85,13 @@ $(function() {
                     }
                 }
                 else {
-                    $('.steps ul').removeClass('motor-claim-step-2');
+                    $('.steps ul').removeClass('motor-claim-alt-step-1');
                     hideOverlay()
                 }
-
+/*
                 if (newIndex === 2) {
                    if (motorForm.valid()) {
-                    $('.steps ul').addClass('motor-claim-step-3');
+                    $('.steps ul').addClass('motor-claim-alt-step-3');
                     
                     } else {
                         hideOverlay()
@@ -98,59 +99,15 @@ $(function() {
                         return false
                     }
                 } else {
-                    $('.steps ul').removeClass('motor-claim-step-3');
+                    $('.steps ul').removeClass('motor-claim-alt-step-3');
                 }
-
-                if (newIndex === 3) {
+*/
+                if (newIndex === 2) {
                     if (motorForm.valid()) {
-                        $('.steps ul').addClass('motor-claim-step-4');
-                    } else {
-                        hideOverlay()
-                        defaultErrorModal(errorTitle, errorMsg)
-                      return false
-                    }
-                } else {
-                    $('.steps ul').removeClass('motor-claim-step-4');
-                }
-
-                if (newIndex === 4) {
-                   if (motorForm.valid()) {
-                        $('.steps ul').addClass('motor-claim-step-5');
-                         $('.actions ul').addClass('motor-step-last');
-                    } else {
-                        hideOverlay()
-                        defaultErrorModal(errorTitle, errorMsg)
-                       return false
-                   }
-                } else {
-                    $('.steps ul').removeClass('motor-claim-step-5');
-                      $('.actions ul').removeClass('motor-step-last');
-                }
-
-                if (newIndex === 5) {
-                    if (motorForm.valid()) {
-                        $('.steps ul').addClass('motor-claim-step-6');
-                        
-                         $('.actions ul').addClass('motor-step-last');
-                    } else {
-                        hideOverlay()
-                        defaultErrorModal(errorTitle, errorMsg)
-                        return false
-                    }
-                } else {
-                    $('.steps ul').removeClass('motor-claim-step-6');
-                    // $('.actions ul').removeClass('motor-step-last');
-
-                    
-                } 
-
-                if (newIndex === 6) {
-                    
-                    if (motorForm.valid()) {
-                        $('.steps ul').addClass('motor-claim-step-7');
+                        $('.steps ul').addClass('motor-claim-alt-step-2');
                         try {
                             claim = motorForm.serializeArray()
-                            $.post(apiUrls.motorClaimSummaryUrl, {policy:policy_owner}, resp => {
+                            $.post(apiUrls.motorClaimSummaryUrl, {policy:policy_owner, mode: 'by_upload'}, resp => {
                                 $('#summary').html('')
                                 $('#summary').append(resp)
                                 $.post(apiUrls.motorClaimSummaryUrl, motorForm.serialize(), resp => {
@@ -171,7 +128,7 @@ $(function() {
                         return false
                     }
                 } else {
-                    $('.steps ul').removeClass('motor-claim-step-7');
+                    $('.steps ul').removeClass('motor-claim-alt-step-2');
                     // $('.actions ul').removeClass('motor-step-last');
                 }
                 return true;

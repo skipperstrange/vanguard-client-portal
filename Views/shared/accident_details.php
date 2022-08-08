@@ -57,11 +57,17 @@
     <input type="radio" name="third_party[option]" id="tpinvolvmentno" class="purpose-radio-input accident_reported" 
     onchange="ToggleRadioButtonViewControl('tpinvolvmentno', 'yes', 'tpdriver')" 
     value="no" checked>
+    <label for="tpinvolvmentno" class="purpose-radio-label">
+        <span class="label-text">No</span>
+    </label>
+    &nbsp;
+    &nbsp;
+    
     <input type="radio" name="third_party[option]" id="tpinvolvmentunknown" class="purpose-radio-input accident_reported" 
     onchange="ToggleRadioButtonViewControl('tpinvolvmentunknown', 'yes', 'tpdriver')" 
     value="unknown">
-    <label for="tpinvolvmentno" class="purpose-radio-label">
-        <span class="label-text">No</span>
+    <label for="tpinvolvmentunknown" class="purpose-radio-label">
+        <span class="label-text">Yes but person is absent/unknown</span>
     </label>
 </div>
 <span id="tpdriver" class="container">

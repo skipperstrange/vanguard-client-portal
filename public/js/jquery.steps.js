@@ -281,7 +281,7 @@ function finishStep(wizard, state)
 
     if (wizard.triggerHandler("finishing", [state.currentIndex]))
     {
-        currentStep.addClass("done").removeClass("error");
+        currentStep.addClass("done checked").removeClass("error");
         wizard.triggerHandler("finished", [state.currentIndex]);
     }
     else
@@ -864,7 +864,7 @@ function refreshStepNavigation(wizard, options, state, oldIndex)
     if (oldIndex != null)
     {
         var oldStepAnchor = getStepAnchor(wizard, oldIndex);
-        oldStepAnchor.parent().addClass("done").removeClass("error")._selectAria(false);
+        oldStepAnchor.parent().addClass("done checked").removeClass("error")._selectAria(false);
         stepTitles.eq(oldIndex).removeClass("current").next(".body").removeClass("current");
         currentInfo = oldStepAnchor.find(".current-info");
         currentOrNewStepAnchor.focus();

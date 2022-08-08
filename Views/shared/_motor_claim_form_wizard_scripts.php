@@ -1,6 +1,6 @@
     <link rel="stylesheet" href="<?= CSS_PATH.'bootstrap-colorpicker.css' ?>">
     <script src="<?= JS_PATH ?>jquery.validate.js"></script>
-    <script src="<?= JS_PATH ?>jquery.steps.min.js"></script>
+    <script src="<?= JS_PATH ?>jquery.steps.js"></script>
     <script src="<?= JS_PATH ?>moment.min.js" ></script>
     <script src="<?= JS_PATH ?>bootstrap-datetimepicker.min.js"></script>
     <script src="<?= JS_PATH ?>jQuery.print.min.js"></script>
@@ -19,9 +19,5 @@
                 $('#' + target).hide('slow');
             }
         })
-
-        $('.scanned-form').hide(0);
-        $('.not-scanned-form').show(0);
-        
     });
     </script>

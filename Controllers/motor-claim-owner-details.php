@@ -43,7 +43,7 @@ foreach($data as $key => $value){
 
     <input type="hidden" name="policy_info[owner][name]" id="fullname" value="<?= $data['client_first_name'].' '.$data['client_other_name'].' '.$data['client_last_name']?>" />
     <input type="hidden" name="policy_info[owner][postal_address]" value="<?= $data['postal_address']?>" />
-    <input type="hidden" name="policy_info[owner][email]" value="<?= $data['email']?>" />
+    <input type="hidden" name="policy_info[owner][email]" value="<?= @$data['email']?>" />
     <input type="hidden" name="policy_info[owner][residential_address]" value="<?= $data['residential_address']?>" />
     <input type="hidden" name="policy_info[vehicle][registration]" value="<?= $data['vehicle_registration']?>" />
     <input type="hidden" name="policy_info[policy_number]" value="<?= $data['policy_number']?>" />

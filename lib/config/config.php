@@ -1,7 +1,7 @@
 <?php
 
 define('APP_NAME', 'Vanguard Client Portal');
-define('MODE', 'production');
+define('MODE', 'development');
 define('MVC_MODE', 'strict');
 
 function config () {
@@ -18,7 +18,7 @@ function config () {
             'smtp_out' => 587,
             'pop' => 995,
             'user' => 'skipperstrange@gmail.com',
-            'pass' => '32@Redrod',
+            'pass' => '',
             'messages' => [
                 'success' => "Your message has been successfully sent.",
                 'error' => "Sorry a problem occured. Please try again later"

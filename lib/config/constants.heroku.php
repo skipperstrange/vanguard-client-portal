@@ -47,11 +47,11 @@ if (is_secure_connection() == 0):
 endif;
 */
 if(MODE == 'development'):
-    define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
-    define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
+    define('BASE_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].DS.APP.DS);
+    define('WEB_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].PORT.DS.APP.DS);  
 else:
-    @define('BASE_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
-    @define('WEB_URL', $_SERVER['HTTP_X_FORWARDED_PROTO'].'://'.$_SERVER['HTTP_HOST'].DS);
+    define('BASE_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].DS);
+    define('WEB_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].DS);
 endif;
 
 define('LIB', 'lib' . DS);

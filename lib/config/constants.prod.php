@@ -32,13 +32,13 @@ if ($_SERVER['SERVER_PORT'] !== 80 || $_SERVER['SERVER_PORT'] !== 443) {
 	define('PORT', '');
 }
 
-if (is_secure_connection() == 0):
-define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS;
-define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS);
- elseif (is_secure_connection() == 1):
-define('BASE_URL', 'https://'.$_SERVER['HTTP_HOST'].DS);
-define('WEB_URL', 'https://'.$_SERVER['SERVER_NAME'].PORT.DS);
-endif;
+//if (is_secure_connection() == 0):
+//define('BASE_URL', 'http://'.$_SERVER['HTTP_HOST']).DS;
+//define('WEB_URL', 'http://'.$_SERVER['SERVER_NAME'].PORT.DS);
+// elseif (is_secure_connection() == 1):
+define('BASE_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].DS);
+define('WEB_URL', $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].PORT.DS);
+//endif;
 
 define('LIB', 'lib' . DS);
 define('STATIC_DATA', 'db' . DS.'static'.DS);
