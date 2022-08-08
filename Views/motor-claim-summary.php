@@ -5,13 +5,13 @@ $summary_columns[] = $vehicle;
 include SHARED.'_summary_columns.php';
 $summary_columns["consented_by_owner"] = $consented_by_owner;
 
+if($_POST['claim_by'] !== 'by_upload'){
 
 $summary_columns=null;
 $summary_columns["loan_or_hire"] = $loan_or_hire_status;
 $summary_columns["police_report"] = $back_check;
 include SHARED.'_summary_columns.php';
 
-if(!isset($_POST['mode'])){
 $summary_columns = null;
 $summary_columns['driver'] = $driver;
 include SHARED.'_summary_columns.php';
@@ -47,7 +47,6 @@ $data_title = 'witnesses';
 $data = $witnesses;
 $controlId = 'witnesses_table';
 include SHARED.'_summary_table.php';
-
 }
 
     $summary_columns = null;

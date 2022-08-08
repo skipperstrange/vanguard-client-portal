@@ -73,16 +73,16 @@
             <section class="row" id="accident_details">
                 <?php include SHARED . 'accident_details.php'; ?>
                 <br>
-                <!--div class="col-lg-12">
+                <div class="col-lg-12">
                     <h5>Document Uploads</h5>
-                </div -->
+                </div>
                 <?php 
-               // $upload_type = 'claims';
-               // $upload_sub_type = 'motor-claim';
+                $upload_type = 'claims';
+                $upload_sub_type = 'motor-claim';
                 
-               // include STATIC_DATA."upload_requirements.php";
-               // include SHARED.'_requirements_upload.php'; 
-               // include SHARED.'_motor_requirements_upload.php'; 
+                include STATIC_DATA."upload_requirements.php";
+                include SHARED.'_requirements_upload.php'; 
+                include SHARED.'_motor_requirements_upload.php'; 
                 ?>
             </section>
 

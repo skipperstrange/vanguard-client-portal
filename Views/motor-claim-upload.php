@@ -50,8 +50,7 @@
                     })
                     </script>
             </div>
-            <br>
-            <div class="col-lg-12" style="margin-top: 3rem;">
+            <div class="col-lg-12" style="margin-bottom: 1rem;">
                     <h5>Document Uploads</h5>
                 </div>
                 <br>
