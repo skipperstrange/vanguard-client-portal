@@ -23,9 +23,13 @@ var defaultDoB  = new Date(year - 18, month, day);
 //Geneic functions
 function defaultErrorModal(title = " Something went wrong !!",msg = ''){
     hideOverlay()
+    var message = "<p> Please try again later </p>."
+    if(msg != ''){
+        message = msg
+    }
     bootbox.alert({
     title: '<i class="fa fa-close" style="#f35b35"></i>'+title,
-    message: " <p> Please try again later </p>.",
+    message: msg,
         })
    }
 
@@ -178,13 +182,13 @@ function initColorPicker() {
 
 function loadUploadRequiments(type, subtype){
 
-    let url = '?controller=_get-requirment&type='+type+'&subtype='+subtype
+    let url = '?controller=_get-requirement&type='+type+'&subtype='+subtype
     showOverlay()
     content = $.post(url, function(data){
         setTimeout(function(){
             hideOverlay()
             bootbox.dialog({
-                title: "Required document uploads for this form",
+                title: "<i class='fa fa-info-circle'></i> Required document uploads for this form",
                 message: data,
                 size: 'large',
                 onEscape: false,

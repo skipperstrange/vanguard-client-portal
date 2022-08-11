@@ -32,7 +32,7 @@ $uploads = $_POST['upload'];
 
 
 foreach($uploads as $upload => $files){
-    $uploaded[] = format_string($upload)." (".count($files).")";
+    $uploaded[] = format_string($upload)." (".@count($files).")";
 }
 
 // = (implode(', ',$up));
@@ -54,7 +54,7 @@ if($loan_or_hire['option'] == $affirmative){
 else{
     $loan_or_hire_status['loan_or_hire'] = $loan_or_hire['option'];
 }
-$vehicle['purpose'] = $owner_driving['purpose_of_vehicle'];
+$vehicle['purpose'] = !empty($owner_driving['purpose_of_vehicle']) ? $owner_driving['purpose_of_vehicle'] : 'N/A';
 
 
 if($owner_driving['option'] !== $affirmative){

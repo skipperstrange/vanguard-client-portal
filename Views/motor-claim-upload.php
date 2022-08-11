@@ -8,7 +8,7 @@
             <div class="col-md-6 col-sm-12">
                 <div class="alert alert-info">
                     Please provide vehicle registration number with uploaded form, or 
-                    <a href="<?= _link($controller, 'motor-claim') ?>">Click here to fill manually online.</a>
+                    <b><a href="<?= _link($controller, 'motor-claim') ?>">Click here to fill manually online.</a></b>
                 </div>
                 <div class="form-group">
                     <input type="hidden" id="search_by"  name="claim_by" class="form-control" value="by_upload" />
@@ -22,7 +22,7 @@
             
             <div class="col-md-6 col-sm-12">
                 <div class="alert alert-warning">
-                    Please provide the required documents for upload below before you proceed.
+                    Please provide the required documents for upload below before you proceed. <a href="#"  onclick="loadUploadRequiments('claims', 'motor-claim')"><i class="fa fa-info-circle"></i> </a>
             </div>
                 <br>
             </div>

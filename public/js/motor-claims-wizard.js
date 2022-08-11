@@ -29,7 +29,7 @@ $(function() {
             enableAllSteps: true,
             transitionEffectSpeed: 500,
             onStepChanging: function(event, currentIndex, newIndex) {
-              //  showOverlay()
+                showOverlay()
                 motorForm.validate().settings.ignore = ":disabled,:hidden";
                 //console.log(motorForm.validate());
                 if (currentIndex > newIndex) {
@@ -316,5 +316,6 @@ $(function() {
     $('#tpdriver').hide(0)
     $("#loan_or_hire_").hide(0)
     //disableRequiredFields()
+    loadUploadRequiments('claims', 'motor-claim')
 
 })

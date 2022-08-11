@@ -29,16 +29,13 @@ $(function() {
             enableAllSteps: true,
             transitionEffectSpeed: 500,
             onStepChanging: function(event, currentIndex, newIndex) {
-              //  showOverlay()
+                showOverlay()
                 motorForm.validate().settings.ignore = ":disabled,:hidden";
                 //console.log(motorForm.validate());
                 if (currentIndex > newIndex) {
                     return true;
                 }
-                
-               
-                console.log( currentIndex, newIndex)
-                console.log()
+            
                 if (currentIndex === 0) {
                     policy_owner = null
                     search_by = $("#search_by").val()
@@ -50,7 +47,7 @@ $(function() {
                             policy_owner = response.data
                             is_async_step = true
                             changeContent('confirm-details', '')
-                                $('.steps ul').addClass('motor-claim-alt-step-2');
+                                $('.steps ul').addClass('motor-claim-alt-step-1');
                                 $.post('?controller=motor-claim-owner-details',  policy_owner, response=>{
                                    
                                     changeContent('confirm-details', '<h4>Please confirm details before you proceed.</h4>'+response )
@@ -75,7 +72,7 @@ $(function() {
                     }
                 }
                 if (newIndex === 1) {
-                    $('.steps ul').addClass('motor-claim-alt-step-1');
+                    $('.steps ul').addClass('motor-claim-alt-step-2');
                      if (motorForm.valid()) {
                         
                     } else {
@@ -85,7 +82,7 @@ $(function() {
                     }
                 }
                 else {
-                    $('.steps ul').removeClass('motor-claim-alt-step-1');
+                    $('.steps ul').removeClass('motor-claim-alt-step-2');
                     hideOverlay()
                 }
 /*
@@ -269,9 +266,8 @@ $(function() {
     })
 
     $('.steps ul').addClass('step-1');
-    $('#consent-choices').hide(0)
-    $('#tpdriver').hide(0)
-    $("#loan_or_hire_").hide(0)
     //disableRequiredFields()
+    loadUploadRequiments('claims', 'motor-claim')
+
 
 })

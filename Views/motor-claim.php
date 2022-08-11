@@ -5,6 +5,11 @@
             <!-- SECTION 1 -->
             <h4></h4>
             <section class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="alert alert-info">
+                     Have an already filled out motor form? <b><a href="<?= _link($controller, 'motor-claim-upload') ?>">Click here to upload your copy</a></b>. Required documents will apply. <a href="#"  onclick="loadUploadRequiments('claims', 'motor-claim')"><i class="fa fa-info-circle"></i> </a>
+                </div>
+            </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                     <?php
@@ -31,11 +36,6 @@
                 </div>
             </div>
             
-            <div class="col-md-6 col-sm-12">
-                <div class="alert alert-info">
-                     Have an already filled out form? <b><a href="<?= _link($controller, 'motor-claim-upload') ?>">Click here to upload a copy</a></b>. Required documents will apply.   
-                </div>
-            </div>
             </section>
             <!-- SECTION 2 -->
             <h4></h4>
