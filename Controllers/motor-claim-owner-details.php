@@ -6,7 +6,7 @@ include STATIC_DATA.'currencies.php';
 
 $data = $_POST;
 
-if($_POST['policy']){
+if(@$_POST['policy']){
     $data = $_POST['policy'];
 }
 
