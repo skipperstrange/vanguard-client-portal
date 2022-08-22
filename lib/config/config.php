@@ -1,7 +1,7 @@
 <?php
 
 define('APP_NAME', 'Vanguard Client Portal');
-define('MODE', 'development');
+define('MODE', 'production');
 define('MVC_MODE', 'strict');
 
 function config () {
