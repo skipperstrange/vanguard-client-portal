@@ -61,7 +61,7 @@
     -moz-appearance: textfield;
     }
   
-                        html, body {
+                        html{
                             background-image: url('./public/images/vbg-blue.jpg');
                            /* background-size: cover;*/
                             background-position: left center;
