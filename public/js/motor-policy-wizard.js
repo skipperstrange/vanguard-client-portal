@@ -6,7 +6,6 @@ $(function() {
     $summaryDeclaration = $("#summary-declaration")                     
     var restartUrl = window.location.origin+window.location.pathname
 
-
     try {
         motorForm.validate({
             errorPlacement: function errorPlacement(error, element) { element.after(error); },

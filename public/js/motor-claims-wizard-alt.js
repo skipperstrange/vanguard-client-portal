@@ -268,6 +268,6 @@ $(function() {
     $('.steps ul').addClass('step-1');
     //disableRequiredFields()
     loadUploadRequiments('claims', 'motor-claim')
-
+ 
 
 })

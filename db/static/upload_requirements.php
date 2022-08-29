@@ -17,7 +17,7 @@ $upload_requirements =[
                     'title' => 'Picture of the back of drivers licence (back with clear details)',
                     'block'=>false
                 ],
-                "vehicle" =>[
+                "damaged_vehicle_pictures" =>[
                     "required" => true,
                     'description'=>'Pictures of damaged vehicle ',
                     'maxSize'=>'16MB',

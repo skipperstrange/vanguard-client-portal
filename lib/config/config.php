@@ -1,6 +1,7 @@
 <?php
 
 define('APP_NAME', 'Vanguard Client Portal');
+define('MAINENANCE', false);
 define('MODE', 'development');
 define('MVC_MODE', 'strict');
 
