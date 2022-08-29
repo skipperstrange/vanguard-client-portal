@@ -57,27 +57,17 @@
                         ?>
                     <div class="col-lg-4 col-sm-6 col-xs-12 offset-md-<?= $offset ?> offset-sm-<?= $offset-1 ?>">
                         <div class="container  form-card card shadow" style="text-align: center;">
-                                <h2 class="title"><i class="<?= $products[$product]['icon'] ?>"></i></h1>
-                                <div class="info" style="text-align: center"><?= format_string($product) ?></div>
+                            <h2 class="title"><i class="<?= $products[$product]['icon'] ?>"></i></h1>
+                            <div class="info" style="text-align: center"><?= format_string($product) ?></div>
                             <section>
-                                    <!--div class="form-group">
-                                    <a id="checkPolicy" href="<?= _link('motor-policy','motor-policy') ?>" class="btn btn-block btn-primary " >
-                                            <i class="fa fa-car"></i> New Proposal
-                                        </a>
-                                    </div-->
-                                    <?php  foreach($products[$product]['products'] as $property => $details):  ?>
-                                     <div class="form-group">
-                                        <a id="checkPolicy" href="<?= _link($details['controller'], $details['view']) ?>" class="btn btn-block btn-<?= $btnClasses[$i%count($btnClasses)] ?>" >
-                                           <?= $details['title']; ?>
-                                        </a>
-                                    </div>
-                                    <?php $i++; endforeach; ?>
-                                    <!--div class="form-group">
-                                        <a id="checkPolicy" href="<?= _link('fire-claim', 'fire-claim') ?>" class="btn btn-block btn-warning" >
-                                            <i class="fa fa-fire"></i> Fire Claims
-                                        </a>
-                                    </div-->
-                                </section>
+                                <?php  foreach($products[$product]['products'] as $property => $details):  ?>
+                                    <div class="form-group">
+                                    <a id="checkPolicy" href="<?= _link($details['controller'], $details['view']) ?>" class="btn btn-block btn-<?= $btnClasses[$i%count($btnClasses)] ?>" >
+                                        <?= $details['title']; ?>
+                                    </a>
+                                </div>
+                                <?php $i++; endforeach; ?>
+                            </section>
                         </div>
                     </div>
 
