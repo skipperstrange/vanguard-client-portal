@@ -1,12 +1,8 @@
 <?php
 
 define('APP_NAME', 'Vanguard Client Portal');
-<<<<<<< HEAD
 define('MODE', 'production');
-=======
 define('MAINENANCE', false);
-define('MODE', 'development');
->>>>>>> 59a151a4817fda36f92060279e1f6983ea230819
 define('MVC_MODE', 'strict');
 
 function config () {
