@@ -23,6 +23,11 @@ if(MVC_MODE == 'strict'){
     $view = $_GET['view'] ? @$_GET['view']: 'index' ;
 }
 
+if(MAINENANCE == true){
+    $controller = 'maintenance';
+    $view = "layouts".DS."maintenance";
+}
+
 $pageTitle = '';
 if(file_exists(CONTROLLERS.$controller.'.php')){
     include_once CONTROLLERS.$controller.'.php';

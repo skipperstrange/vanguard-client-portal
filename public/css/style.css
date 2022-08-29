@@ -39,8 +39,6 @@ html {
 body {
     font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: var(--primary-deep);
-    height: 100%;
-    position: relative;
     padding: 0%;
 }
 
@@ -96,7 +94,7 @@ a:hover {
 .hero {
     height: 120vh;
     width: 100%;
-    background-image: url('../images/bg.jpeg');
+    background-image: url('../images/vbg-deepblue.jpg');
     background-size: cover;
     background-position: left center;
     background-repeat: no-repeat;
