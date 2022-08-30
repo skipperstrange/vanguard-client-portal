@@ -2,8 +2,8 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-3 brand">
-                    <h4 class="my-0 site-logo"><a href="<?= WEB_URL ?>"><img src="<?=IMAGES_URL ?>cropped-Vanguard-logo-02-300x81.png" alt="" /></a></h4>
-                    <span class="slogan"> <?= SLOGAN ?></span>
+                    <!--h4 class="my-0 site-logo"><a href="<?= WEB_URL ?>"><img src="<?=IMAGES_URL ?>cropped-Vanguard-logo-02-300x81.png" alt="" /></a></h4-->
+                    <span class="slogan" style="font-style: italic;"> <?= SLOGAN ?></span>
                 </div>
                 <div class="col-md-5 brand">
                     <!-div class="social-media-links">

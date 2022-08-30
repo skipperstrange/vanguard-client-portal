@@ -1,6 +1,6 @@
 <?php
 
-define('CLIENT_NAME', 'Vanguard Client Portal');
+define('CLIENT_NAME', 'Vanguard Assurance');
 define('COMPANY_NAME', 'Vanguard Assurance Company Limted');
 define('CLIENT_WEBSITE', 'https://vanguardassurance.com');
 define('SLOGAN', '');
