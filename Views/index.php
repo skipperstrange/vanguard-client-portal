@@ -44,7 +44,7 @@
 
                     <div class=" col-md-12 intro" style="text-align:center;">
                         <h1 class="title">
-                            Proposal and Claims Portal
+                            Online Claims & Proposals Forms
                         </h1>
                         <a href="tel:<?= SUPPORT_CONTACT_1 ?>" class="btn btn-primary action-call">Call for enquiries</a>
                     </div>
@@ -58,7 +58,7 @@
                     <div class="col-lg-4 col-sm-6 col-xs-12 offset-md-<?= $offset ?> offset-sm-<?= $offset-1 ?>">
                         <div class="container  form-card card shadow" style="text-align: center;">
                             <h2 class="title"><i class="<?= $products[$product]['icon'] ?>"></i></h1>
-                            <div class="info" style="text-align: center"><?= format_string($product) ?></div>
+                            <div class="info" style="text-align: center; font-size:80%; font-weight:bold; margin-bottom:1rem;"><?= format_string($product) ?></div>
                             <section>
                                 <?php  foreach($products[$product]['products'] as $property => $details):  ?>
                                     <div class="form-group">

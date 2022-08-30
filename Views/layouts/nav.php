@@ -1,5 +1,9 @@
 <?php
 include_once STATIC_DATA.'nav.php';
+$home_link = WEB_URL;
+if(($controller == 'index') && ($view == 'index')){
+    $home_link = CLIENT_WEBSITE;
+}
 ?>
 
 <div class="site-mobile-menu site-navbar-target">
@@ -46,7 +50,7 @@ include_once STATIC_DATA.'nav.php';
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-6 brand">
-                        <h1 class="my-0 site-logo"><span><img src="<?= IMAGES_URL ?>logo-mini.png" /><span><a href="<?= WEB_URL ?>"><?= CLIENT_NAME ?></a></h1>
+                        <h1 class="my-0 site-logo"><span><img src="<?= IMAGES_URL ?>logo-mini.png" /><span><a href="<?= $home_link ?>"><?= CLIENT_NAME ?></a></h1>
                         <span class="slogan"><?= SLOGAN ?></span>
                     </div>
                     <div class="col-6">

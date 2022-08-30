@@ -8,7 +8,11 @@ include STATIC_DATA.'currencies.php';
 $printDivId = "#motor-policy-wizard-p-5";
 $printTitle  = "Motor Proposal Summary";
 $letter_header_title  = $printTitle;
+$uploads = $_POST['upload'];
 
+foreach($uploads as $upload => $files){
+    $uploaded[] = format_string($upload)." (".@count($files).")";
+}
 
     $proposer = post_get('p','proposer');
 

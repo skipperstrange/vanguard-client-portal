@@ -7,6 +7,7 @@ foreach($files_upload as $file_upload => $requirement){
     $maxSize = "16MB";
     $minSize = "16kb";
     $allowMultiple = false;
+    $required = 'optional';
     if($requirement['required'] && $requirement['required'] == true){
         $required = "required";
     }

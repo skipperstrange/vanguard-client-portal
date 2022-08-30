@@ -82,7 +82,7 @@
                 
                 include STATIC_DATA."upload_requirements.php";
                 include SHARED.'_requirements_upload.php'; 
-                include SHARED.'_motor_requirements_upload.php'; 
+                //include SHARED.'_motor_requirements_upload.php'; 
                 ?>
             </section>
 

@@ -34,6 +34,13 @@
          $summary_columns['vehicle_usage'] = $vusage;
          include SHARED.'_summary_columns.php';
 
+         $summary_columns = null;
+         $column_keys = false;
+         $summary_columns['uploaded_documents'] = $uploaded;
+         include SHARED.'_summary_columns.php';
+
+         
+
 
 /*
          $data[] = $insurance_history;

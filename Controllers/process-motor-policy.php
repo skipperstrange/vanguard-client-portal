@@ -15,6 +15,7 @@ if(check_post_get('p','agreeDeclare', 'agree')){
     $vehicle_details = post_get('p','vehicle');
 
     $insurance_history = post_get('p','insurance_history');
+    $upload = post_get('p','upload');
 
     $proposer['occupation'] =  (empty($proposer['occupation'])) ? "N/A" : $proposer['occupation'];
 
@@ -42,6 +43,7 @@ if(check_post_get('p','agreeDeclare', 'agree')){
     $data['vehicle_usage'] = $vusage;
     $data['vehicle'] = $vehicle_details;
     $data['insurance_history'] = $insurance_history;
+    $data['upload'] = $upload;
 
     //Send emails out
             //if($mail->send()){

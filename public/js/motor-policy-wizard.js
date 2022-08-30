@@ -152,6 +152,7 @@ $(function() {
                                         try{
                                         showOverlay()
                                         $.post(apiUrls.motorProposalProcessUrl, motorForm.serialize()+'&agreeDeclare=agree',data=>{
+                                                console.log(data, motorForm.serialize())
 
                                         axios.post(apiUrls.applicationServerUrl+'portal/add-motor-policy',  data.message)
                                             .then(data=>{
@@ -192,9 +193,9 @@ $(function() {
                                                         }
                                                     })
                                                     hideOverlay()
-                                                })
+                                                 })
                                             .catch(e=>{
-                                                defaultErrorModal()
+                                                defaultErrorModal('Oops!!','Something went wrong. Please try again later.')
                                                 hideOverlay()
                                                 })
                                         })
@@ -267,5 +268,7 @@ $(function() {
             $('#vehicle_value').prop('disabled', false)
         }
     })
-})
+    disableRequiredFields()
 
+loadUploadRequiments('proposals', 'motor')
+})

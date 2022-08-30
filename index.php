@@ -18,7 +18,7 @@ if(MODE == 'development'){
 
 $controller = @$_GET['controller'] ? @$_GET['controller']: 'index' ;
 if(MVC_MODE == 'strict'){
-    $view = @$_GET['view'] ? @$_GET['view']: $controller ;
+    $view = @$_GET['view'] ? @$_GET['view']: $controller;
 }else{
     $view = $_GET['view'] ? @$_GET['view']: 'index' ;
 }

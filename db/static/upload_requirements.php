@@ -64,6 +64,14 @@ $upload_requirements =[
 
         'proposals' => [
             'motor' => [
+                'id'=> [
+                    "required" => false,
+                    'description'=>'The specified id',
+                    'maxSize'=>'16MB',
+                    'allowMultiple'=>false,
+                    'title' => 'photo of ID used',
+                    'block'=>false
+                ],
                 'vehicle_front'=> [
                     "required" => true,
                     'description'=>'',
@@ -80,8 +88,23 @@ $upload_requirements =[
                     'title' => 'photo of vehicle (rear with registeration)',
                     'block'=>false
                 ],
+                'vehicle_right'=> [
+                    "required" => true,
+                    'description'=>'',
+                    'maxSize'=>'16MB',
+                    'allowMultiple'=>false,
+                    'title' => 'photo of vehicle (from rightt)',
+                    'block'=>false
+                ],
+                "vehicle_left" =>[
+                    "required" => true,
+                    'description'=>'',
+                    'maxSize'=>'16MB',
+                    'allowMultiple'=>false,
+                    'title' => 'photo of vehicle (from left)',
+                    'block'=>false
+                ],
 
             ]
         ]
-
 ];

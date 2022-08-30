@@ -1,3 +1,5 @@
+<?php include_once SHARED.'_upload_scripts.php'; ?>
+
 <div class="col-lg-10 col-md-12 offset-lg-1 form-card card shadow">
     <form action="" id="motor-policy-form">
         <div id="motor-policy-wizard">

@@ -1,6 +1,7 @@
 <?php
 
-$navLinks = ['home'=>['href'=>  CLIENT_WEBSITE],
+$navLinks = [
+    //'home'=>['href'=>  CLIENT_WEBSITE],
     //'about' => ['href'=>_link('about','about')],
     'claims' =>['href' => [ 
       //     'new fire claim' => ['href' => _link('fire-claim','fire-claim')],

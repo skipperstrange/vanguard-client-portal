@@ -46,12 +46,14 @@
           </div>
 
           <div class="col-lg-12">
-                <b>Please provide images of the vehicle</b>
+                <p><b>Please provide images of the vehicle</b></p>
             </div>
           <?php 
                 $upload_type = 'proposals';
                 $upload_sub_type = 'motor';
-                include SHARED.'_requirements_upload.php' 
+               
+                include STATIC_DATA."upload_requirements.php";
+                include SHARED.'_requirements_upload.php'; 
           ?>
             
             

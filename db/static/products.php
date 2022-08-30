@@ -3,13 +3,13 @@ $products = [
     'motor'=>[
         'products'=>[
             'policy'=>[
-                'title'=>'New Policy',
+                'title'=>'Complete proposal form',
                 'controller'=>'motor-policy',
                 'view'=>'motor-policy',
                 'icon' => ''
             ],
             'claim'=>[
-                'title'=>'New Claim',
+                'title'=>'Register claim',
                 'controller'=>'motor-claim',
                 'view'=>'motor-claim',
                 'icon' => ''

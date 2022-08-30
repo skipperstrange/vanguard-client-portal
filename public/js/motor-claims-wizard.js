@@ -209,7 +209,6 @@ $(function() {
                                             $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
                                                 axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim',  data.message)
                                                 .then(data=>{
-                                                    
                                                     changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                 
                                                     $print = createPrintButton('section.current','Motor Claim Summary', 'Save')

@@ -206,6 +206,10 @@ function loadUploadRequiments(type, subtype){
             });
         }, 800)
     })
+    .fail((jqXHR, errorMsg) => {
+        hideOverlay()
+        console.log(jqXHR.responseText, errorMsg)
+      });
 }
 
 /*
