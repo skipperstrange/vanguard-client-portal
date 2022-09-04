@@ -50,23 +50,28 @@ if(($controller == 'index') && ($view == 'index')){
         </div>
         <div class="site-navbar site-navbar-target js-sticky-header">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-4 brand" style="overflow-wrap: float-left;">
-                        <div class="my-0 site-logo">
-                            <!--a href="<?= $home_link ?>" -->
+                <div class="row">
+                    <div class="col-2 brand" style="overflow-wrap: float-left;">
+                        <div class="my-0 site-logo" >
+                            <a href="<?= $home_link ?>" -->
+                            <span style="display: flex; align-items: center; justify-content: ;">
                                 <div>
-                                    <img src="<?= IMAGES_URL ?>logo-mini.png" />
+                                    <img src="<?= IMAGES_URL ?>logo-mini.png" style="width:64px; margin-top:0px;" />
                                 </div>
-                                <div style="color:#2c2a78; font-family:Webnar; font-size:1.5em">
+                                <h1 style="color:#2c2a78; font-family:Webnar; font-size:1em">
                                     <?= CLIENT_NAME ?>
-                                </div>
-                                <div>COMPANY LIMITED</div>
-                            <!--/a -->
+                                    <div style="font-family:arial; font-size :0.5em; font-weight:900; color:var(--grey1);">COMPANY LIMITED</div>
+                                </h1>
+                                </span>
+                            </a>
                         </div>
                         
+                                
                         <span class="slogan"><?= SLOGAN ?></span>
                     </div>
                     <div class="col-6">
+                    <?php if($lookAway == false){ ?>
+
                         <nav class="site-navigation text-right" role="navigation">
                             <div class="container">
                                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
@@ -76,13 +81,12 @@ if(($controller == 'index') && ($view == 'index')){
                                 <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
                                     
                                 <?php 
-                                if($lookAway == false){
                                     echo generateNavigation($navLinks); 
-                                }
                                 ?>
                                </ul>
                             </div>
                         </nav>
+                        <?php  } ?>
                     </div>
                 </div>
             </div>
