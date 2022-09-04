@@ -1,8 +1,10 @@
 <?php
 include_once STATIC_DATA.'nav.php';
 $home_link = WEB_URL;
+$lookAway = false;
 if(($controller == 'index') && ($view == 'index')){
     $home_link = CLIENT_WEBSITE;
+    $lookAway = true;
 }
 ?>
 
@@ -49,22 +51,34 @@ if(($controller == 'index') && ($view == 'index')){
         <div class="site-navbar site-navbar-target js-sticky-header">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-6 brand">
-                        <h1 class="my-0 site-logo"><span><img src="<?= IMAGES_URL ?>logo-mini.png" /><span><a href="<?= $home_link ?>"><?= CLIENT_NAME ?></a></h1>
+                    <div class="col-4 brand" style="overflow-wrap: float-left;">
+                        <div class="my-0 site-logo">
+                            <!--a href="<?= $home_link ?>" -->
+                                <div>
+                                    <img src="<?= IMAGES_URL ?>logo-mini.png" />
+                                </div>
+                                <div style="color:#2c2a78; font-family:Webnar; font-size:1.5em">
+                                    <?= CLIENT_NAME ?>
+                                </div>
+                                <div>COMPANY LIMITED</div>
+                            <!--/a -->
+                        </div>
+                        
                         <span class="slogan"><?= SLOGAN ?></span>
                     </div>
                     <div class="col-6">
                         <nav class="site-navigation text-right" role="navigation">
                             <div class="container">
                                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
-                                    <a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span
-                    ></a>
+                                    <a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span ></a>
                                 </div>
 
                                 <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
                                     
                                 <?php 
-                                    echo generateNavigation($navLinks);
+                                if($lookAway == false){
+                                    echo generateNavigation($navLinks); 
+                                }
                                 ?>
                                </ul>
                             </div>

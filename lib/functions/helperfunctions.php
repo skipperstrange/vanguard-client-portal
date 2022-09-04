@@ -402,5 +402,30 @@ function format_string($str, $mode = 1){
 }
 
 
+//Handles only Font Awesome Icons
+function generateIcons($icons, $attributes = []){
+    $attributesFormated = '';
+    if(count($attributes) > 0){
+        foreach($attributes as $property => $value){
+            if(is_int($property) || $property == 0){
+                $attributesFormated .= $value.' ';
+            }else{
+                $attributesFormated .= " $property=\"$value\" ";
+            }
+        }
+    }
+    $iconString = '';
+    if(is_array($icons)){
+        foreach($icons as $icon){
+            $iconString .= "<i class=\"fa $icon\" $attributesFormated> </i>
+";
+        }
+    }else{
+        $iconString .= "<i class=\"fa $icons\" $attributesFormated> </i>
+";
+    }
+
+    return $iconString;
+}
 
 

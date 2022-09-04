@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="<?= CSS_PATH ?>bootstrap-toaster.min.css" />
     
-    <link rel="stylesheet" href="<?= CSS_PATH ?>style.css" />
+    <link rel="stylesheet" href="<?= CSS_PATH ?>alt-style.css" />
       
     <script src="<?= JS_PATH ?>jquery-3.3.1.min.js"></script>
     <script src="<?= JS_PATH ?>axios.min.js"></script>
@@ -62,7 +62,7 @@
     }
   
                        	body{
-                            background-image: url('./public/images/vbg-blue.jpg');
+                            background-image: url('./public/images/vbg-fade.jpg');
                             background-size: cover;
                             background-position: left center;
                             background-repeat: no-repeat;
