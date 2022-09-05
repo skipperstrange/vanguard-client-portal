@@ -13,4 +13,10 @@ $claim_type_options = [
             "label"=> "Motor Policy Id"
             ]
         ],
+
+        "fire_claim"=>[
+            "by_policy"=>[
+                "label"=> "Motor Policy Id"
+            ],
+        ],
 ];
