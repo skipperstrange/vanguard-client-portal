@@ -1,12 +1,20 @@
 
         <?php
+        $processedProducts = [];
             include STATIC_DATA.'products.php';
-            $btnClasses = ['info', 'warning'];
+            $btnClasses = ['primary', 'primary'];
             $offsets = [1=>4,2=>2,3=>0];
-            if(count($products) >= 3){
+            
+             foreach ($products as $product => $poperties):
+                if($products[$product]['show'] == true){
+                    $processedProducts[$product] = $products[$product];
+                }
+             endforeach;
+
+             if(count($processedProducts) >= 3){
                 $offset = 0;
              }else{
-                $offset = $offsets[count($products)];
+                $offset = $offsets[count($processedProducts)];
              }
         ?>
         <!-- Intro -->
@@ -51,35 +59,52 @@
                     </div>
  
 
-                    <?php  foreach ($products as $product => $poperties):
-                       $i = 0;
-                      
+                    <?php  
+                    $i = 0;
+                    foreach ($processedProducts as $product => $poperties):
                         ?>
-                    <div class="col-lg-4 col-sm-6 col-xs-12 <?php if(($i==0) && count($products) < 0): echo "offset-md-$offset offset-sm-<?= $offset-1"; endif; ?>">
-                        <div class="container  form-card card shadow" style="text-align: center;">
-                            <h2 class="title"><?= generateIcons($products[$product]['icon']) ?></h1>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 <?php if(($i==0) && count($processedProducts) <= 3): echo "offset-md-$offset offset-sm-$offset"; endif; ?>">
+                        <div class="container  form-card card border" style="text-align: center;">
+                            <h2 class="title"><?= generateIcons($processedProducts[$product]['icon']) ?></h1>
                             <div class="info" style="text-align: center; font-size:80%; margin-bottom:1rem;">
-                            <b><?= format_string($product) ?></b>
+                            <b><?= format_string($product);?></b>
                             <p>
-                                <?= $products[$product]['description'];?>
+                                <?php 
+                                if($processedProducts[$product]['enabled'] == true){
+                                echo $processedProducts[$product]['description'];
+                                }else{
+                                    ?>
+                                        <span style="color: var(--grey);">Product action will be updated here soon. Please come back later</span>
+                                    <?php
+                                }
+                                ?>
                             </p>
                         </div>
                             
                             <section>
-                                <?php  foreach($products[$product]['products'] as $property => $details): 
+                                <?php  
+                                foreach($processedProducts[$product]['products'] as $property => $details): 
                                     ?>
                                     <div class="form-group">
-                                    <a id="checkPolicy" href="<?= _link($details['controller'], $details['view']) ?>" <?php if($details['enabled'] = false): echo 'disabled'; endif;?>class="btn btn-block btn-<?= $btnClasses[$i%count($btnClasses)] ?>" >
+                                    <a id="" href="<?= _link($details['controller'], $details['view']) ?>" class="btn btn-block btn-<?= $btnClasses[$i%count($btnClasses)] ?> <?php if($details['enabled'] == false): echo 'disabled'; endif;?> " >
+                                    <?php 
+                                    if($details['enabled'] == false): 
+                                        echo ' Soon Available'; 
+                                    else:
+                                    ?> 
                                         <?= $details['label']; ?>
+                                    <?php
+                                    endif;
+                                    ?>
                                     </a>
                                 </div>
                                 <?php 
-                                $i++; endforeach; ?>
+                                endforeach; ?>
                             </section>
                         </div>
                     </div>
-
             <?php
+            $i++; 
             endforeach;
             ?>
                     

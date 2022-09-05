@@ -66,6 +66,7 @@
                             background-size: cover;
                             background-position: left center;
                             background-repeat: no-repeat;
+                            backface-visibility:hidden ;
                         }
                     </style>
 </head>

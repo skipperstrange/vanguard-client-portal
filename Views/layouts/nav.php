@@ -54,13 +54,13 @@ if(($controller == 'index') && ($view == 'index')){
                     <div class="col-2 brand" style="overflow-wrap: float-left;">
                         <div class="my-0 site-logo" >
                             <a href="<?= $home_link ?>" -->
-                            <span style="display: flex; align-items: center; justify-content: ;">
+                            <span style="display: flex; align-items: center; justify-content: default;">
                                 <div>
                                     <img src="<?= IMAGES_URL ?>logo-mini.png" style="width:64px; margin-top:0px;" />
                                 </div>
-                                <h1 style="color:#2c2a78; font-family:Webnar; font-size:1em">
+                                <h1 style="color:#2c2a78; font-family:Webnar; font-size:1em;line-height: .8;">
                                     <?= CLIENT_NAME ?>
-                                    <div style="font-family:arial; font-size :0.5em; font-weight:900; color:var(--grey1);">COMPANY LIMITED</div>
+                                    <div style="font-family:arial; font-size :0.5em; font-weight:900; color:var(--grey1); margin-top:8px;">COMPANY LIMITED</div>
                                 </h1>
                                 </span>
                             </a>
@@ -69,7 +69,7 @@ if(($controller == 'index') && ($view == 'index')){
                                 
                         <span class="slogan"><?= SLOGAN ?></span>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 offset-4">
                     <?php if($lookAway == false){ ?>
 
                         <nav class="site-navigation text-right" role="navigation">

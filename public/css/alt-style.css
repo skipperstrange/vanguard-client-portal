@@ -120,7 +120,7 @@ a:hover {
 
 .site-navbar-wrap a {
     color: var(--white);
-   // color: var(--grey3);
+    /*color: var(--grey3);*/
 }
 
 .site-navbar-wrap .site-navbar-top {
@@ -175,7 +175,7 @@ a:hover {
 
 .site-navbar .site-navigation .site-menu>li>a {
     padding: 20px 10px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--primary);
     font-size: 15px;
     font-weight: bold;
     text-decoration: none !important;
@@ -591,6 +591,10 @@ a:hover {
     color: var(--white);
 }
 
+.icon-menu.h3{
+    color:var(--primary-light);
+}
+
 .title {
     text-transform: capitalize;
 }
@@ -671,8 +675,8 @@ a:hover {
 
 .header-content h1, .header-content .intro {
     color: var(--grey1);
-    font-size: 3.3rem;
-    margin-top: 3rem;
+    font-size: 2.9rem;
+    margin-top:1.0rem;
 }
 
 .header-content h1{
@@ -681,7 +685,7 @@ a:hover {
 
 .header-content .intro {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .action-call {
