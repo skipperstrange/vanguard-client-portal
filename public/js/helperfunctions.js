@@ -2,6 +2,8 @@
 var count;
 var casualtyCount = 0;
 var casualtyMotorClaimCount = 0;
+var insuredPersonsCount = 0;
+var beneficiariesCount =0 ;
 var witnessCount = 0;
 var assetsCount = 0;
 var vehicleCount = 0;

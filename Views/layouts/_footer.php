@@ -64,6 +64,15 @@
                 initDate = true
                 initColorPicker = true
                 break;
+            case 'insured_persons':
+                insuredPersonsCount++
+                count = insuredPersonsCount
+                break;
+            
+            case 'beneficiaries':
+                beneficiariesCount++
+                count = beneficiariesCount
+                break;
         }
 
         let url = '<?= _link('add-item&itemType=', '') ?>' + itemType + '&count=' + count;

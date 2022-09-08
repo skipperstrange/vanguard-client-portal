@@ -268,7 +268,7 @@ $(function() {
             $('#vehicle_value').prop('disabled', false)
         }
     })
-   // disableRequiredFields()
+   disableRequiredFields()
 
 loadUploadRequiments('proposals', 'motor')
 })

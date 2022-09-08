@@ -1,5 +1,5 @@
     <?php include_once SHARED.'_upload_scripts.php'; ?>
-    <div class="col-lg-10 offset-lg-1 form-card card shadow">
+    <div class="col-lg-10 offset-lg-1 form-card card  shadow-sm">
     <form action="" id="motor-claim-form" enctype="multipart/form-data">
         <div id="motor-claims-wizard">
             <!-- SECTION 1 -->

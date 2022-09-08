@@ -64,7 +64,6 @@
             ?>
 
             <div class="col-lg-12">
-                
                 <span>
                     <a href="<?= _link($controller, 'motor-claim') ?>">Click here to fill manually online.</a>
                 </span>

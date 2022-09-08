@@ -1,6 +1,6 @@
 <?php include_once SHARED.'_upload_scripts.php'; ?>
 
-<div class="col-lg-10 col-md-12 offset-lg-1 form-card card shadow">
+<div class="col-lg-10 col-md-12 offset-lg-1 form-card card shadow-sm">
     <form action="" id="motor-policy-form">
         <div id="motor-policy-wizard">
         <!-- SECTION 1 -->
@@ -26,7 +26,6 @@
             <section class="row">
             <?php include SHARED.'_vehicle_usage_details.php'; ?>
            </section>
-
             <!-- SECTION 4 -->
             <h4></h4>
             <section>
