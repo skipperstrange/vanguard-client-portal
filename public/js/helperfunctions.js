@@ -185,13 +185,24 @@ function initColorPicker() {
 function loadUploadRequiments(type, subtype){
 
     let url = '?controller=_get-requirement&type='+type+'&subtype='+subtype
-    showOverlay()
     content = $.post(url, function(data){
+        var title = "Required document uploads for this form"
+        loadUploadInstructions(data, title)
+    })
+    .fail((jqXHR, errorMsg) => {
+        hideOverlay()
+        console.log(jqXHR.responseText, errorMsg)
+      });
+}
+
+
+function loadUploadInstructions(instructions = '', title="Atention", icon = 'fa-info-circle'){
+    showOverlay()
         setTimeout(function(){
             hideOverlay()
             bootbox.dialog({
-                title: "<i class='fa fa-info-circle'></i> Required document uploads for this form",
-                message: data,
+                title: "<i class='fa "+icon+"'></i> "+title,
+                message: instructions,
                 size: 'large',
                 onEscape: false,
                 closeButton: false,
@@ -207,11 +218,6 @@ function loadUploadRequiments(type, subtype){
                 
             });
         }, 800)
-    })
-    .fail((jqXHR, errorMsg) => {
-        hideOverlay()
-        console.log(jqXHR.responseText, errorMsg)
-      });
 }
 
 /*

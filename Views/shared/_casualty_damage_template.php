@@ -1,4 +1,4 @@
-<div class="row casualty_damage" id="casualty_damage_<?= $count ?>">
+<div class="row casualty_damage" id="casualty_damage_<?= $count ?>" style="margin-bottom: 1rem;">
     <div class=" col-sm-12">
         <h6 class="title">
             <span class="count"></span> Injury/Damage Info:
@@ -62,4 +62,3 @@
     </div>
 </div-->
 </div>
-<br>

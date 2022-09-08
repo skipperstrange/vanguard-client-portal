@@ -23,9 +23,9 @@ $(function() {
                 console.log(currentIndex,newIndex)
                 showOverlay();
                 travelForm.validate().settings.ignore = ":disabled,:hidden";
-                if (currentIndex > newIndex) {
+               // if (currentIndex > newIndex) {
                     return true;
-                }
+            //    }
                 
                 if (newIndex === 0) {
                     hideOverlay()
@@ -34,39 +34,41 @@ $(function() {
                 if (newIndex === 1) {
                     hideOverlay()
                     //if (travelForm.valid()) {
-                        $('.steps ul').addClass('motor-policy-step-2');
+                        $('.steps ul').addClass('travel-policy-step-2');
                    // } else {
-                   //     $('.steps ul').removeClass('motor-policy-step-2');
+                   //     $('.steps ul').removeClass('travel-policy-step-2');
                     //    return false
                    // }
                 }
 
                 if (newIndex === 2) {
                     hideOverlay()
-                   // if (travelForm.valid()) {
-                        $('.steps ul').addClass('motor-policy-step-3');
-                   // } else {
-                    //    $('.steps ul').removeClass('motor-policy-step-3');
-                     //   return false
-                    //}
+                    if (travelForm.valid()) {
+                        $('.steps ul').addClass('travel-policy-step-3');
+                    } else {
+                        $('.steps ul').removeClass('travel-policy-step-3');
+                        return false
+                    }
                 }
 
                 if (newIndex === 3) {
                     hideOverlay()
                     if (travelForm.valid()) {
-                        $('.steps ul').addClass('motor-policy-step-4');
+                        $('.steps ul').addClass('travel-policy-step-4');
                     } else {
-                        $('.steps ul').removeClass('motor-policy-step-4');
+                        $('.steps ul').removeClass('travel-policy-step-4');
                         return false
                     }
                 }
             },
-            onFinishing: function(event, currentIndex, newIndex){},
+            onFinishing: function(event, currentIndex, newIndex){
+               //alert(currentIndex)
+            },
             onStepChanged: function(event, currentIndex, newIndex) {
                 hideOverlay()
             },
             onFinished: function(e, currentIndex) {
-               console.log(currentIndex)
+               alert(currentIndex)
             },
             labels: {
                 finish: "Submit",
