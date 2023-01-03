@@ -204,10 +204,10 @@ $(function() {
                                     $ack = $('#dec').html()
                                     setTimeout(()=>{
                                             try{
-                                               
+                                            var template = $("section.current").html()
                                             showOverlay()
                                             $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
-                                                axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim',  data.message)
+                                                axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim',  {claim: data.message, 'template': template})
                                                 .then(data=>{
                                                     changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
                                                 
