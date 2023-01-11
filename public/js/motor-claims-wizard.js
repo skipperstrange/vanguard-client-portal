@@ -204,13 +204,14 @@ $(function() {
                                     $ack = $('#dec').html()
                                     setTimeout(()=>{
                                             try{
-                                            var template = $("section.current").html()
                                             showOverlay()
                                             $.post('?controller=process-motor-claim', motorForm.serialize()+'&agreeDeclare=agree',data=>{
+                                                changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
+                                                var template = $("section.current").html()
+                                                
                                                 axios.post(apiUrls.applicationServerUrl+'portal/add-motor-claim',  {claim: data.message, 'template': template})
                                                 .then(data=>{
-                                                    changeContent('summary-declaration', '<strong style="text-transform: uppercase;">Declaration</strong><br />'+$ack)
-                                                
+                                                    
                                                     $print = createPrintButton('section.current','Motor Claim Summary', 'Save')
                                                     $("#print").append($print) 
                                                     

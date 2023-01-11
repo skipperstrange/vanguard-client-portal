@@ -1,34 +1,22 @@
-    <?php include_once SHARED.'_upload_scripts.php'; ?>
+<?php include_once SHARED.'_upload_scripts.php'; ?>
     <div class="col-lg-10 offset-lg-1 form-card card  shadow-sm">
     <form action="" id="motor-claim-form" enctype="multipart/form-data">
         <div id="motor-claims-wizard">
             <!-- SECTION 1 -->
             <h4></h4>
             <section class="row">
-            <div class="col-md-12 col-sm-12">
+            <!--div class="col-md-12 col-sm-12">
                 <div class="alert alert-info">
                      Have an already filled out motor form? <b><a href="<?= _link($controller, 'motor-claim-upload') ?>">Click here to upload your copy</a></b>. Required documents will apply. <a href="#"  onclick="loadUploadRequiments('claims', 'motor-claim')"><i class="fa fa-info-circle"></i> </a>
                 </div>
-            </div>
+            </div-->
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                     <?php
                         echo form_options_generator($claim_type_options['motor_claim'], 'claim_by', "Search By",  ["class"=>"form-control" , "id"=>"search_by", 'required']);
                     ?>
                 </div>
-                <script>
-                     $('#search_by').on('change',function(){
-                        $me = $(this)
-                          console.log($me.val())
-                          if($me.val() === 'by_upload'){
-                            $('.not-scanned-form').hide(0);
-                            $('.scanned-form').show('fast');
-                          }else{
-                            $('.scanned-form').hide('fast');
-                            $('.not-scanned-form').show(0);
-                          }
-                     })
-                </script>
+               
                 </div>
             <div class="col-md-6 col-sm-12 form-group ">
                 <div class="form-group">
