@@ -3,7 +3,7 @@ const appPath = $(location).attr ("pathname")
 let domain = (new URL(url));
 
 const apiUrls = {
-    applicationServerUrl: "https://api.vanguardassurance.com/api/",
+    applicationServerUrl: "http://localhost/api-official/public/api/",
     motorProposalUrl:  "?controller=motor-policy&view=blank",
     motorProposalProcessUrl:  '?controller=process-motor-policy',
     motorProposalSummaryUrl : "?controller=motor-policy-summary",

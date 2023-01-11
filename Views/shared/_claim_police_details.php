@@ -1,4 +1,4 @@
-        <div class="col-lg-12 not-scanned-form">
+<div class="col-lg-12 not-scanned-form">
             <label for="accident_reported">Has the accident been reported to the police? </label>
         </div>
 
@@ -19,7 +19,7 @@
             </label>
         </div>
        
-            <div class="form-group col-lg-6 col-md-6 police-details  not-scanned-form">
+            <div class="form-group col-lg-6 col-md-6 police-details ">
                 <input type="text" name="reported[officer_name]" required class="form-control officer_name" placeholder="Name Of Officer*" value="" />
             </div>
             <div class="form-group col-lg-6 col-md-6 police-details">
